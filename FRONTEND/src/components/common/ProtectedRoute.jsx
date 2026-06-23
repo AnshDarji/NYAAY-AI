@@ -1,0 +1,31 @@
+import React from 'react';
+import { Navigate } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
+import PageContainer from './PageContainer';
+import LoadingSpinner from './LoadingSpinner';
+
+export default function ProtectedRoute({ children }) {
+  const { currentUser, userProfile, loading } = useAuth();
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-[#F7F7F5] flex flex-col items-center justify-center p-6">
+        <LoadingSpinner size="lg" />
+        <p className="mt-4 text-[#6B6B6B] font-medium tracking-tight animate-pulse">Loading secure session...</p>
+      </div>
+    );
+  }
+
+  // User is not authenticated -> redirect to login
+  if (!currentUser) {
+    return <Navigate to="/login" replace />;
+  }
+
+  // User is authenticated but profile is not synchronized (no role in SQLite) -> redirect to role selection
+  if (!userProfile || !userProfile.role) {
+    return <Navigate to="/role-selection" replace />;
+  }
+
+  // Authenticated & synced -> render requested content
+  return children;
+}
