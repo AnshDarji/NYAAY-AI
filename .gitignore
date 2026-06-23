@@ -1,0 +1,29 @@
+# Firebase Secrets
+BACKEND/secrets/
+serviceAccountKey.json
+
+# Environment Variables
+.env
+.env.local
+.env.*
+
+# Allow tracking env template examples
+!.env.example
+!**/.env.example
+
+# Node
+node_modules/
+
+# Python
+**pycache**/
+*.pyc
+.venv/
+venv/
+
+# Build Artifacts
+dist/
+build/
+
+# OS Files
+.DS_Store
+Thumbs.db
