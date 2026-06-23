@@ -6,7 +6,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
 from app.core.firebase import initialize_firebase
 from app.database.database import Base, engine
-from app.routes import auth
+from app.routes import auth, kanoon
+from slowapi import _rate_limit_exceeded_handler
+from slowapi.errors import RateLimitExceeded
+from app.core.rate_limit import limiter
 
 # Import models so Base.metadata knows about them before create_all()
 import app.models  # noqa: F401
@@ -29,6 +32,9 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+
 # Settings-driven CORS — no wildcard with allow_credentials=True
 app.add_middleware(
     CORSMiddleware,
@@ -39,6 +45,7 @@ app.add_middleware(
 )
 
 app.include_router(auth.router, prefix="/api/auth", tags=["Authentication"])
+app.include_router(kanoon.router, prefix="/api/kanoon", tags=["Know Your Kanoon"])
 
 
 @app.get("/api/health", tags=["Health"])

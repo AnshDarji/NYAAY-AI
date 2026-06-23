@@ -13,6 +13,7 @@ class Settings(BaseSettings):
 
     # App Settings
     ENVIRONMENT: str = "development"
+    GEMINI_API_KEY: str = ""
 
     # CORS Allowed Origins
     # Comma-separated or list of origins. Development defaults provided.
