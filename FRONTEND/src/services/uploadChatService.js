@@ -30,14 +30,24 @@ export const uploadDocument = async (token, file) => {
   }
 };
 
-export const queryDocument = async (token, documentId, question) => {
+export const queryDocument = async (token, documentId, question, conversationId = null) => {
   try {
+    const payload = {
+      document_id: documentId,
+      question: question
+    };
+    
+    if (conversationId) {
+      payload.conversation_id = conversationId;
+    }
+    
     const response = await api.post(
       '/upload-chat/query',
-      { document_id: documentId, question },
+      payload,
       {
         headers: {
           Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
         },
       }
     );

@@ -22,6 +22,7 @@ class Document(Base):
     )
 
     user = relationship("User")
+    conversations = relationship("Conversation", back_populates="document")
 
     def __repr__(self):
         return f"<Document id={self.id!r} filename={self.filename!r} pages={self.pages}>"

@@ -6,11 +6,16 @@ const api = axios.create({
   baseURL: API_BASE_URL,
 });
 
-export const askKanoon = async (token, question) => {
+export const askKanoon = async (token, question, conversationId = null) => {
   try {
+    const payload = { question };
+    if (conversationId) {
+      payload.conversation_id = conversationId;
+    }
+    
     const response = await api.post(
       '/kanoon/query',
-      { question },
+      payload,
       {
         headers: {
           Authorization: `Bearer ${token}`,

@@ -89,14 +89,36 @@ class DocumentService:
 
     def _generate_summary(self, text: str) -> str:
         prompt = "Summarize the following legal document in 2-3 concise sentences. Focus on the nature of the document and its primary purpose:\n\n" + text[:15000]
-        try:
-            response = self.client.models.generate_content(
-                model='gemini-2.5-flash',
-                contents=prompt
-            )
-            return response.text.strip()
-        except Exception as e:
-            print(f"Error generating summary: {e}")
-            return f"Document summary could not be generated. Error: {str(e)}"
+        
+        import time
+        import logging
+        import concurrent.futures
+        logger = logging.getLogger(__name__)
+        
+        max_retries = 4
+        models_to_try = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-flash-latest', 'gemini-flash-lite-latest']
+        
+        for attempt in range(max_retries):
+            model_name = models_to_try[attempt % len(models_to_try)]
+            try:
+                with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
+                    future = executor.submit(
+                        self.client.models.generate_content,
+                        model=model_name,
+                        contents=prompt
+                    )
+                    response = future.result(timeout=15)
+                return response.text.strip()
+            except concurrent.futures.TimeoutError as e:
+                logger.warning(f"Summary generation with {model_name} timed out after 15 seconds.")
+                if attempt < max_retries - 1:
+                    continue
+            except Exception as e:
+                logger.warning(f"Summary generation with {model_name} failed: {str(e)}")
+                if attempt < max_retries - 1:
+                    time.sleep(2 ** attempt)
+                    continue
+        
+        return "This document was uploaded successfully, but an AI summary is temporarily unavailable. You can still ask questions about the document."
 
 document_service = DocumentService()
