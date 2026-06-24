@@ -22,12 +22,15 @@ Instructions:
 5. Always include a legal disclaimer.
 6. Avoid hallucinating court judgments.
 7. State uncertainty when unsure.
-8. Focus on Indian law generally. Use Constitution, BNS, BNSS, BSA and other relevant Indian legal principles when applicable. Do not force references when not relevant.
+8. Focus on Indian law generally. Use Constitution, BNS, BNSS, BSA and other relevant Indian legal principles when applicable.
+9. You MUST provide real-life examples of cases with judgments passed mainly by the Supreme Court or High Courts to prove a point or support the query. Provide the base of the judgment (i.e. it was because of these specific reasons).
+10. Format your output using Markdown (bolding, bullet points).
 
 You MUST respond strictly in the following JSON format:
 {
-    "answer": "Detailed explanation of the legal concept",
+    "answer": "Detailed explanation of the legal concept using Markdown",
     "summary": "A short one-to-two sentence summary",
+    "similar_cases": "Markdown formatted section titled 'Similar Cases Verdicts' containing verdicts with reasoning in a simplified and short manner",
     "disclaimer": "This information is for educational purposes only and does not constitute legal advice. Please consult a qualified lawyer for legal matters.",
     "category": "e.g., Property Law, Constitutional Law, Criminal Law, etc."
 }"""
@@ -50,8 +53,11 @@ You MUST respond strictly in the following JSON format:
             return KanoonQueryResponse(
                 answer="I encountered an error while processing your request. Please try again.",
                 summary="Error processing request.",
+                similar_cases="No cases could be retrieved due to an error.",
                 disclaimer="This information is for educational purposes only and does not constitute legal advice.",
                 category="General"
             )
+
+
 
 kanoon_service = KanoonService()

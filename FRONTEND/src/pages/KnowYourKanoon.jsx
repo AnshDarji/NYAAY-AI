@@ -7,6 +7,7 @@ import LoadingSpinner from '../components/common/LoadingSpinner';
 import { useAuth } from '../contexts/AuthContext';
 import { askKanoon } from '../services/kanoonService';
 import { Link } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown';
 
 const EXAMPLE_QUESTIONS = [
   "Can my landlord evict me without notice?",
@@ -116,10 +117,21 @@ const KnowYourKanoon = () => {
                         
                         <div>
                           <h4 className="font-semibold text-[#111111] mb-2">Detailed Answer</h4>
-                          <div className="prose prose-sm text-[#6B6B6B] leading-relaxed whitespace-pre-wrap">
-                            {item.answer}
+                          <div className="prose prose-sm text-[#6B6B6B] leading-relaxed max-w-none">
+                            <ReactMarkdown>{item.answer}</ReactMarkdown>
                           </div>
                         </div>
+
+                        {item.similar_cases && (
+                          <>
+                            <div className="h-px w-full bg-[#E7E7E4]"></div>
+                            <div>
+                              <div className="prose prose-sm text-[#6B6B6B] leading-relaxed max-w-none">
+                                <ReactMarkdown>{item.similar_cases}</ReactMarkdown>
+                              </div>
+                            </div>
+                          </>
+                        )}
                         
                         <div className="mt-4 bg-[#F7F7F5] p-4 rounded-xl border border-[#E7E7E4]">
                           <div className="flex gap-2">

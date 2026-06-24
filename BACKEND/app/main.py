@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
 from app.core.firebase import initialize_firebase
 from app.database.database import Base, engine
-from app.routes import auth, kanoon
+from app.routes import auth, kanoon, upload_chat
 from slowapi import _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
 from app.core.rate_limit import limiter
@@ -46,6 +46,7 @@ app.add_middleware(
 
 app.include_router(auth.router, prefix="/api/auth", tags=["Authentication"])
 app.include_router(kanoon.router, prefix="/api/kanoon", tags=["Know Your Kanoon"])
+app.include_router(upload_chat.router, prefix="/api/upload-chat", tags=["Upload & Chat"])
 
 
 @app.get("/api/health", tags=["Health"])
