@@ -9,6 +9,23 @@ class MessageResponse(BaseModel):
     role: MessageRole
     content: str
     created_at: datetime
+    is_helpful: Optional[str] = None
+    feedback_category: Optional[str] = None
+
+    class Config:
+        from_attributes = True
+
+class FeedbackRequest(BaseModel):
+    is_helpful: str # "yes" or "no"
+    category: Optional[str] = None
+
+    class Config:
+        from_attributes = True
+
+class DocumentSummaryResponse(BaseModel):
+    filename: str
+    pages: int
+    summary: Optional[str] = None
 
     class Config:
         from_attributes = True
@@ -19,6 +36,7 @@ class ConversationResponse(BaseModel):
     title: str
     feature_type: FeatureType
     document_id: Optional[str] = None
+    document: Optional[DocumentSummaryResponse] = None
     created_at: datetime
     updated_at: datetime
 

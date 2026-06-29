@@ -39,17 +39,17 @@ export default function Dashboard() {
       gradient: 'from-blue-500/5 to-indigo-500/5',
     },
     {
-      title: 'DocHub Templates',
-      description: 'Generate legally structured notices, affidavits, and rental contracts using interactive forms.',
-      icon: 'edit_document',
+      title: 'Legal Drafting',
+      description: 'Generate legally grounded documents and notices.',
+      icon: 'description',
       path: '/dochub',
       gradient: 'from-indigo-500/5 to-purple-500/5',
     },
     {
-      title: 'Counter Arguments',
-      description: 'Generate strategic rebuttals and counterpoints against opposing case claims.',
+      title: 'Legal Reasoning',
+      description: 'Analyze legal scenarios, construct objective arguments for both sides, and evaluate risks grounded in law.',
       icon: 'balance',
-      path: '/counter-arguments',
+      path: '/reasoning',
       gradient: 'from-amber-500/5 to-orange-500/5',
     },
   ];

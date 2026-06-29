@@ -3,6 +3,7 @@ import re
 from fastapi import HTTPException
 from sqlalchemy.orm import Session
 from app.models.document import Document
+from app.models.chat import Conversation, Message, FeatureType, MessageRole
 from app.schemas.upload_chat import ChatQueryRequest, ChatQueryResponse
 from app.core.config import settings
 from google import genai
@@ -14,40 +15,22 @@ class UploadChatService:
         self.client = genai.Client(api_key=api_key)
 
     def query(self, request: ChatQueryRequest, db: Session, user_uid: str) -> ChatQueryResponse:
-        from app.models.chat import Conversation, Message, FeatureType, MessageRole
+        from app.ai.orchestrator import rag_orchestrator
         import json
         
-        # 1. Fetch Document
+        # 1. Verify Document Access
         doc = db.query(Document).filter(Document.id == request.document_id, Document.user_uid == user_uid).first()
         if not doc:
             raise HTTPException(status_code=404, detail="Document not found or access denied.")
             
-        if not doc.extracted_text:
-            raise HTTPException(status_code=400, detail="Document contains no text.")
-
-        # 2. Simple Keyword Filtering (Chunking by paragraph)
-        chunks = [p.strip() for p in doc.extracted_text.split('\n') if len(p.strip()) > 30]
-        
-        if len(doc.extracted_text) < 100000:
-            relevant_text = doc.extracted_text
-        else:
-            relevant_text = self._filter_chunks(request.question, chunks)
-            
-        # 3. Conversation Persistence
+        # 2. Conversation Persistence
         conversation = None
-        gemini_history = []
         
         if request.conversation_id:
             conversation = db.query(Conversation).filter(
                 Conversation.id == request.conversation_id,
                 Conversation.user_id == user_uid
             ).first()
-            if conversation:
-                for msg in conversation.messages:
-                    if msg.role == MessageRole.user:
-                        gemini_history.append({"role": "user", "parts": [{"text": msg.content}]})
-                    else:
-                        gemini_history.append({"role": "model", "parts": [{"text": msg.content}]})
                         
         if not conversation:
             title = request.question[:60]
@@ -70,102 +53,48 @@ class UploadChatService:
         db.add(user_msg)
         db.commit()
 
-        # 4. Prompt Gemini
-        system_instruction = """You are NYAAY AI, a legal assistant for the Indian Judiciary Ecosystem.
-Your task is to answer the user's question STRICTLY using the provided document content.
-
-Rules:
-1. Answer ONLY using the uploaded document content.
-2. If the answer cannot be found in the provided text, explicitly say "The document does not contain information to answer this question."
-3. Do not invent information or use outside knowledge.
-4. Summarize before providing a detailed explanation.
-5. State uncertainty when the document is unclear.
-6. Use Markdown formatting for your detailed answer! Use bold text (**like this**) for emphasis on important clauses or deadlines. Use bullet points or numbered lists to break down complex legal jargon into scannable points.
-
-You MUST respond strictly in the following JSON format:
-{
-    "answer": "Detailed, highly structured Markdown explanation based ONLY on the document",
-    "summary": "A short one-to-two sentence summary",
-    "confidence": "High, Medium, or Low"
-}"""
+        # 3. Prompt RAG Orchestrator
+        filters = {
+            "$and": [
+                {"document_id": request.document_id},
+                {"tenant_id": user_uid}
+            ]
+        }
         
-        current_prompt = f"Document Content:\n{relevant_text}\n\nUser Question:\n{request.question}"
-        gemini_history.append({"role": "user", "parts": [{"text": current_prompt}]})
+        # Note: We can pass history if we want, but for now we'll keep it simple
+        response_data = rag_orchestrator.trigger_pipeline(
+            question=request.question,
+            filters=filters,
+            history=[]
+        )
         
-        import time
-        import logging
-        import concurrent.futures
-        logger = logging.getLogger(__name__)
+        # Merge summary logic for backwards compatibility with the UI
+        raw_answer = response_data.get("answer", "No answer generated.")
         
-        max_retries = 4
-        response = None
-        last_exception = None
-        # Models to try in order of preference (restored gemini-2.5-flash as primary)
-        models_to_try = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-flash-latest', 'gemini-flash-lite-latest']
-        
-        try:
-            for attempt in range(max_retries):
-                model_name = models_to_try[attempt % len(models_to_try)]
-                try:
-                    logger.info(f"Attempting to generate content with model: {model_name}")
-                    
-                    with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
-                        future = executor.submit(
-                            self.client.models.generate_content,
-                            model=model_name,
-                            contents=gemini_history,
-                            config=types.GenerateContentConfig(
-                                system_instruction=system_instruction,
-                                response_mime_type="application/json",
-                            ),
-                        )
-                        response = future.result(timeout=15)
-                    break
-                except concurrent.futures.TimeoutError as e:
-                    last_exception = e
-                    logger.warning(f"Model {model_name} timed out after 15 seconds.")
-                    if attempt < max_retries - 1:
-                        continue
-                    raise e
-                except Exception as e:
-                    last_exception = e
-                    logger.warning(f"Model {model_name} failed with error: {str(e)}")
-                    # Continue to the next fallback model on ANY API exception (404, 429, 503, etc.)
-                    if attempt < max_retries - 1:
-                        time.sleep(2 ** attempt)
-                        continue
-                    logger.error(f"All {max_retries} attempts failed. Last exception: {str(e)}")
-                    raise e
-                    
-            if not response:
-                raise last_exception
-                
-            response_json = json.loads(response.text)
+        import re
+        exec_summary_match = re.search(r'(?i)##\s*Executive Summary\s*\n(.*?)(?=\n##|\Z)', raw_answer, re.DOTALL)
+        if exec_summary_match:
+            dynamic_summary = exec_summary_match.group(1).strip()
+            raw_answer = raw_answer[:exec_summary_match.start()] + raw_answer[exec_summary_match.end():]
+        else:
+            paragraphs = [p.strip() for p in raw_answer.split('\n') if p.strip() and not p.strip().startswith('#')]
+            dynamic_summary = paragraphs[0] if paragraphs else "Response based on retrieved document chunks."
+            if len(dynamic_summary) > 250:
+                dynamic_summary = dynamic_summary[:247] + "..."
             
-            # Save Assistant Message
-            assistant_msg = Message(
-                conversation_id=conversation.id,
-                role=MessageRole.assistant,
-                content=json.dumps(response_json)
-            )
-            db.add(assistant_msg)
-            db.commit()
-            
-            return ChatQueryResponse(conversation_id=conversation.id, **response_json)
-        except Exception as e:
-            fallback_json = {
-                "answer": "I encountered an error while processing your request. Please try again.",
-                "summary": "Error processing request.",
-                "confidence": "Low"
-            }
-            assistant_msg = Message(
-                conversation_id=conversation.id,
-                role=MessageRole.assistant,
-                content=json.dumps(fallback_json)
-            )
-            db.add(assistant_msg)
-            db.commit()
-            return ChatQueryResponse(conversation_id=conversation.id, **fallback_json)
+        response_data["summary"] = dynamic_summary
+        response_data["answer"] = raw_answer
+        
+        # Save Assistant Message
+        assistant_msg = Message(
+            conversation_id=conversation.id,
+            role=MessageRole.assistant,
+            content=json.dumps(response_data)
+        )
+        db.add(assistant_msg)
+        db.commit()
+        
+        return ChatQueryResponse(conversation_id=conversation.id, **response_data)
 
     def _filter_chunks(self, question: str, chunks: list[str]) -> str:
         # Very basic stop word removal

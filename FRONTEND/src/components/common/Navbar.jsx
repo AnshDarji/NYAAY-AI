@@ -55,10 +55,10 @@ export default function Navbar() {
                   Doc Chat
                 </Link>
                 <Link to="/dochub" className={navLinkStyle('/dochub')}>
-                  DocHub
+                  Legal Drafting
                 </Link>
-                <Link to="/counter-arguments" className={navLinkStyle('/counter-arguments')}>
-                  Rebuttals
+                <Link to="/reasoning" className={navLinkStyle('/reasoning')}>
+                  Legal Reasoning
                 </Link>
               </>
             )}

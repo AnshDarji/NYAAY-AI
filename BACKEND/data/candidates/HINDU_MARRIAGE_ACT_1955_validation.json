@@ -1,0 +1,15 @@
+{
+    "document_id": "Hindu_Marriage_Act_1955.txt",
+    "status": "PASS",
+    "errors": [],
+    "warnings": [
+        "Possible missing section between 1 and 5",
+        "Possible missing section between 5 and 13"
+    ],
+    "stats": {
+        "total_blocks": 5,
+        "parts": 1,
+        "chapters": 1,
+        "sections": 3
+    }
+}

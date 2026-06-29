@@ -114,9 +114,9 @@ const UploadChat = () => {
     if (conv.document_id) {
       setDocumentMetadata({
         document_id: conv.document_id,
-        filename: "Previously Uploaded Document",
-        pages: "?",
-        summary: "Loaded from history."
+        filename: conv.document?.filename || "Previously Uploaded Document",
+        pages: conv.document?.pages || "?",
+        summary: conv.document?.summary || "Loaded from history."
       });
     }
   };
@@ -405,13 +405,7 @@ const UploadChat = () => {
                           <div className="flex justify-start">
                             <Card className="max-w-[95%] !rounded-tl-sm !bg-white">
                               <div className="space-y-4">
-                                
-                                <div className="flex items-center gap-2">
-                                  <span className="bg-[#F3F2EF] text-[#111111] text-xs font-medium px-3 py-1 rounded-full border border-[#E7E7E4] flex items-center gap-1">
-                                    <span className="material-symbols-outlined text-[14px]">check_circle</span>
-                                    Confidence: {item.confidence}
-                                  </span>
-                                </div>
+
                                 
                                 <div>
                                   <h4 className="font-semibold text-[#111111] mb-1">Answer</h4>
@@ -423,9 +417,9 @@ const UploadChat = () => {
                                 <div className="h-px w-full bg-[#E7E7E4]"></div>
                                 
                                 <div className="bg-[#F7F7F5] p-4 rounded-xl border border-[#E7E7E4]">
-                                  <p className="text-sm text-[#111111] font-medium leading-relaxed">
-                                    <strong>Summary:</strong> {item.summary}
-                                  </p>
+                                  <div className="prose prose-sm text-[#111111] font-medium leading-relaxed max-w-none prose-ul:mt-0 prose-ul:mb-0">
+                                    <strong>Summary:</strong> <ReactMarkdown>{item.summary}</ReactMarkdown>
+                                  </div>
                                 </div>
                               </div>
                             </Card>

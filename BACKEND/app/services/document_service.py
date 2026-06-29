@@ -80,6 +80,21 @@ class DocumentService:
         db.add(db_doc)
         db.commit()
         
+        # Trigger AI Ingestion Pipeline
+        from app.knowledge.ingestion import ingestion_pipeline
+        metadata = {
+            "document_id": doc_id,
+            "document_type": "user_upload",
+            "source_name": file.filename,
+            "tenant_id": user_uid
+        }
+        try:
+            # We run ingestion in the background or synchronously. For now, synchronously.
+            ingestion_pipeline.process_document(text, metadata)
+        except Exception as e:
+            # We don't want ingestion failure to completely break upload
+            print(f"Warning: Ingestion failed for {doc_id}: {e}")
+        
         return DocumentUploadResponse(
             document_id=doc_id,
             filename=file.filename,

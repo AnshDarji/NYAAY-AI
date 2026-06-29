@@ -36,5 +36,9 @@ class Message(Base):
     role = Column(Enum(MessageRole), nullable=False)
     content = Column(Text, nullable=False) # Storing JSON for assistant or text for user
     created_at = Column(DateTime, default=datetime.utcnow)
+    
+    # User Feedback fields
+    is_helpful = Column(String(10), nullable=True) # "yes", "no", or None
+    feedback_category = Column(String(50), nullable=True)
 
     conversation = relationship("Conversation", back_populates="messages")

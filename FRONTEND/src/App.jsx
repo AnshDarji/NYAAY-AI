@@ -10,7 +10,7 @@ import Dashboard from './pages/Dashboard';
 import KnowYourKanoon from './pages/KnowYourKanoon';
 import UploadChat from './pages/UploadChat';
 import DocHub from './pages/DocHub';
-import CounterArguments from './pages/CounterArguments';
+import LegalReasoning from './pages/LegalReasoning';
 
 function App() {
   return (
@@ -57,10 +57,10 @@ function App() {
             }
           />
           <Route
-            path="/counter-arguments"
+            path="/reasoning"
             element={
               <ProtectedRoute>
-                <CounterArguments />
+                <LegalReasoning />
               </ProtectedRoute>
             }
           />

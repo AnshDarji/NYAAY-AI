@@ -147,8 +147,8 @@ const KnowYourKanoon = () => {
       setError("Your question is too short. Please provide more details.");
       return;
     }
-    if (question.length > 1000) {
-      setError("Your question is too long. Please keep it under 1000 characters.");
+    if (question.length > 10000) {
+      setError("Your question is too long. Please keep it under 10000 characters.");
       return;
     }
 
@@ -288,17 +288,13 @@ const KnowYourKanoon = () => {
                                   {item.legal_domain}
                                 </span>
                               )}
-                              <span className="bg-white text-[#111111] text-xs font-medium px-3 py-1 rounded-full border border-[#E7E7E4] flex items-center gap-1">
-                                <span className="material-symbols-outlined text-[14px]">check_circle</span>
-                                Confidence: {item.confidence}
-                              </span>
                             </div>
                             
                             <div>
                               <h4 className="font-semibold text-[#111111] mb-1">Summary</h4>
-                              <p className="text-[#111111] font-medium leading-relaxed">
-                                {item.summary}
-                              </p>
+                              <div className="prose prose-sm text-[#111111] font-medium leading-relaxed max-w-none prose-ul:mt-0 prose-ul:mb-0">
+                                <ReactMarkdown>{item.summary}</ReactMarkdown>
+                              </div>
                             </div>
                             
                             <div className="h-px w-full bg-[#E7E7E4]"></div>

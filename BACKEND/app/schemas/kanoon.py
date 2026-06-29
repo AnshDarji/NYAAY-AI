@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field
 from typing import Optional
 
 class KanoonQueryRequest(BaseModel):
-    question: str = Field(..., min_length=5, max_length=1000, description="The legal question to ask")
+    question: str = Field(..., min_length=5, max_length=10000, description="The legal question to ask")
     conversation_id: Optional[str] = Field(None, description="Optional ID of an existing conversation to continue")
 
 class KanoonQueryResponse(BaseModel):

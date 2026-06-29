@@ -1,0 +1,23 @@
+{
+    "start_time": 1782735799,
+    "documents_processed": 11,
+    "documents_skipped": 0,
+    "total_chunks_created": 15,
+    "total_embeddings_created": 15,
+    "corpus_coverage": {
+        "BHARATIYA_NAGARIK_SURAKSHA_SANHITA": 2,
+        "BHARATIYA_NYAYA_SANHITA": 1,
+        "BSA_2023": 1,
+        "CONSTITUTION_OF_INDIA": 2,
+        "CONSUMER_PROTECTION_ACT": 1,
+        "CPC_1908": 1,
+        "HINDU_MARRIAGE_ACT_1955": 1,
+        "INDIAN_CONTRACT_ACT": 1,
+        "INFORMATION_TECHNOLOGY_ACT": 1,
+        "JUDGMENT_KESAVANANDA_BHARATI": 2,
+        "JUDGMENT_LALITA_KUMARI": 2
+    },
+    "errors": [],
+    "end_time": 1782735809,
+    "total_processing_time_seconds": 10
+}

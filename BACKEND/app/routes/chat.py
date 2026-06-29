@@ -13,7 +13,8 @@ def get_conversations(
     db: Session = Depends(get_db)
 ):
     uid = user_token.uid
-    conversations = db.query(Conversation).filter(Conversation.user_id == uid).order_by(Conversation.updated_at.desc()).all()
+    from sqlalchemy.orm import joinedload
+    conversations = db.query(Conversation).options(joinedload(Conversation.document)).filter(Conversation.user_id == uid).order_by(Conversation.updated_at.desc()).all()
     return ConversationListResponse(conversations=conversations)
 
 @router.get("/conversations/{conversation_id}/messages", response_model=MessageListResponse)
@@ -61,3 +62,27 @@ def delete_conversation(
     db.commit()
     
     return {"success": True, "message": "Conversation deleted successfully"}
+
+@router.post("/messages/{message_id}/feedback", status_code=status.HTTP_200_OK)
+def submit_feedback(
+    message_id: str,
+    feedback: dict, # expecting {"is_helpful": "yes"/"no", "category": "..."}
+    user_token: dict = Depends(verify_firebase_token),
+    db: Session = Depends(get_db)
+):
+    uid = user_token.uid
+    
+    # Verify the message exists and belongs to a conversation owned by the user
+    message = db.query(Message).join(Conversation).filter(
+        Message.id == message_id,
+        Conversation.user_id == uid
+    ).first()
+    
+    if not message:
+        raise HTTPException(status_code=404, detail="Message not found")
+        
+    message.is_helpful = feedback.get("is_helpful")
+    message.feedback_category = feedback.get("category")
+    
+    db.commit()
+    return {"success": True, "message": "Feedback submitted successfully"}

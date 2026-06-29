@@ -1,0 +1,22 @@
+# Hindu Marriage Act, 1955
+
+## PART I
+
+PRELIMINARY
+
+1. Short title and extent.
+(1) This Act may be called the Hindu Marriage Act, 1955.
+(2) It extends to the whole of India except the State of Jammu and Kashmir, and applies also to Hindus domiciled in the territories to which this Act extends who are outside the said territories.
+
+### CHAPTER II
+
+HINDU MARRIAGES
+
+5. Conditions for a Hindu marriage.
+A marriage may be solemnized between any two Hindus, if the following conditions are fulfilled, namely:—
+(i) neither party has a spouse living at the time of the marriage;
+(ii) at the time of the marriage, neither party is incapable of giving a valid consent to it in consequence of unsoundness of mind.
+
+13. Divorce.
+(1) Any marriage solemnized, whether before or after the commencement of this Act, may, on a petition presented by either the husband or the wife, be dissolved by a decree of divorce on the ground that the other party—
+(i) has, after the solemnization of the marriage, had voluntary sexual intercourse with any person other than his or her spouse.
