@@ -27,3 +27,13 @@ build/
 # OS Files
 .DS_Store
 Thumbs.db
+
+# Corpus pipeline data (runtime — gitignored explicitly)
+BACKEND/data/approved/
+BACKEND/data/bulk_import/
+BACKEND/data/downloads/
+BACKEND/data/parsed/
+BACKEND/data/validated/
+BACKEND/data/reports/
+BACKEND/data/corpus_status_report.md
+BACKEND/chroma_db/
