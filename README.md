@@ -305,7 +305,3 @@ See [`DOCS/ROADMAP.md`](DOCS/ROADMAP.md) for the detailed roadmap.
 Contributions are welcome. Please read [`CONTRIBUTING.md`](CONTRIBUTING.md) before opening a pull request.
 
 ---
-
-## Portfolio Note
-
-This project is designed as a 3rd-year B.Tech CSE portfolio project demonstrating full-stack engineering, applied AI integration, domain-specific retrieval, and practical product thinking in the Indian legal technology space.
