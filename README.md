@@ -38,40 +38,72 @@ NYAAY AI is a full-stack, AI-powered legal assistant designed for the Indian leg
 
 NYAAY AI follows a clean separation between the AI/RAG layer and the web API layer.
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                         FRONTEND (React)                        │
-│  Landing · Dashboard · Legal Reasoning · Drafting · Upload Chat │
-└──────────────────────────┬──────────────────────────────────────┘
-                           │ HTTPS / REST
-┌──────────────────────────▼──────────────────────────────────────┐
-│                     BACKEND (FastAPI)                           │
-│                                                                 │
-│  ┌─────────────┐  ┌──────────────┐  ┌──────────────────────┐   │
-│  │   Routes    │  │   Services   │  │    AI Orchestrators  │   │
-│  │  /auth      │  │ auth_service │  │  rag_orchestrator    │   │
-│  │  /reasoning │  │ doc_service  │  │  drafting_orchestr.  │   │
-│  │  /drafting  │  │ kanoon_svc   │  │  domain_classifier   │   │
-│  │  /kanoon    │  │ upload_svc   │  │  prompt_builder      │   │
-│  │  /upload    │  └──────────────┘  └──────────┬───────────┘   │
-│  │  /chat      │                               │               │
-│  └─────────────┘         ┌────────────────────▼───────────┐    │
-│                          │     Knowledge Layer (RAG)       │    │
-│                          │  ChromaDB · BM25 · Embeddings   │    │
-│                          │  Hybrid Retriever               │    │
-│                          └────────────────────────────────┘    │
-│                                                                 │
-│  SQLite (SQLAlchemy)  ·  Firebase Admin SDK  ·  SlowAPI         │
-└─────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TD
+    %% Frontend
+    subgraph Frontend ["FRONTEND (React)"]
+        UI["Landing • Dashboard • Legal Reasoning • Drafting • Upload Chat"]
+    end
+
+    %% Backend
+    subgraph Backend ["BACKEND (FastAPI)"]
+        direction TB
+        
+        subgraph Core [" "]
+            direction LR
+            Routes["<b>Routes</b><br/>/auth<br/>/reasoning<br/>/drafting<br/>/kanoon<br/>/upload<br/>/chat"]
+            Services["<b>Services</b><br/>auth_service<br/>doc_service<br/>kanoon_svc<br/>upload_svc"]
+            AI["<b>AI Orchestrators</b><br/>rag_orchestrator<br/>drafting_orchestrator<br/>domain_classifier<br/>prompt_builder"]
+        end
+        
+        RAG["<b>Knowledge Layer (RAG)</b><br/>ChromaDB • BM25 • Embeddings<br/>Hybrid Retriever"]
+        
+        Infra["<b>Infrastructure & Data</b><br/>SQLite (SQLAlchemy) • Firebase Admin SDK • SlowAPI"]
+        
+        Routes --> Services
+        Services --> AI
+        AI --> RAG
+        
+        Core -.- Infra
+        RAG -.- Infra
+    end
+
+    Frontend -- "HTTPS / REST" --> Backend
+
+    style Frontend fill:#1e40af,color:#fff,stroke:#3b82f6,stroke-width:2px
+    style Backend fill:#0f172a,color:#fff,stroke:#475569,stroke-width:2px
+    style Core fill:#1e293b,color:#fff,stroke:none
+    style Routes fill:#334155,color:#f8fafc,stroke:#94a3b8,stroke-width:1px
+    style Services fill:#334155,color:#f8fafc,stroke:#94a3b8,stroke-width:1px
+    style AI fill:#334155,color:#f8fafc,stroke:#94a3b8,stroke-width:1px
+    style RAG fill:#064e3b,color:#f8fafc,stroke:#34d399,stroke-width:1px
+    style Infra fill:#1e293b,color:#cbd5e1,stroke:#64748b,stroke-dasharray: 5 5
 ```
 
 ### Drafting Pipeline (Deterministic)
 
-```
-User Facts → Intent Classification → Template Schema Loading
-    → Missing Info Wizard → Gemini LLM (JSON generation)
-    → Pydantic Validation → StructuredDocumentObject
-    → DocumentGenerator → PDF / DOCX (identical output)
+```mermaid
+flowchart TD
+    A(["User Facts (Chat/Form)"]) --> B{"Intent Classification"}
+    B -->|Draft Request| C["Template Schema Loading"]
+    C --> D{"Missing Info Wizard"}
+    D -->|Ask User| A
+    D -->|All Info Present| E["Gemini LLM<br/>(JSON Generation)"]
+    E --> F["Pydantic Validation"]
+    F -->|Fail| E
+    F -->|Pass| G["StructuredDocumentObject"]
+    G --> H["DocumentGenerator"]
+    H --> I(["PDF / DOCX<br/>(Identical Output)"])
+
+    style A fill:#f1f5f9,color:#0f172a,stroke:#cbd5e1
+    style B fill:#3b82f6,color:#fff,stroke:#2563eb
+    style C fill:#334155,color:#fff,stroke:#64748b
+    style D fill:#3b82f6,color:#fff,stroke:#2563eb
+    style E fill:#8b5cf6,color:#fff,stroke:#7c3aed
+    style F fill:#3b82f6,color:#fff,stroke:#2563eb
+    style G fill:#334155,color:#fff,stroke:#64748b
+    style H fill:#334155,color:#fff,stroke:#64748b
+    style I fill:#10b981,color:#fff,stroke:#059669
 ```
 
 > **Architectural guarantee:** Formatting is deterministic and code-controlled. The LLM never generates formatting — only legally accurate content. See [`DOCS/ARCHITECTURE.md`](DOCS/ARCHITECTURE.md) for the full specification.
