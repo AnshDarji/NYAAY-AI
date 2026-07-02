@@ -28,7 +28,7 @@ build/
 .DS_Store
 Thumbs.db
 
-# Corpus pipeline data (runtime — gitignored explicitly)
+# Corpus pipeline data (runtime  gitignored explicitly)
 BACKEND/data/approved/
 BACKEND/data/bulk_import/
 BACKEND/data/downloads/
@@ -37,3 +37,9 @@ BACKEND/data/validated/
 BACKEND/data/reports/
 BACKEND/data/corpus_status_report.md
 BACKEND/chroma_db/
+BACKEND/nyaay.db
+BACKEND/data/metrics.json
+BACKEND/uploads/
+BACKEND/nyaay.db
+BACKEND/data/metrics.json
+BACKEND/uploads/
