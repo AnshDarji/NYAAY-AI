@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, Request
+from fastapi import APIRouter, Depends, Request, BackgroundTasks
 from fastapi.responses import StreamingResponse
 from app.schemas.kanoon import KanoonQueryRequest, KanoonQueryResponse
 from app.services.kanoon_service import kanoon_service
@@ -15,9 +15,10 @@ router = APIRouter()
 async def ask_kanoon(
     request: Request,
     payload: KanoonQueryRequest,
+    background_tasks: BackgroundTasks,
     user_token: dict = Depends(verify_firebase_token),
     db: Session = Depends(get_db)
 ):
-    return kanoon_service.query(payload, user_token.uid, db)
+    return kanoon_service.query(payload, user_token.uid, db, background_tasks)
 
 

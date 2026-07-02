@@ -1,5 +1,5 @@
 import uuid
-from sqlalchemy import Column, String, DateTime, ForeignKey, Enum, Text
+from sqlalchemy import Column, String, DateTime, ForeignKey, Enum, Text, Boolean
 from sqlalchemy.orm import relationship
 from datetime import datetime
 from app.database.database import Base
@@ -8,6 +8,7 @@ import enum
 class FeatureType(str, enum.Enum):
     know_kanoon = "know_kanoon"
     upload_chat = "upload_chat"
+    legal_reasoning = "legal_reasoning"
 
 class MessageRole(str, enum.Enum):
     user = "user"
@@ -21,6 +22,7 @@ class Conversation(Base):
     title = Column(String(100), nullable=False)
     feature_type = Column(Enum(FeatureType), nullable=False)
     document_id = Column(String(36), ForeignKey("documents.id"), nullable=True)
+    is_pinned = Column(Boolean, default=False)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 

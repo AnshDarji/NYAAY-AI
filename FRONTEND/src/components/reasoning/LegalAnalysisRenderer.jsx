@@ -16,8 +16,8 @@ import {
 } from 'lucide-react';
 
 const SECTION_ICONS = {
-  executive_summary: <Target className="w-5 h-5 text-[#111111]" />,
-  chronological_timeline: <FileText className="w-5 h-5 text-[#6B6B6B]" />,
+  executive_summary: <Target className="w-5 h-5 text-primary" />,
+  chronological_timeline: <FileText className="w-5 h-5 text-text-secondary" />,
   primary_legal_issues: <Scale className="w-5 h-5 text-red-600" />,
   applicable_statutes: <Landmark className="w-5 h-5 text-blue-700" />,
   judicial_precedents: <Gavel className="w-5 h-5 text-indigo-700" />,
@@ -27,7 +27,7 @@ const SECTION_ICONS = {
   risk_assessment: <AlertCircle className="w-5 h-5 text-yellow-700" />,
   litigation_strategy: <Target className="w-5 h-5 text-indigo-700" />,
   confidence_summary: <Scale className="w-5 h-5 text-emerald-700" />,
-  cross_module_links: <ArrowRight className="w-5 h-5 text-[#111111]" />
+  cross_module_links: <ArrowRight className="w-5 h-5 text-primary" />
 };
 
 const SECTION_TITLES = {
@@ -50,7 +50,7 @@ const renderNestedContent = (content) => {
   
   if (typeof content === 'string') {
     return (
-      <div className="prose max-w-none text-[13px] text-[#6B6B6B] leading-[1.6] prose-p:my-2 prose-headings:font-semibold prose-headings:text-[#111111] prose-headings:mb-2 prose-a:text-[#111111] hover:prose-a:text-zinc-700">
+      <div className="prose max-w-none text-[13px] text-text-secondary leading-[1.6] prose-p:my-2 prose-headings:font-semibold prose-headings:text-primary prose-headings:mb-2 prose-h1:text-[16px] prose-h2:text-[15px] prose-h3:text-[14px] prose-h4:text-[13px] prose-a:text-primary hover:prose-a:text-zinc-700">
         <ReactMarkdown>{content}</ReactMarkdown>
       </div>
     );
@@ -60,7 +60,7 @@ const renderNestedContent = (content) => {
     // If array of pure strings, render as bullet list
     if (content.every(item => typeof item === 'string')) {
       return (
-        <ul className="list-disc pl-4 space-y-1 text-[13px] text-[#6B6B6B] leading-[1.6]">
+        <ul className="list-disc pl-4 space-y-1 text-[13px] text-text-secondary leading-[1.6]">
           {content.map((item, idx) => (
             <li key={idx}><ReactMarkdown>{item}</ReactMarkdown></li>
           ))}
@@ -72,13 +72,13 @@ const renderNestedContent = (content) => {
     return (
       <div className="space-y-3">
         {content.map((item, idx) => (
-          <div key={idx} className="bg-white/60 rounded-xl p-4 border border-[#E7E7E4]/60 shadow-sm backdrop-blur-sm">
+          <div key={idx} className="bg-surface/60 rounded-xl p-4 border border-border/60 shadow-sm backdrop-blur-sm">
             {Object.entries(item).map(([key, val]) => (
               <div key={key} className="mb-3 last:mb-0">
-                <h5 className="text-[11px] font-bold text-[#111111] uppercase tracking-widest mb-1 block">
+                <h5 className="text-[11px] font-bold text-primary uppercase tracking-widest mb-1 block">
                   {key.replace(/_/g, ' ')}
                 </h5>
-                <div className="text-[#6B6B6B] text-[13px] leading-[1.6]">
+                <div className="text-text-secondary text-[13px] leading-[1.6]">
                   {typeof val === 'string' ? <ReactMarkdown>{val}</ReactMarkdown> : renderNestedContent(val)}
                 </div>
               </div>
@@ -94,11 +94,11 @@ const renderNestedContent = (content) => {
     return (
       <div className="space-y-3">
         {Object.entries(content).map(([key, val]) => (
-          <div key={key} className="bg-white/60 rounded-xl p-3 border border-[#E7E7E4]/60 backdrop-blur-sm">
-            <h5 className="text-[11px] font-bold text-[#111111] uppercase tracking-widest mb-1.5 block">
+          <div key={key} className="bg-surface/60 rounded-xl p-3 border border-border/60 backdrop-blur-sm">
+            <h5 className="text-[11px] font-bold text-primary uppercase tracking-widest mb-1.5 block">
               {key.replace(/_/g, ' ')}
             </h5>
-            <div className="text-[#6B6B6B] text-[13px] leading-[1.6]">
+            <div className="text-text-secondary text-[13px] leading-[1.6]">
                {typeof val === 'string' ? <ReactMarkdown>{val}</ReactMarkdown> : renderNestedContent(val)}
             </div>
           </div>
@@ -121,17 +121,17 @@ const AnalysisCard = ({ title, icon, content, isCrossModule = false, className =
     if (isCrossModule) {
       return (
         <div className="space-y-6 mt-4">
-          <p className="text-[#6B6B6B] text-sm">{content}</p>
+          <p className="text-text-secondary text-sm">{content}</p>
           <div className="flex flex-wrap gap-4">
-            <Link to="/know-your-kanoon" className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#111111] text-white rounded-full text-sm font-medium hover:bg-zinc-800 transition-colors border border-[#111111]">
+            <Link to="/know-your-kanoon" className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-white rounded-full text-sm font-medium hover:bg-primary-hover transition-colors border border-primary">
               <Scale className="w-4 h-4" />
               Open Kanoon Q&A
             </Link>
-            <Link to="/dochub" className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#F3F2EF] text-[#111111] rounded-full text-sm font-medium hover:bg-zinc-200 transition-colors border border-[#E7E7E4]">
+            <Link to="/dochub" className="inline-flex items-center gap-2 px-5 py-2.5 bg-secondary text-primary rounded-full text-sm font-medium hover:bg-zinc-200 transition-colors border border-border">
               <FileText className="w-4 h-4" />
               Draft Legal Notice
             </Link>
-            <Link to="/upload-chat" className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#F3F2EF] text-[#111111] rounded-full text-sm font-medium hover:bg-zinc-200 transition-colors border border-[#E7E7E4]">
+            <Link to="/upload-chat" className="inline-flex items-center gap-2 px-5 py-2.5 bg-secondary text-primary rounded-full text-sm font-medium hover:bg-zinc-200 transition-colors border border-border">
               <MessageSquare className="w-4 h-4" />
               Chat with Documents
             </Link>
@@ -147,22 +147,22 @@ const AnalysisCard = ({ title, icon, content, isCrossModule = false, className =
     );
   };
 
-  const defaultBg = className.includes('bg-') ? '' : 'bg-[#FCFCFB]';
-  const defaultBorder = className.includes('border-') && !className.match(/border-[xytrbl]-/) ? '' : 'border-[#E7E7E4]';
+  const defaultBg = className.includes('bg-') ? '' : 'bg-background';
+  const defaultBorder = className.includes('border-') && !className.match(/border-[xytrbl]-/) ? '' : 'border-border';
 
   return (
     <div className={`${defaultBg} rounded-[1.25rem] px-5 py-3.5 border ${defaultBorder} flex flex-col relative overflow-hidden group hover:shadow-md transition-all duration-300 w-full ${className}`}>
       <div 
-        className={`flex items-center justify-between z-10 cursor-pointer ${isOpen ? 'mb-3 pb-2 border-b border-[#E7E7E4]/50' : ''}`}
+        className={`flex items-center justify-between z-10 cursor-pointer ${isOpen ? 'mb-3 pb-2 border-b border-border/50' : ''}`}
         onClick={() => setIsOpen(!isOpen)}
       >
         <div className="flex items-center gap-3">
-          <div className="p-1.5 bg-white/80 rounded-lg border border-[#E7E7E4] shadow-sm backdrop-blur-sm">
-            {icon ? React.cloneElement(icon, { className: 'w-4 h-4 text-[#111111]' }) : <FileText className="w-4 h-4 text-[#111111]" />}
+          <div className="p-1.5 bg-surface/80 rounded-lg border border-border shadow-sm backdrop-blur-sm">
+            {icon ? React.cloneElement(icon, { className: 'w-4 h-4 text-primary' }) : <FileText className="w-4 h-4 text-primary" />}
           </div>
-          <h4 className="font-bold text-[14px] text-[#111111] tracking-tight select-none">{title}</h4>
+          <h4 className="font-bold text-[14px] text-primary tracking-tight select-none">{title}</h4>
         </div>
-        <div className="p-1 text-[#6B6B6B] hover:text-[#111111] transition-colors rounded-full hover:bg-black/5">
+        <div className="p-1 text-text-secondary hover:text-primary transition-colors rounded-full hover:bg-black/5">
           {isOpen ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
         </div>
       </div>
@@ -189,7 +189,7 @@ const LegalAnalysisRenderer = ({ content }) => {
 
   if (!parsedData) {
     return (
-      <div className="prose prose-sm max-w-none bg-[#FCFCFB] p-8 rounded-3xl border border-[#E7E7E4]">
+      <div className="prose prose-sm max-w-none bg-background p-8 rounded-3xl border border-border">
         <ReactMarkdown>{content}</ReactMarkdown>
       </div>
     );
@@ -223,13 +223,13 @@ const LegalAnalysisRenderer = ({ content }) => {
         if (!parsedData[key]) return null;
         
         // Give all accordion panels a uniform light greyish color
-        let accentClass = "bg-[#F8F8F7] border-[#E7E7E4]";
+        let accentClass = "bg-[#F8F8F7] border-border";
 
         return (
           <AnalysisCard 
             key={key}
             title={SECTION_TITLES[key]}
-            icon={SECTION_ICONS[key] || <FileText className="w-5 h-5 text-[#6B6B6B]" />}
+            icon={SECTION_ICONS[key] || <FileText className="w-5 h-5 text-text-secondary" />}
             content={parsedData[key]}
             className={accentClass}
             defaultOpen={false}

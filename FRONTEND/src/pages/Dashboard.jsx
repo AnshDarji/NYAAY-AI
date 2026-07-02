@@ -68,7 +68,7 @@ export default function Dashboard() {
     <PageContainer>
       <div className="flex flex-col gap-10 text-left">
         {/* Welcome Banner */}
-        <section className="bg-[#F3F2EF] rounded-3xl p-8 md:p-10 border border-[#E7E7E4] relative overflow-hidden flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+        <section className="bg-secondary rounded-3xl p-8 md:p-10 border border-border relative overflow-hidden flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-40">
             <div className="w-[200px] h-[200px] rounded-full bg-gradient-to-tr from-emerald-300 to-teal-200 blur-3xl absolute -left-10"></div>
           </div>
@@ -77,10 +77,10 @@ export default function Dashboard() {
             <span className={`self-start px-3 py-1 rounded-full border text-[11px] font-bold uppercase tracking-wider ${getRoleBadgeColor(userProfile?.role)}`}>
               {getRoleDisplayName(userProfile?.role)}
             </span>
-            <h1 className="text-3xl md:text-4xl font-semibold tracking-tighter text-[#111111] mt-2">
+            <h1 className="text-3xl md:text-4xl font-semibold tracking-tighter text-primary mt-2">
               Welcome back, {userProfile?.name || currentUser?.displayName || 'User'}
             </h1>
-            <p className="text-sm text-[#6B6B6B] max-w-md">
+            <p className="text-sm text-text-secondary max-w-md">
               Access your workspace below. Your grounded legal model version v2.0 is verified and online.
             </p>
           </div>
@@ -99,27 +99,27 @@ export default function Dashboard() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Main workspace (Features Cards) */}
           <div className="lg:col-span-8 flex flex-col gap-6">
-            <h2 className="text-xs font-bold text-[#6B6B6B] uppercase tracking-[0.2em]">
+            <h2 className="text-xs font-bold text-text-secondary uppercase tracking-[0.2em]">
               Your Legal Workspaces
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {features.map((feature, idx) => (
                 <Link to={feature.path} key={idx}>
-                  <Card className="h-[240px] justify-between p-6 hover:scale-[1.01] bg-[#FCFCFB]">
+                  <Card className="h-[240px] justify-between p-6 hover:scale-[1.01] bg-background">
                     <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-50`}></div>
                     <div className="flex justify-between items-start z-10">
-                      <span className="material-symbols-outlined text-[28px] text-[#111111]">
+                      <span className="material-symbols-outlined text-[28px] text-primary">
                         {feature.icon}
                       </span>
-                      <span className="material-symbols-outlined text-[#6B6B6B] text-[18px] group-hover:translate-x-1 transition-transform">
+                      <span className="material-symbols-outlined text-text-secondary text-[18px] group-hover:translate-x-1 transition-transform">
                         arrow_forward
                       </span>
                     </div>
                     <div className="z-10 text-left">
-                      <h4 className="text-base font-bold tracking-tight text-[#111111] mb-1">
+                      <h4 className="text-base font-bold tracking-tight text-primary mb-1">
                         {feature.title}
                       </h4>
-                      <p className="text-xs text-[#6B6B6B] leading-relaxed">
+                      <p className="text-xs text-text-secondary leading-relaxed">
                         {feature.description}
                       </p>
                     </div>
@@ -131,19 +131,19 @@ export default function Dashboard() {
 
           {/* Sidebar Account details */}
           <div className="lg:col-span-4 flex flex-col gap-6">
-            <h2 className="text-xs font-bold text-[#6B6B6B] uppercase tracking-[0.2em]">
+            <h2 className="text-xs font-bold text-text-secondary uppercase tracking-[0.2em]">
               Account Profile
             </h2>
-            <Card className="p-6 justify-start text-left gap-4 bg-[#FCFCFB]" hoverEffect={false}>
+            <Card className="p-6 justify-start text-left gap-4 bg-background" hoverEffect={false}>
               <div className="flex items-center gap-3 pb-4 border-b border-zinc-100">
                 <div className="w-10 h-10 bg-zinc-100 rounded-full flex items-center justify-center border border-zinc-200">
-                  <span className="material-symbols-outlined text-[#111111]">person</span>
+                  <span className="material-symbols-outlined text-primary">person</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-sm font-semibold tracking-tight text-[#111111]">
+                  <span className="text-sm font-semibold tracking-tight text-primary">
                     {userProfile?.name}
                   </span>
-                  <span className="text-[10px] font-mono text-[#6B6B6B]">
+                  <span className="text-[10px] font-mono text-text-secondary">
                     {currentUser?.uid}
                   </span>
                 </div>
@@ -151,20 +151,20 @@ export default function Dashboard() {
 
               <div className="flex flex-col gap-3">
                 <div className="flex flex-col">
-                  <span className="text-[10px] font-bold text-[#6B6B6B] uppercase tracking-wider">Email</span>
-                  <span className="text-xs font-medium text-[#111111] truncate">{userProfile?.email}</span>
+                  <span className="text-[10px] font-bold text-text-secondary uppercase tracking-wider">Email</span>
+                  <span className="text-xs font-medium text-primary truncate">{userProfile?.email}</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[10px] font-bold text-[#6B6B6B] uppercase tracking-wider">Role Setting</span>
-                  <span className="text-xs font-medium text-[#111111]">{getRoleDisplayName(userProfile?.role)}</span>
+                  <span className="text-[10px] font-bold text-text-secondary uppercase tracking-wider">Role Setting</span>
+                  <span className="text-xs font-medium text-primary">{getRoleDisplayName(userProfile?.role)}</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[10px] font-bold text-[#6B6B6B] uppercase tracking-wider">Joined</span>
-                  <span className="text-xs font-medium text-[#111111]">{formatDate(userProfile?.created_at)}</span>
+                  <span className="text-[10px] font-bold text-text-secondary uppercase tracking-wider">Joined</span>
+                  <span className="text-xs font-medium text-primary">{formatDate(userProfile?.created_at)}</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[10px] font-bold text-[#6B6B6B] uppercase tracking-wider">Last Sync</span>
-                  <span className="text-xs font-medium text-[#111111]">{formatDate(userProfile?.last_login)}</span>
+                  <span className="text-[10px] font-bold text-text-secondary uppercase tracking-wider">Last Sync</span>
+                  <span className="text-xs font-medium text-primary">{formatDate(userProfile?.last_login)}</span>
                 </div>
               </div>
             </Card>

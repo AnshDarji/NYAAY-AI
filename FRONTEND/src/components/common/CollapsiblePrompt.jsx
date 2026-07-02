@@ -15,7 +15,7 @@ const CollapsiblePrompt = ({ text, maxLength = 350 }) => {
       </p>
       <button 
         onClick={() => setIsExpanded(!isExpanded)}
-        className="mt-3 text-xs font-medium text-white/80 hover:text-white bg-white/10 hover:bg-white/20 px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition-all self-end"
+        className="mt-3 text-xs font-medium text-white/80 hover:text-white bg-surface/10 hover:bg-surface/20 px-2.5 py-1.5 rounded-lg flex items-center gap-1 transition-all self-end"
       >
         {isExpanded ? (
           <><span>Show less</span><ChevronRight className="w-3.5 h-3.5 -rotate-90" /></>

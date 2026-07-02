@@ -37,11 +37,18 @@ class ConversationResponse(BaseModel):
     feature_type: FeatureType
     document_id: Optional[str] = None
     document: Optional[DocumentSummaryResponse] = None
+    is_pinned: bool = False
     created_at: datetime
     updated_at: datetime
 
     class Config:
         from_attributes = True
+
+class ConversationRenameRequest(BaseModel):
+    title: str
+
+class ConversationPinRequest(BaseModel):
+    is_pinned: bool
 
 class ConversationListResponse(BaseModel):
     conversations: List[ConversationResponse]

@@ -23,7 +23,8 @@ def dummy_pdf():
 def mock_verify_token(*args, **kwargs):
     return {"uid": "test_user_uid"}
 
-app.dependency_overrides[app.middleware.auth.__dict__.get('verify_firebase_token', None)] = mock_verify_token
+from app.middleware.auth import verify_firebase_token
+app.dependency_overrides[verify_firebase_token] = mock_verify_token
 
 def test_upload_document(dummy_pdf):
     # We must patch the auth middleware dependency correctly.

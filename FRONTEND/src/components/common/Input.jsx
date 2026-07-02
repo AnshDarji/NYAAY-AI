@@ -15,8 +15,8 @@ export default function Input({
   return (
     <div className={`flex flex-col gap-2 text-left w-full ${className}`}>
       {label && (
-        <label htmlFor={id} className="text-xs font-semibold text-[#6B6B6B] tracking-wider uppercase">
-          {label} {required && <span className="text-red-500">*</span>}
+        <label htmlFor={id} className="text-xs font-medium text-text-secondary tracking-wide">
+          {label} {required && <span className="text-error">*</span>}
         </label>
       )}
       <input
@@ -26,12 +26,12 @@ export default function Input({
         onChange={onChange}
         placeholder={placeholder}
         required={required}
-        className={`w-full px-4 py-3 bg-[#FCFCFB] border ${
-          error ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-[#E7E7E4] focus:ring-zinc-400 focus:border-zinc-400'
-        } rounded-xl text-[#111111] placeholder-zinc-400 text-sm focus:outline-none focus:ring-1 transition-all duration-200`}
+        className={`w-full px-4 py-2.5 bg-background border ${
+          error ? 'border-error focus:ring-error/20 focus:border-error' : 'border-border focus:ring-primary/20 focus:border-border-hover'
+        } rounded-input text-text-primary placeholder:text-text-muted text-sm focus:outline-none focus:ring-4 transition-all duration-200`}
         {...props}
       />
-      {error && <span className="text-xs text-red-500 font-medium tracking-tight">{error}</span>}
+      {error && <span className="text-xs text-error font-medium">{error}</span>}
     </div>
   );
 }

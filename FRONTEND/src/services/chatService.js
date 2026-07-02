@@ -1,15 +1,46 @@
 import api from './api';
 
-export const getConversations = async (token) => {
+export const getConversations = async (token, featureType = null, query = null) => {
   try {
+    const params = {};
+    if (featureType) params.feature_type = featureType;
+    if (query) params.query = query;
+    
     const response = await api.get('/chat/conversations', {
       headers: {
         Authorization: `Bearer ${token}`,
       },
+      params
     });
     return response.data;
   } catch (error) {
     console.error('Error fetching conversations:', error);
+    throw error;
+  }
+};
+
+export const renameConversation = async (token, conversationId, title) => {
+  try {
+    const response = await api.put(`/chat/conversations/${conversationId}/rename`, 
+      { title },
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+    return response.data;
+  } catch (error) {
+    console.error(`Error renaming conversation ${conversationId}:`, error);
+    throw error;
+  }
+};
+
+export const pinConversation = async (token, conversationId, isPinned) => {
+  try {
+    const response = await api.put(`/chat/conversations/${conversationId}/pin`, 
+      { is_pinned: isPinned },
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+    return response.data;
+  } catch (error) {
+    console.error(`Error pinning conversation ${conversationId}:`, error);
     throw error;
   }
 };

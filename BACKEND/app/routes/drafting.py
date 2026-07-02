@@ -48,7 +48,10 @@ def download_pdf(doc_obj: StructuredDocumentObject):
             headers={"Content-Disposition": f"attachment; filename={doc_obj.document_type.lower()}_draft.pdf"}
         )
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        import traceback
+        import logging
+        logging.getLogger(__name__).error(f"PDF Export Failed:\n{traceback.format_exc()}")
+        raise HTTPException(status_code=500, detail={"error": "Failed to generate PDF", "reason": str(e)})
 
 @router.post("/download/docx")
 def download_docx(doc_obj: StructuredDocumentObject):

@@ -86,18 +86,18 @@ export default function SettingsModal({ isOpen, onClose }) {
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Backdrop */}
       <div 
-        className="absolute inset-0 bg-[#111111]/40 backdrop-blur-sm transition-opacity"
+        className="absolute inset-0 bg-primary/40 backdrop-blur-sm transition-opacity"
         onClick={onClose}
       ></div>
 
       {/* Modal Container */}
-      <div className="bg-white rounded-3xl w-full max-w-2xl shadow-2xl overflow-hidden relative z-10 flex flex-col md:flex-row min-h-[500px]">
+      <div className="bg-surface rounded-3xl w-full max-w-2xl shadow-2xl overflow-hidden relative z-10 flex flex-col md:flex-row min-h-[500px]">
         
         {/* Sidebar */}
-        <div className="w-full md:w-64 bg-[#F9F9F8] border-b md:border-b-0 md:border-r border-[#E7E7E4] p-6 flex flex-col">
+        <div className="w-full md:w-64 bg-[#F9F9F8] border-b md:border-b-0 md:border-r border-border p-6 flex flex-col">
           <div className="flex justify-between items-center mb-8">
-            <h2 className="text-xl font-semibold tracking-tight text-[#111111]">Settings</h2>
-            <button onClick={onClose} className="md:hidden text-[#6B6B6B] hover:text-[#111111]">
+            <h2 className="text-xl font-semibold tracking-tight text-primary">Settings</h2>
+            <button onClick={onClose} className="md:hidden text-text-secondary hover:text-primary">
               <span className="material-symbols-outlined text-[20px]">close</span>
             </button>
           </div>
@@ -109,11 +109,11 @@ export default function SettingsModal({ isOpen, onClose }) {
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
                   activeTab === tab.id 
-                    ? 'bg-[#111111] text-white shadow-sm' 
-                    : 'text-[#6B6B6B] hover:bg-[#F3F2EF] hover:text-[#111111]'
+                    ? 'bg-primary text-white shadow-sm' 
+                    : 'text-text-secondary hover:bg-secondary hover:text-primary'
                 }`}
               >
-                <span className={`material-symbols-outlined text-[18px] ${activeTab === tab.id ? 'text-white' : 'text-[#6B6B6B]'}`}>
+                <span className={`material-symbols-outlined text-[18px] ${activeTab === tab.id ? 'text-white' : 'text-text-secondary'}`}>
                   {tab.icon}
                 </span>
                 {tab.label}
@@ -126,7 +126,7 @@ export default function SettingsModal({ isOpen, onClose }) {
         <div className="flex-1 p-6 md:p-8 relative">
           <button 
             onClick={onClose} 
-            className="absolute top-6 right-6 hidden md:flex items-center justify-center w-8 h-8 rounded-full bg-white border border-[#E7E7E4] text-[#6B6B6B] hover:bg-[#F9F9F8] hover:text-[#111111] transition-colors shadow-sm"
+            className="absolute top-6 right-6 hidden md:flex items-center justify-center w-8 h-8 rounded-full bg-surface border border-border text-text-secondary hover:bg-[#F9F9F8] hover:text-primary transition-colors shadow-sm"
           >
             <span className="material-symbols-outlined text-[16px]">close</span>
           </button>
@@ -134,46 +134,46 @@ export default function SettingsModal({ isOpen, onClose }) {
           {/* Profile Tab */}
           {activeTab === 'profile' && (
             <div className="animate-in fade-in slide-in-from-bottom-2 duration-300">
-              <h3 className="text-lg font-semibold tracking-tight text-[#111111] mb-6">Profile Details</h3>
+              <h3 className="text-lg font-semibold tracking-tight text-primary mb-6">Profile Details</h3>
               <form onSubmit={handleProfileSubmit} className="flex flex-col gap-5">
                 <div className="flex items-center gap-4 mb-2">
                   <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-100 to-purple-100 border border-indigo-200 flex items-center justify-center text-indigo-700 font-bold text-xl uppercase shadow-inner">
                     {userProfile?.name?.charAt(0) || currentUser?.email?.charAt(0) || 'U'}
                   </div>
                   <div>
-                    <div className="text-sm font-semibold text-[#111111]">{userProfile?.name || currentUser?.displayName || 'User'}</div>
-                    <div className="text-xs text-[#6B6B6B]">{currentUser?.email}</div>
+                    <div className="text-sm font-semibold text-primary">{userProfile?.name || currentUser?.displayName || 'User'}</div>
+                    <div className="text-xs text-text-secondary">{currentUser?.email}</div>
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-[11px] font-bold text-[#6B6B6B] uppercase tracking-wider">Full Name</label>
+                  <label className="text-[11px] font-bold text-text-secondary uppercase tracking-wider">Full Name</label>
                   <input 
                     type="text" 
                     required
                     value={profileForm.name} 
                     onChange={(e) => setProfileForm({ name: e.target.value })}
-                    className="w-full bg-white border border-[#E7E7E4] rounded-xl px-4 py-2.5 text-sm text-[#111111] focus:outline-none focus:border-[#111111] focus:ring-1 focus:ring-[#111111] transition-shadow"
+                    className="w-full bg-surface border border-border rounded-xl px-4 py-2.5 text-sm text-primary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-shadow"
                     placeholder="Enter your full name"
                   />
                 </div>
 
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-[11px] font-bold text-[#6B6B6B] uppercase tracking-wider">Email Address</label>
+                  <label className="text-[11px] font-bold text-text-secondary uppercase tracking-wider">Email Address</label>
                   <input 
                     type="email" 
                     disabled 
                     value={currentUser?.email || ''} 
-                    className="w-full bg-[#F9F9F8] border border-[#E7E7E4] rounded-xl px-4 py-2.5 text-sm text-[#111111] cursor-not-allowed focus:outline-none"
+                    className="w-full bg-[#F9F9F8] border border-border rounded-xl px-4 py-2.5 text-sm text-primary cursor-not-allowed focus:outline-none"
                   />
                 </div>
 
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-[11px] font-bold text-[#6B6B6B] uppercase tracking-wider">Account Role</label>
+                  <label className="text-[11px] font-bold text-text-secondary uppercase tracking-wider">Account Role</label>
                   <select 
                     value={profileForm.role}
                     onChange={(e) => setProfileForm(p => ({ ...p, role: e.target.value }))}
-                    className="w-full bg-white border border-[#E7E7E4] rounded-xl px-4 py-2.5 text-sm text-[#111111] focus:outline-none focus:border-[#111111] focus:ring-1 focus:ring-[#111111] transition-shadow appearance-none cursor-pointer"
+                    className="w-full bg-surface border border-border rounded-xl px-4 py-2.5 text-sm text-primary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-shadow appearance-none cursor-pointer"
                     style={{ backgroundImage: 'url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'%3e%3cpolyline points=\'6 9 12 15 18 9\'%3e%3c/polyline%3e%3c/svg%3e")', backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', backgroundSize: '1em' }}
                   >
                     <option value="citizen">Citizen</option>
@@ -217,29 +217,29 @@ export default function SettingsModal({ isOpen, onClose }) {
           {/* Security Tab */}
           {activeTab === 'security' && (
             <div className="animate-in fade-in slide-in-from-bottom-2 duration-300">
-              <h3 className="text-lg font-semibold tracking-tight text-[#111111] mb-6">Change Password</h3>
+              <h3 className="text-lg font-semibold tracking-tight text-primary mb-6">Change Password</h3>
               
               <form onSubmit={handlePasswordSubmit} className="flex flex-col gap-5">
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-[11px] font-bold text-[#6B6B6B] uppercase tracking-wider">New Password</label>
+                  <label className="text-[11px] font-bold text-text-secondary uppercase tracking-wider">New Password</label>
                   <input 
                     type="password" 
                     required
                     value={passwordForm.newPassword}
                     onChange={(e) => setPasswordForm(p => ({ ...p, newPassword: e.target.value }))}
-                    className="w-full bg-white border border-[#E7E7E4] rounded-xl px-4 py-2.5 text-sm text-[#111111] focus:outline-none focus:border-[#111111] focus:ring-1 focus:ring-[#111111] transition-shadow"
+                    className="w-full bg-surface border border-border rounded-xl px-4 py-2.5 text-sm text-primary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-shadow"
                     placeholder="Enter new password"
                   />
                 </div>
 
                 <div className="flex flex-col gap-1.5">
-                  <label className="text-[11px] font-bold text-[#6B6B6B] uppercase tracking-wider">Confirm New Password</label>
+                  <label className="text-[11px] font-bold text-text-secondary uppercase tracking-wider">Confirm New Password</label>
                   <input 
                     type="password" 
                     required
                     value={passwordForm.confirmPassword}
                     onChange={(e) => setPasswordForm(p => ({ ...p, confirmPassword: e.target.value }))}
-                    className="w-full bg-white border border-[#E7E7E4] rounded-xl px-4 py-2.5 text-sm text-[#111111] focus:outline-none focus:border-[#111111] focus:ring-1 focus:ring-[#111111] transition-shadow"
+                    className="w-full bg-surface border border-border rounded-xl px-4 py-2.5 text-sm text-primary focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-shadow"
                     placeholder="Confirm new password"
                   />
                 </div>
@@ -275,32 +275,32 @@ export default function SettingsModal({ isOpen, onClose }) {
           {/* Appearance Tab */}
           {activeTab === 'appearance' && (
             <div className="animate-in fade-in slide-in-from-bottom-2 duration-300">
-              <h3 className="text-lg font-semibold tracking-tight text-[#111111] mb-6">Appearance</h3>
+              <h3 className="text-lg font-semibold tracking-tight text-primary mb-6">Appearance</h3>
               
               <div className="grid grid-cols-2 gap-4 max-w-sm">
-                <button className="flex flex-col gap-3 p-4 rounded-2xl border-2 border-[#111111] bg-white items-center">
+                <button className="flex flex-col gap-3 p-4 rounded-2xl border-2 border-primary bg-surface items-center">
                   <div className="w-16 h-12 rounded bg-zinc-100 border border-zinc-200 flex flex-col overflow-hidden shadow-sm">
                      <div className="h-3 bg-zinc-200"></div>
                      <div className="flex-1 flex p-1 gap-1">
-                        <div className="w-4 bg-white rounded-sm"></div>
-                        <div className="flex-1 bg-white rounded-sm"></div>
+                        <div className="w-4 bg-surface rounded-sm"></div>
+                        <div className="flex-1 bg-surface rounded-sm"></div>
                      </div>
                   </div>
-                  <span className="text-sm font-semibold text-[#111111]">Light Mode</span>
+                  <span className="text-sm font-semibold text-primary">Light Mode</span>
                 </button>
                 
-                <button className="flex flex-col gap-3 p-4 rounded-2xl border border-[#E7E7E4] bg-white hover:bg-[#F9F9F8] items-center transition-colors opacity-50 cursor-not-allowed" title="Coming soon">
+                <button className="flex flex-col gap-3 p-4 rounded-2xl border border-border bg-surface hover:bg-[#F9F9F8] items-center transition-colors opacity-50 cursor-not-allowed" title="Coming soon">
                   <div className="w-16 h-12 rounded bg-zinc-900 border border-zinc-700 flex flex-col overflow-hidden shadow-sm">
-                     <div className="h-3 bg-zinc-800"></div>
+                     <div className="h-3 bg-primary-hover"></div>
                      <div className="flex-1 flex p-1 gap-1">
-                        <div className="w-4 bg-[#111111] rounded-sm"></div>
-                        <div className="flex-1 bg-[#111111] rounded-sm"></div>
+                        <div className="w-4 bg-primary rounded-sm"></div>
+                        <div className="flex-1 bg-primary rounded-sm"></div>
                      </div>
                   </div>
-                  <span className="text-sm font-semibold text-[#6B6B6B]">Dark Mode</span>
+                  <span className="text-sm font-semibold text-text-secondary">Dark Mode</span>
                 </button>
               </div>
-              <p className="text-xs text-[#6B6B6B] mt-4 italic">Dark mode is currently under development for Auralis v2.</p>
+              <p className="text-xs text-text-secondary mt-4 italic">Dark mode is currently under development for Auralis v2.</p>
             </div>
           )}
 

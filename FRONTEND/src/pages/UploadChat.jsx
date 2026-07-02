@@ -1,18 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
-import Navbar from '../components/common/Navbar';
-import PageContainer from '../components/common/PageContainer';
-import Card from '../components/common/Card';
-import Button from '../components/common/Button';
-import LoadingSpinner from '../components/common/LoadingSpinner';
-import { useAuth } from '../contexts/AuthContext';
+import { FileText, AlertCircle, UploadCloud, FileUp } from 'lucide-react';
+import WorkspaceContainer from '../components/common/WorkspaceContainer';
+import ConversationLayout from '../components/chat/ConversationLayout';
+import ChatInput from '../components/chat/ChatInput';
+import MessageBubble from '../components/chat/MessageBubble';
+import UploadChatRenderer from '../components/uploadChat/UploadChatRenderer';
 import { uploadDocument, queryDocument } from '../services/uploadChatService';
-import { getConversations, getMessages, deleteConversation } from '../services/chatService';
-import { Link } from 'react-router-dom';
-import ReactMarkdown from 'react-markdown';
-import ConfirmationModal from '../components/common/ConfirmationModal';
-import Toast from '../components/common/Toast';
+import { useAuth } from '../contexts/AuthContext';
 
-const UploadChat = () => {
+const UploadChatArea = ({ refreshConversations }) => {
   const { currentUser } = useAuth();
   
   // File Upload State
@@ -23,136 +19,30 @@ const UploadChat = () => {
   const fileInputRef = useRef(null);
 
   // Chat State
-  const [question, setQuestion] = useState("");
-  const [history, setHistory] = useState([]);
-  const [loadingChat, setLoadingChat] = useState(false);
-  const [chatError, setChatError] = useState("");
-
-  // History State
-  const [conversations, setConversations] = useState([]);
-  const [activeConversationId, setActiveConversationId] = useState(
-    localStorage.getItem('nyaay_active_upload_conversation') || null
-  );
-  const [loadingHistory, setLoadingHistory] = useState(false);
+  const [activeConversationId, setActiveConversationId] = useState(null);
+  const [messages, setMessages] = useState([]);
+  const [inputValue, setInputValue] = useState('');
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [chatError, setChatError] = useState(null);
   
-  const [conversationToDelete, setConversationToDelete] = useState(null);
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [toastMessage, setToastMessage] = useState("");
-  const [isToastOpen, setIsToastOpen] = useState(false);
-
-  useEffect(() => {
-    if (currentUser) {
-      loadConversations();
-    }
-  }, [currentUser]);
-
   const messagesEndRef = useRef(null);
+  const abortControllerRef = useRef(null);
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [history]);
-
-  useEffect(() => {
-    if (activeConversationId && currentUser) {
-      loadMessages(activeConversationId);
-      localStorage.setItem('nyaay_active_upload_conversation', activeConversationId);
-    } else {
-      localStorage.removeItem('nyaay_active_upload_conversation');
-    }
-  }, [activeConversationId, currentUser]);
-
-  const loadConversations = async () => {
-    try {
-      const token = await currentUser.getIdToken();
-      const data = await getConversations(token);
-      const uploadChats = data.conversations.filter(c => c.feature_type === 'upload_chat');
-      setConversations(uploadChats);
-    } catch (err) {
-      console.error("Failed to load conversations", err);
-    }
-  };
-
-  const loadMessages = async (conversationId) => {
-    setLoadingHistory(true);
-    try {
-      const token = await currentUser.getIdToken();
-      const data = await getMessages(token, conversationId);
-      
-      const reconstructedHistory = [];
-      let currentQuestion = "";
-      
-      data.messages.forEach(msg => {
-        if (msg.role === 'user') {
-          currentQuestion = msg.content;
-        } else if (msg.role === 'assistant') {
-          try {
-            const parsed = JSON.parse(msg.content);
-            reconstructedHistory.push({
-              question: currentQuestion,
-              ...parsed
-            });
-            currentQuestion = "";
-          } catch(e) {
-            console.error("Failed to parse message content", e);
-          }
-        }
-      });
-      
-      setHistory(reconstructedHistory);
-    } catch (err) {
-      console.error("Failed to load messages", err);
-      setChatError("Failed to load chat history.");
-    } finally {
-      setLoadingHistory(false);
-    }
-  };
-
-  const handleSelectConversation = (conv) => {
-    setActiveConversationId(conv.id);
-    // Mock the document metadata so the UI renders the chat view
-    if (conv.document_id) {
-      setDocumentMetadata({
-        document_id: conv.document_id,
-        filename: conv.document?.filename || "Previously Uploaded Document",
-        pages: conv.document?.pages || "?",
-        summary: conv.document?.summary || "Loaded from history."
-      });
-    }
-  };
-
-  const handleNewChat = () => {
-    setActiveConversationId(null);
-    setHistory([]);
-    setChatError("");
-    setQuestion("");
-    setDocumentMetadata(null); // Return to upload screen
-    setFile(null);
-  };
-
-  const handleDeleteConversation = async () => {
-    if (!conversationToDelete) return;
-    setIsDeleting(true);
-    try {
-      const token = await currentUser.getIdToken();
-      await deleteConversation(token, conversationToDelete);
-      
-      setConversations(prev => prev.filter(c => c.id !== conversationToDelete));
-      
-      if (activeConversationId === conversationToDelete) {
-        handleNewChat();
+    return () => {
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
       }
-      
-      setToastMessage("Conversation deleted successfully");
-      setIsToastOpen(true);
-    } catch (err) {
-      console.error("Failed to delete conversation", err);
-    } finally {
-      setIsDeleting(false);
-      setIsDeleteModalOpen(false);
-      setConversationToDelete(null);
-    }
+    };
+  }, []);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages, isGenerating]);
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
@@ -186,7 +76,7 @@ const UploadChat = () => {
       
       // Clear current chat when a new document is uploaded
       setActiveConversationId(null);
-      setHistory([]);
+      setMessages([]);
     } catch (err) {
       setUploadError(err.message || "Failed to upload document.");
     } finally {
@@ -194,317 +84,216 @@ const UploadChat = () => {
     }
   };
 
-  const handleAsk = async (e) => {
-    e?.preventDefault();
-    if (!question.trim() || !documentMetadata) return;
-
-    setChatError("");
-    setLoadingChat(true);
+  const handleSendMessage = async () => {
+    if (!inputValue.trim() || isGenerating || !documentMetadata) return;
     
-    const currentQuestion = question.trim();
-    setQuestion("");
-
+    const userMessage = { role: 'user', content: inputValue.trim() };
+    setMessages(prev => [...prev, userMessage]);
+    setInputValue('');
+    setIsGenerating(true);
+    setChatError(null);
+    
+    abortControllerRef.current = new AbortController();
+    
     try {
       const token = await currentUser.getIdToken();
-      const data = await queryDocument(token, documentMetadata.document_id, currentQuestion, activeConversationId);
+      const response = await queryDocument(
+        token, 
+        documentMetadata.document_id, 
+        userMessage.content, 
+        activeConversationId, 
+        abortControllerRef.current.signal
+      );
       
-      if (!activeConversationId) {
-        setActiveConversationId(data.conversation_id);
-        loadConversations();
+      setMessages(prev => [...prev, {
+        role: 'assistant',
+        content: JSON.stringify(response)
+      }]);
+      
+      // If it's a new conversation, update the active ID and refresh sidebar
+      if (!activeConversationId && response.conversation_id) {
+        setActiveConversationId(response.conversation_id);
+        if (refreshConversations) refreshConversations();
       }
-
-      setHistory((prev) => [
-        ...prev,
-        {
-          question: currentQuestion,
-          ...data,
-        }
-      ]);
+      
     } catch (err) {
-      setChatError(err.message || "Failed to get an answer.");
-      setQuestion(currentQuestion);
+      if (err.name === 'CanceledError' || err.message === 'canceled') {
+        console.log('Request canceled');
+      } else {
+        setChatError(err.message || "Failed to get an answer.");
+      }
     } finally {
-      setLoadingChat(false);
+      setIsGenerating(false);
     }
   };
 
+  const handleNewChat = () => {
+    setActiveConversationId(null);
+    setMessages([]);
+    setInputValue('');
+    setChatError(null);
+    setDocumentMetadata(null); // Return to upload screen
+    setFile(null);
+  };
+
+  const handleSelectConversation = (conv) => {
+    setActiveConversationId(conv.id);
+    if (conv.document_id) {
+      setDocumentMetadata({
+        document_id: conv.document_id,
+        filename: conv.document?.filename || "Previously Uploaded Document",
+        pages: conv.document?.pages || "?",
+        summary: conv.document?.summary || "Loaded from history."
+      });
+    }
+  };
+
+  const handleMessagesLoaded = (loadedMessages) => {
+    setMessages(loadedMessages);
+  };
+
   return (
-    <div className="min-h-screen bg-[#F7F7F5] font-sans flex flex-col overflow-hidden">
-      <Navbar />
-      <PageContainer className="flex-1 max-w-7xl w-full mx-auto pb-8 h-[calc(100vh-100px)]">
-        <div className="flex flex-col md:flex-row gap-6 h-full overflow-hidden">
-          
-          {/* Sidebar */}
-          <div className="w-full md:w-72 shrink-0 flex flex-col gap-4">
-            <Link to="/dashboard" className="flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-[#6B6B6B] hover:text-[#111111] transition-colors">
-              <span className="material-symbols-outlined text-[16px]">arrow_back</span>
-              Dashboard
-            </Link>
-            
-            <div className="bg-white rounded-2xl border border-[#E7E7E4] flex flex-col h-full overflow-hidden shadow-sm">
-              <div className="p-4 border-b border-[#E7E7E4]">
-                <Button 
-                  onClick={handleNewChat} 
-                  variant="primary" 
-                  className="w-full justify-center gap-2 rounded-xl"
-                >
-                  <span className="material-symbols-outlined text-sm">add</span>
-                  New Chat
-                </Button>
-              </div>
-              
-              <div className="flex-1 overflow-y-auto p-2">
-                <h3 className="text-xs font-bold text-[#6B6B6B] uppercase tracking-wider px-3 mb-2 mt-2">Chat History</h3>
-                {conversations.length === 0 ? (
-                  <p className="text-sm text-[#6B6B6B] px-3 py-2">No previous conversations.</p>
-                ) : (
-                  <div className="space-y-1">
-                    {conversations.map(conv => (
-                      <div key={conv.id} className="group relative flex items-center">
-                        <button
-                          onClick={() => handleSelectConversation(conv)}
-                          className={`w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-colors truncate pr-10 ${
-                            activeConversationId === conv.id 
-                              ? 'bg-[#111111] text-white' 
-                              : 'text-[#111111] hover:bg-[#F3F2EF]'
-                          }`}
-                        >
-                          {conv.title}
-                        </button>
-                        <button
-                          onClick={() => {
-                            setConversationToDelete(conv.id);
-                            setIsDeleteModalOpen(true);
-                          }}
-                          className={`absolute right-2 p-1 rounded-md transition-opacity opacity-0 group-hover:opacity-100 ${
-                            activeConversationId === conv.id 
-                              ? 'text-white/80 hover:text-white hover:bg-white/20' 
-                              : 'text-[#6B6B6B] hover:text-red-500 hover:bg-[#E7E7E4]'
-                          }`}
-                          title="Delete conversation"
-                        >
-                          <span className="material-symbols-outlined text-[18px]">delete</span>
-                        </button>
-                      </div>
-                    ))}
-                  </div>
+    <ConversationLayout
+      featureType="upload_chat"
+      activeConversationId={activeConversationId}
+      onNewChat={handleNewChat}
+      onSelectConversation={handleSelectConversation}
+      onMessagesLoaded={handleMessagesLoaded}
+    >
+      <div className="flex flex-col h-full bg-surface relative">
+        {/* Header */}
+        <header className="h-16 flex items-center px-6 border-b border-border bg-surface/80 backdrop-blur-sm z-10 shrink-0">
+          <div className="flex items-center gap-3 md:ml-12">
+            <div className="p-1.5 bg-primary/10 rounded-button border border-primary/20">
+              <FileUp className="w-5 h-5 text-primary" />
+            </div>
+            <div>
+              <h1 className="text-lg font-semibold text-text-primary tracking-tight leading-tight">Document Chat</h1>
+              <p className="text-xs text-text-secondary">
+                {documentMetadata ? documentMetadata.filename : "Upload and analyze legal documents"}
+              </p>
+            </div>
+          </div>
+        </header>
+
+        {/* Content Area */}
+        <div className="flex-1 overflow-y-auto bg-background relative scroll-smooth scrollbar-thin scrollbar-thumb-border">
+          {!documentMetadata ? (
+            <div className="h-full flex items-center justify-center p-6">
+              <div className="bg-surface border-2 border-dashed border-border rounded-3xl p-10 max-w-lg w-full text-center hover:border-primary/40 transition-colors shadow-sm">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <UploadCloud className="w-8 h-8 text-primary" />
+                </div>
+                <h2 className="text-2xl font-semibold text-text-primary mb-2">Upload Document</h2>
+                <p className="text-text-secondary text-sm mb-8">
+                  Upload any legal document (PDF or DOCX up to 10MB) to extract insights, summarize clauses, and ask questions.
+                </p>
+                
+                <input 
+                  type="file" 
+                  ref={fileInputRef} 
+                  onChange={handleFileChange} 
+                  accept=".pdf,.docx" 
+                  className="hidden" 
+                />
+                
+                <div className="flex flex-col sm:flex-row justify-center gap-4 mb-4">
+                  <button 
+                    onClick={() => fileInputRef.current?.click()}
+                    disabled={uploading}
+                    className="px-6 py-2.5 bg-surface border border-border text-text-primary rounded-button hover:bg-secondary font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  >
+                    Select File
+                  </button>
+                  
+                  {file && (
+                    <button 
+                      onClick={handleUpload}
+                      disabled={uploading}
+                      className="px-6 py-2.5 bg-primary text-white rounded-button hover:bg-primary-hover font-medium transition-colors disabled:opacity-70 flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                    >
+                      {uploading ? (
+                        <>
+                          <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                          Uploading...
+                        </>
+                      ) : (
+                        "Upload & Parse"
+                      )}
+                    </button>
+                  )}
+                </div>
+
+                {file && !uploading && (
+                  <p className="text-sm font-medium text-primary bg-primary/10 inline-block px-3 py-1 rounded-full">
+                    Selected: {file.name} ({(file.size / 1024 / 1024).toFixed(2)} MB)
+                  </p>
+                )}
+                
+                {uploadError && (
+                  <p className="text-error text-sm mt-4 bg-error-bg py-2 px-3 rounded-lg inline-block border border-error/50">
+                    {uploadError}
+                  </p>
                 )}
               </div>
             </div>
-          </div>
-
-          {/* Main Content Area */}
-          <div className="flex-1 flex flex-col">
-            <div className="text-left space-y-4 mb-6">
-              <h1 className="text-4xl md:text-5xl font-semibold text-[#111111] tracking-tight">
-                Upload & Chat
-              </h1>
-              <p className="text-[#6B6B6B] text-lg max-w-xl">
-                Upload any legal document (PDF or DOCX) and ask questions to understand its contents instantly.
-              </p>
+          ) : (
+            <div className="pb-32">
+              {messages.map((msg, idx) => (
+                <MessageBubble 
+                  key={idx} 
+                  message={msg} 
+                  renderContent={msg.role === 'assistant' ? (content) => <UploadChatRenderer content={content} /> : null}
+                />
+              ))}
+              
+              {isGenerating && (
+                <MessageBubble 
+                  message={{ role: 'assistant', content: 'Thinking...' }} 
+                  renderContent={() => (
+                    <div className="flex items-center gap-2 text-primary font-medium">
+                      <span className="w-2 h-2 rounded-full bg-primary animate-bounce" style={{ animationDelay: '0ms' }} />
+                      <span className="w-2 h-2 rounded-full bg-primary animate-bounce" style={{ animationDelay: '150ms' }} />
+                      <span className="w-2 h-2 rounded-full bg-primary animate-bounce" style={{ animationDelay: '300ms' }} />
+                    </div>
+                  )}
+                />
+              )}
+              <div ref={messagesEndRef} />
             </div>
-
-            {!documentMetadata ? (
-              <Card className="p-8 text-center border-2 border-dashed border-[#E7E7E4] hover:border-[#111111] transition-colors">
-                <div className="flex flex-col items-center gap-4">
-                  <span className="material-symbols-outlined text-4xl text-[#6B6B6B]">upload_file</span>
-                  <h3 className="text-xl font-medium text-[#111111]">Upload your document</h3>
-                  <p className="text-[#6B6B6B] text-sm">Supports PDF and DOCX up to 10MB (max 300 pages).</p>
-                  
-                  <input 
-                    type="file" 
-                    ref={fileInputRef} 
-                    onChange={handleFileChange} 
-                    accept=".pdf,.docx" 
-                    className="hidden" 
-                  />
-                  
-                  <div className="flex gap-4 mt-4">
-                    <Button 
-                      variant="outline" 
-                      onClick={() => fileInputRef.current?.click()}
-                      disabled={uploading}
-                    >
-                      Select File
-                    </Button>
-                    
-                    {file && (
-                      <Button 
-                        variant="primary" 
-                        onClick={handleUpload}
-                        disabled={uploading}
-                      >
-                        {uploading ? (
-                          <div className="flex items-center gap-2">
-                            <LoadingSpinner size="sm" color="white" />
-                            <span>Uploading...</span>
-                          </div>
-                        ) : (
-                          "Upload & Parse"
-                        )}
-                      </Button>
-                    )}
-                  </div>
-                  
-                  {file && !uploading && (
-                    <p className="text-[#111111] font-medium mt-2">{file.name} ({(file.size / 1024 / 1024).toFixed(2)} MB)</p>
-                  )}
-                  
-                  {uploadError && (
-                    <p className="text-red-500 text-sm font-medium mt-2">{uploadError}</p>
-                  )}
-                </div>
-              </Card>
-            ) : (
-              <div className="flex-1 flex flex-col lg:flex-row gap-6">
-                
-                {/* Document Metadata Column */}
-                <div className="w-full lg:w-1/3 shrink-0 h-full overflow-y-auto custom-scrollbar pr-2">
-                  <Card className="!bg-white">
-                    <div className="space-y-4">
-                      <div className="flex items-center gap-2 text-[#111111]">
-                        <span className="material-symbols-outlined text-2xl">description</span>
-                        <h3 className="font-semibold truncate">{documentMetadata.filename}</h3>
-                      </div>
-                      <div className="flex justify-between text-sm text-[#6B6B6B]">
-                        <span>Pages</span>
-                        <span className="font-medium text-[#111111]">{documentMetadata.pages}</span>
-                      </div>
-                      <div className="h-px w-full bg-[#E7E7E4]"></div>
-                      <div>
-                        <h4 className="text-sm font-semibold text-[#111111] mb-2 flex items-center gap-1">
-                          <span className="material-symbols-outlined text-[16px]">psychiatry</span>
-                          AI Summary
-                        </h4>
-                        <p className="text-sm text-[#6B6B6B] leading-relaxed">
-                          {documentMetadata.summary}
-                        </p>
-                      </div>
-                    </div>
-                  </Card>
-                </div>
-
-                {/* Chat Column */}
-                <div className="flex-1 flex flex-col gap-6 overflow-hidden h-full">
-                  {loadingHistory ? (
-                    <div className="flex justify-center items-center py-12">
-                      <LoadingSpinner size="lg" color="black" />
-                    </div>
-                  ) : history.length > 0 ? (
-                    <div className="space-y-6 flex-1 overflow-y-auto pr-2 pb-4">
-                      {history.map((item, index) => (
-                        <div key={index} className="space-y-4">
-                          {/* User Question */}
-                          <div className="flex justify-end">
-                            <div className="bg-[#111111] text-white px-6 py-4 rounded-2xl rounded-tr-sm max-w-[85%] shadow-sm">
-                              <p className="text-sm md:text-base">{item.question}</p>
-                            </div>
-                          </div>
-                          
-                          {/* AI Response */}
-                          <div className="flex justify-start">
-                            <Card className="max-w-[95%] !rounded-tl-sm !bg-white">
-                              <div className="space-y-4">
-
-                                
-                                <div>
-                                  <h4 className="font-semibold text-[#111111] mb-1">Answer</h4>
-                                  <div className="prose prose-sm text-[#6B6B6B] leading-relaxed max-w-none">
-                                    <ReactMarkdown>{item.answer}</ReactMarkdown>
-                                  </div>
-                                </div>
-
-                                <div className="h-px w-full bg-[#E7E7E4]"></div>
-                                
-                                <div className="bg-[#F7F7F5] p-4 rounded-xl border border-[#E7E7E4]">
-                                  <div className="prose prose-sm text-[#111111] font-medium leading-relaxed max-w-none prose-ul:mt-0 prose-ul:mb-0">
-                                    <strong>Summary:</strong> <ReactMarkdown>{item.summary}</ReactMarkdown>
-                                  </div>
-                                </div>
-                              </div>
-                            </Card>
-                          </div>
-                        </div>
-                      ))}
-                      <div ref={messagesEndRef} />
-                    </div>
-                  ) : (
-                    <div className="flex-1"></div>
-                  )}
-
-                  {/* Chat Input */}
-                  <div className="mt-auto shrink-0 pb-2">
-                    <Card className="!p-4 shadow-sm border border-[#E7E7E4] focus-within:border-[#111111] transition-colors">
-                      <form onSubmit={handleAsk} className="flex flex-col gap-4">
-                        <textarea
-                          value={question}
-                          onChange={(e) => setQuestion(e.target.value)}
-                          onKeyDown={(e) => {
-                            if (e.key === 'Enter' && !e.shiftKey) {
-                              e.preventDefault();
-                              handleAsk(e);
-                            }
-                          }}
-                          placeholder="Ask a question about the document..."
-                          className="w-full bg-transparent border-none focus:ring-0 resize-none min-h-[60px] p-2 text-[#111111] placeholder:text-[#6B6B6B]/60 font-medium"
-                          disabled={loadingChat}
-                        />
-                        
-                        {chatError && (
-                          <p className="text-red-500 text-sm font-medium px-2">{chatError}</p>
-                        )}
-
-                        <div className="flex items-center justify-end border-t border-[#E7E7E4] pt-4 mt-2">
-                          <Button 
-                            type="submit" 
-                            variant="primary" 
-                            disabled={loadingChat || !question.trim()}
-                            className="min-w-[120px] rounded-full"
-                          >
-                            {loadingChat ? (
-                              <div className="flex items-center gap-2">
-                                <LoadingSpinner size="sm" color="white" />
-                                <span>Thinking...</span>
-                              </div>
-                            ) : (
-                              <div className="flex items-center gap-2">
-                                <span>Ask Document</span>
-                                <span className="material-symbols-outlined text-sm">send</span>
-                              </div>
-                            )}
-                          </Button>
-                        </div>
-                      </form>
-                    </Card>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-          
+          )}
         </div>
-      </PageContainer>
-      
-      <ConfirmationModal
-        isOpen={isDeleteModalOpen}
-        title="Delete Conversation?"
-        body="This action cannot be undone."
-        confirmText="Delete"
-        isDestructive={true}
-        loading={isDeleting}
-        onConfirm={handleDeleteConversation}
-        onCancel={() => {
-          setIsDeleteModalOpen(false);
-          setConversationToDelete(null);
-        }}
-      />
-      
-      <Toast 
-        isOpen={isToastOpen} 
-        message={toastMessage} 
-        onClose={() => setIsToastOpen(false)} 
-      />
-    </div>
+
+        {/* Input Area (Only visible when document is uploaded) */}
+        {documentMetadata && (
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background via-background to-transparent pt-10 pb-6 px-4 md:px-8 z-10 pointer-events-none">
+            <div className="max-w-4xl mx-auto w-full pointer-events-auto">
+              {chatError && (
+                <div className="mb-4 p-3 bg-error-bg border border-error/50 rounded-lg flex items-center gap-2 text-error text-sm shadow-sm">
+                  <AlertCircle className="w-4 h-4" />
+                  {chatError}
+                </div>
+              )}
+              <ChatInput 
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                onSubmit={handleSendMessage}
+                isLoading={isGenerating}
+                placeholder="Ask a question about this document..."
+              />
+            </div>
+          </div>
+        )}
+      </div>
+    </ConversationLayout>
+  );
+};
+
+const UploadChat = () => {
+  return (
+    <WorkspaceContainer>
+      <UploadChatArea />
+    </WorkspaceContainer>
   );
 };
 

@@ -3,8 +3,8 @@ import React from 'react';
 export default function Card({ children, className = '', hoverEffect = true, ...props }) {
   return (
     <div
-      className={`bg-[#FCFCFB] rounded-2xl border border-[#E7E7E4] p-6 relative overflow-hidden flex flex-col justify-between ${
-        hoverEffect ? 'group hover:shadow-sm hover:border-zinc-300 transition-all duration-300' : ''
+      className={`bg-surface rounded-card border border-border p-6 relative flex flex-col justify-between shadow-card ${
+        hoverEffect ? 'group hover:shadow-dropdown hover:border-border-hover transition-all duration-300' : ''
       } ${className}`}
       {...props}
     >

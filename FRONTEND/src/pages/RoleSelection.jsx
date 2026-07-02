@@ -74,15 +74,15 @@ export default function RoleSelection() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#F7F7F5] flex flex-col items-center justify-center p-6">
+      <div className="min-h-screen bg-background flex flex-col items-center justify-center p-6">
         <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-zinc-900"></div>
-        <p className="mt-4 text-[#6B6B6B]">Loading secure credentials...</p>
+        <p className="mt-4 text-text-secondary">Loading secure credentials...</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#F7F7F5] flex flex-col items-center justify-center p-6 text-[#111111] antialiased">
+    <div className="min-h-screen bg-background flex flex-col items-center justify-center p-6 text-primary antialiased">
       <div className="max-w-4xl w-full flex flex-col gap-10">
         {/* Header */}
         <div className="text-center flex flex-col items-center gap-2">
@@ -90,7 +90,7 @@ export default function RoleSelection() {
             Account Provisioning
           </span>
           <h1 className="text-3xl font-semibold tracking-tighter mt-2">Choose Your Legal Canvas</h1>
-          <p className="text-sm text-[#6B6B6B] max-w-md">
+          <p className="text-sm text-text-secondary max-w-md">
             Select a role below to configure your workspaces, templates, and models. This setting can be adjusted later in your Profile.
           </p>
         </div>
@@ -105,8 +105,8 @@ export default function RoleSelection() {
                 onClick={() => handleRoleSelect(role.id)}
                 className={`cursor-pointer h-[320px] justify-between p-8 text-left transition-all duration-300 relative border ${
                   isSelected 
-                    ? 'border-[#111111] ring-1 ring-[#111111] bg-white scale-[1.02]' 
-                    : 'border-[#E7E7E4] bg-[#FCFCFB] hover:border-zinc-300'
+                    ? 'border-primary ring-1 ring-primary bg-surface scale-[1.02]' 
+                    : 'border-border bg-background hover:border-zinc-300'
                 }`}
                 hoverEffect={!isSelected}
               >
@@ -114,7 +114,7 @@ export default function RoleSelection() {
                 
                 {/* Icon & Checked Indicator */}
                 <div className="flex justify-between items-start z-10">
-                  <span className="material-symbols-outlined text-[32px] text-[#111111]">
+                  <span className="material-symbols-outlined text-[32px] text-primary">
                     {role.icon}
                   </span>
                   {isSelected && (
@@ -126,10 +126,10 @@ export default function RoleSelection() {
 
                 {/* Details */}
                 <div className="z-10 mt-auto">
-                  <h3 className="text-lg font-bold tracking-tight text-[#111111] mb-2">
+                  <h3 className="text-lg font-bold tracking-tight text-primary mb-2">
                     {role.name}
                   </h3>
-                  <p className="text-xs text-[#6B6B6B] leading-relaxed">
+                  <p className="text-xs text-text-secondary leading-relaxed">
                     {role.description}
                   </p>
                 </div>

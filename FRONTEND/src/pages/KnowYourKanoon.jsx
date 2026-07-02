@@ -1,445 +1,184 @@
-import React, { useState, useEffect, useRef } from 'react';
-import Navbar from '../components/common/Navbar';
-import PageContainer from '../components/common/PageContainer';
-import Card from '../components/common/Card';
-import Button from '../components/common/Button';
-import LoadingSpinner from '../components/common/LoadingSpinner';
-import { useAuth } from '../contexts/AuthContext';
+import React, { useState, useRef, useEffect } from 'react';
+import { BookOpen, AlertCircle } from 'lucide-react';
+import WorkspaceContainer from '../components/common/WorkspaceContainer';
+import ConversationLayout from '../components/chat/ConversationLayout';
+import ChatInput from '../components/chat/ChatInput';
+import MessageBubble from '../components/chat/MessageBubble';
+import KanoonRenderer from '../components/kanoon/KanoonRenderer';
 import { askKanoon } from '../services/kanoonService';
-import { getConversations, getMessages, deleteConversation } from '../services/chatService';
-import { Link } from 'react-router-dom';
-import ReactMarkdown from 'react-markdown';
-import ConfirmationModal from '../components/common/ConfirmationModal';
-import Toast from '../components/common/Toast';
+import { useAuth } from '../contexts/AuthContext';
 
-const EXAMPLE_QUESTIONS = [
-  "Can my landlord evict me without notice?",
-  "What are my rights during police questioning?",
-  "What is anticipatory bail?",
-  "What are fundamental rights?",
-];
-
-const KnowYourKanoon = () => {
+const KanoonChatArea = ({ refreshConversations }) => {
   const { currentUser } = useAuth();
-  const [question, setQuestion] = useState("");
-  const [history, setHistory] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-
-  const [conversations, setConversations] = useState([]);
-  const [activeConversationId, setActiveConversationId] = useState(
-    localStorage.getItem('nyaay_active_kanoon_conversation') || null
-  );
-  const [loadingHistory, setLoadingHistory] = useState(false);
+  const [activeConversationId, setActiveConversationId] = useState(null);
+  const [messages, setMessages] = useState([]);
+  const [inputValue, setInputValue] = useState('');
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [error, setError] = useState(null);
   
-  const [conversationToDelete, setConversationToDelete] = useState(null);
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [toastMessage, setToastMessage] = useState("");
-  const [isToastOpen, setIsToastOpen] = useState(false);
-
-  useEffect(() => {
-    if (currentUser) {
-      loadConversations();
-    }
-  }, [currentUser]);
-
   const messagesEndRef = useRef(null);
 
-  useEffect(() => {
+  const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [history]);
-
-  useEffect(() => {
-    if (activeConversationId && currentUser) {
-      loadMessages(activeConversationId);
-      localStorage.setItem('nyaay_active_kanoon_conversation', activeConversationId);
-    } else {
-      localStorage.removeItem('nyaay_active_kanoon_conversation');
-    }
-  }, [activeConversationId, currentUser]);
-
-  const loadConversations = async () => {
-    try {
-      const token = await currentUser.getIdToken();
-      const data = await getConversations(token);
-      // Filter for know_kanoon only
-      const kanoonChats = data.conversations.filter(c => c.feature_type === 'know_kanoon');
-      setConversations(kanoonChats);
-    } catch (err) {
-      console.error("Failed to load conversations", err);
-    }
   };
 
-  const loadMessages = async (conversationId) => {
-    setLoadingHistory(true);
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages, isGenerating]);
+
+  const handleSendMessage = async () => {
+    if (!inputValue.trim() || isGenerating) return;
+    
+    const userMessage = { role: 'user', content: inputValue.trim() };
+    setMessages(prev => [...prev, userMessage]);
+    setInputValue('');
+    setIsGenerating(true);
+    setError(null);
+    
     try {
       const token = await currentUser.getIdToken();
-      const data = await getMessages(token, conversationId);
+      const response = await askKanoon(token, userMessage.content, activeConversationId);
       
-      const reconstructedHistory = [];
-      let currentQuestion = "";
+      setMessages(prev => [...prev, {
+        role: 'assistant',
+        content: JSON.stringify(response) // Store as JSON string for renderer
+      }]);
       
-      data.messages.forEach(msg => {
-        if (msg.role === 'user') {
-          currentQuestion = msg.content;
-        } else if (msg.role === 'assistant') {
-          try {
-            const parsed = JSON.parse(msg.content);
-            reconstructedHistory.push({
-              question: currentQuestion,
-              ...parsed
-            });
-            currentQuestion = "";
-          } catch(e) {
-            console.error("Failed to parse message content", e);
-          }
-        }
-      });
+      // If it's a new conversation, update the active ID and refresh sidebar
+      if (!activeConversationId && response.conversation_id) {
+        setActiveConversationId(response.conversation_id);
+        if (refreshConversations) refreshConversations();
+      }
       
-      setHistory(reconstructedHistory);
     } catch (err) {
-      console.error("Failed to load messages", err);
-      setError("Failed to load chat history.");
+      setError(err.message || 'Failed to get an answer. Please try again.');
     } finally {
-      setLoadingHistory(false);
+      setIsGenerating(false);
     }
   };
 
   const handleNewChat = () => {
     setActiveConversationId(null);
-    setHistory([]);
-    setError("");
-    setQuestion("");
+    setMessages([]);
+    setInputValue('');
+    setError(null);
   };
 
-  const handleDeleteConversation = async () => {
-    if (!conversationToDelete) return;
-    setIsDeleting(true);
-    try {
-      const token = await currentUser.getIdToken();
-      await deleteConversation(token, conversationToDelete);
-      
-      setConversations(prev => prev.filter(c => c.id !== conversationToDelete));
-      
-      if (activeConversationId === conversationToDelete) {
-        handleNewChat();
-      }
-      
-      setToastMessage("Conversation deleted successfully");
-      setIsToastOpen(true);
-    } catch (err) {
-      console.error("Failed to delete conversation", err);
-    } finally {
-      setIsDeleting(false);
-      setIsDeleteModalOpen(false);
-      setConversationToDelete(null);
-    }
+  const handleSelectConversation = (conv) => {
+    setActiveConversationId(conv.id);
   };
 
-  const handleAsk = async (e) => {
-    e?.preventDefault();
-    if (!question.trim()) {
-      setError("Please enter a legal question.");
-      return;
-    }
-    if (question.length < 5) {
-      setError("Your question is too short. Please provide more details.");
-      return;
-    }
-    if (question.length > 10000) {
-      setError("Your question is too long. Please keep it under 10000 characters.");
-      return;
-    }
-
-    setError("");
-    setLoading(true);
-    
-    const currentQuestion = question.trim();
-    setQuestion("");
-
-    try {
-      const token = await currentUser.getIdToken();
-      const data = await askKanoon(token, currentQuestion, activeConversationId);
-      
-      if (!activeConversationId) {
-        setActiveConversationId(data.conversation_id);
-        // Refresh conversations list to show the new one
-        loadConversations();
-      }
-
-      setHistory((prev) => [
-        ...prev,
-        {
-          question: currentQuestion,
-          ...data,
-        }
-      ]);
-    } catch (err) {
-      setError(err.message || "Failed to get an answer. Please try again.");
-      setQuestion(currentQuestion);
-    } finally {
-      setLoading(false);
-    }
+  const handleMessagesLoaded = (loadedMessages) => {
+    // Backend returns { role, content }, content is JSON string for assistant
+    setMessages(loadedMessages);
   };
+
+  const EXAMPLE_QUESTIONS = [
+    "Can my landlord evict me without notice?",
+    "What are my rights during police questioning?",
+    "What is anticipatory bail?",
+  ];
 
   return (
-    <div className="min-h-screen bg-[#F7F7F5] font-sans flex flex-col overflow-hidden">
-      <Navbar />
-      <PageContainer className="flex-1 max-w-7xl w-full mx-auto pb-8 h-[calc(100vh-100px)]">
-        <div className="flex flex-col md:flex-row gap-6 h-full overflow-hidden">
-          
-          {/* Sidebar */}
-          <div className="w-full md:w-72 shrink-0 flex flex-col gap-4">
-            <Link to="/dashboard" className="flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-[#6B6B6B] hover:text-[#111111] transition-colors">
-              <span className="material-symbols-outlined text-[16px]">arrow_back</span>
-              Dashboard
-            </Link>
-            
-            <div className="bg-white rounded-2xl border border-[#E7E7E4] flex flex-col h-full overflow-hidden shadow-sm">
-              <div className="p-4 border-b border-[#E7E7E4]">
-                <Button 
-                  onClick={handleNewChat} 
-                  variant="primary" 
-                  className="w-full justify-center gap-2 rounded-xl"
-                >
-                  <span className="material-symbols-outlined text-sm">add</span>
-                  New Chat
-                </Button>
-              </div>
-              
-              <div className="flex-1 overflow-y-auto p-2">
-                <h3 className="text-xs font-bold text-[#6B6B6B] uppercase tracking-wider px-3 mb-2 mt-2">Chat History</h3>
-                {conversations.length === 0 ? (
-                  <p className="text-sm text-[#6B6B6B] px-3 py-2">No previous conversations.</p>
-                ) : (
-                  <div className="space-y-1">
-                    {conversations.map(conv => (
-                      <div key={conv.id} className="group relative flex items-center">
-                        <button
-                          onClick={() => setActiveConversationId(conv.id)}
-                          className={`w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-colors truncate pr-10 ${
-                            activeConversationId === conv.id 
-                              ? 'bg-[#111111] text-white' 
-                              : 'text-[#111111] hover:bg-[#F3F2EF]'
-                          }`}
-                        >
-                          {conv.title}
-                        </button>
-                        <button
-                          onClick={() => {
-                            setConversationToDelete(conv.id);
-                            setIsDeleteModalOpen(true);
-                          }}
-                          className={`absolute right-2 p-1 rounded-md transition-opacity opacity-0 group-hover:opacity-100 ${
-                            activeConversationId === conv.id 
-                              ? 'text-white/80 hover:text-white hover:bg-white/20' 
-                              : 'text-[#6B6B6B] hover:text-red-500 hover:bg-[#E7E7E4]'
-                          }`}
-                          title="Delete conversation"
-                        >
-                          <span className="material-symbols-outlined text-[18px]">delete</span>
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
+    <ConversationLayout
+      featureType="know_kanoon"
+      activeConversationId={activeConversationId}
+      onNewChat={handleNewChat}
+      onSelectConversation={handleSelectConversation}
+      onMessagesLoaded={handleMessagesLoaded}
+    >
+      <div className="flex flex-col h-full bg-surface relative">
+        {/* Header */}
+        <header className="h-16 flex items-center px-6 border-b border-border bg-surface/80 backdrop-blur-sm z-10 shrink-0">
+          <div className="flex items-center gap-3 md:ml-12">
+            <div className="p-1.5 bg-primary/10 rounded-button border border-primary/20">
+              <BookOpen className="w-5 h-5 text-primary" />
+            </div>
+            <div>
+              <h1 className="text-lg font-semibold text-text-primary tracking-tight leading-tight">Know Your Kanoon</h1>
+              <p className="text-xs text-text-secondary">Your AI-powered Indian legal assistant</p>
             </div>
           </div>
+        </header>
 
-          {/* Main Chat Area */}
-          <div className="flex-1 flex flex-col overflow-hidden h-full">
-            <div className="text-left space-y-4 mb-6 shrink-0">
-              <h1 className="text-4xl md:text-5xl font-semibold text-[#111111] tracking-tight">
-                Know Your Kanoon
-              </h1>
-              <p className="text-[#6B6B6B] text-lg max-w-xl">
-                Your AI-powered legal assistant. Ask any question about Indian law and get clear, simple answers.
+        {/* Chat Area */}
+        <div className="flex-1 overflow-y-auto bg-background relative scroll-smooth scrollbar-thin scrollbar-thumb-border">
+          {messages.length === 0 ? (
+            <div className="h-full flex flex-col items-center justify-center text-center max-w-md mx-auto p-6">
+              <div className="w-16 h-16 bg-surface rounded-2xl shadow-sm border border-border flex items-center justify-center mb-6">
+                <BookOpen className="w-8 h-8 text-primary" />
+              </div>
+              <h2 className="text-xl font-semibold text-text-primary mb-2">Ask Any Legal Question</h2>
+              <p className="text-text-secondary text-sm mb-8">
+                Get clear, simple answers about Indian law, fundamental rights, legal procedures, and civil matters.
               </p>
-            </div>
-
-            <div className="flex-1 flex flex-col bg-white rounded-3xl p-4 md:p-8 shadow-sm border border-[#E7E7E4] overflow-hidden">
-              
-              {/* Chat History */}
-              {loadingHistory ? (
-                <div className="flex justify-center items-center py-12">
-                  <LoadingSpinner size="lg" color="black" />
-                </div>
-              ) : history.length > 0 ? (
-                <div className="space-y-6 flex-1 overflow-y-auto pr-2 pb-4">
-                  {history.map((item, index) => (
-                    <div key={index} className="space-y-4">
-                      {/* User Question */}
-                      <div className="flex justify-end">
-                        <div className="bg-[#111111] text-white px-6 py-4 rounded-2xl rounded-tr-sm max-w-[85%] shadow-sm">
-                          <p className="text-sm md:text-base">{item.question}</p>
-                        </div>
-                      </div>
-                      
-                      {/* AI Response */}
-                      <div className="flex justify-start">
-                        <Card className="max-w-[95%] !rounded-tl-sm !bg-[#F7F7F5]">
-                          <div className="space-y-4">
-                            
-                            <div className="flex flex-wrap items-center gap-2">
-                              {item.legal_domain && (
-                                <span className="bg-white text-[#111111] text-xs font-medium px-3 py-1 rounded-full border border-[#E7E7E4]">
-                                  {item.legal_domain}
-                                </span>
-                              )}
-                            </div>
-                            
-                            <div>
-                              <h4 className="font-semibold text-[#111111] mb-1">Summary</h4>
-                              <div className="prose prose-sm text-[#111111] font-medium leading-relaxed max-w-none prose-ul:mt-0 prose-ul:mb-0">
-                                <ReactMarkdown>{item.summary}</ReactMarkdown>
-                              </div>
-                            </div>
-                            
-                            <div className="h-px w-full bg-[#E7E7E4]"></div>
-                            
-                            <div>
-                              <h4 className="font-semibold text-[#111111] mb-2">Detailed Answer</h4>
-                              <div className="prose prose-sm text-[#6B6B6B] leading-relaxed max-w-none">
-                                <ReactMarkdown>{item.answer}</ReactMarkdown>
-                              </div>
-                            </div>
-                            
-                            {item.key_clauses && item.key_clauses.length > 0 && (
-                              <>
-                                <div className="h-px w-full bg-[#E7E7E4]"></div>
-                                <div>
-                                  <h4 className="font-semibold text-[#111111] mb-2 text-sm flex items-center gap-1">
-                                    <span className="material-symbols-outlined text-[16px]">gavel</span>
-                                    Key Provisions
-                                  </h4>
-                                  <ul className="list-disc pl-5 space-y-1">
-                                    {item.key_clauses.map((clause, i) => (
-                                      <li key={i} className="text-sm text-[#6B6B6B]">{clause}</li>
-                                    ))}
-                                  </ul>
-                                </div>
-                              </>
-                            )}
-                            
-                            {item.similar_cases && (
-                              <>
-                                <div className="h-px w-full bg-[#E7E7E4]"></div>
-                                <div>
-                                  <div className="prose prose-sm text-[#6B6B6B] leading-relaxed max-w-none">
-                                    <ReactMarkdown>{item.similar_cases}</ReactMarkdown>
-                                  </div>
-                                </div>
-                              </>
-                            )}
-                            
-                            <div className="mt-4 bg-[#F7F7F5] p-4 rounded-xl border border-[#E7E7E4]">
-                              <div className="flex gap-2">
-                                <span className="material-symbols-outlined text-[#6B6B6B] text-lg">info</span>
-                                <p className="text-xs text-[#6B6B6B] leading-relaxed">
-                                  <strong>Disclaimer:</strong> {item.disclaimer}
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </Card>
-                      </div>
-                    </div>
-                  ))}
-                  <div ref={messagesEndRef} />
-                </div>
-              ) : (
-                <div className="flex-1"></div>
-              )}
-
-              {/* Input Section */}
-              <div className="mt-auto shrink-0 pb-2 pt-2">
-                <Card className="!p-4 shadow-sm border border-[#E7E7E4] focus-within:border-[#111111] transition-colors">
-                  <form onSubmit={handleAsk} className="flex flex-col gap-4">
-                    <textarea
-                      value={question}
-                      onChange={(e) => setQuestion(e.target.value)}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter' && !e.shiftKey) {
-                          e.preventDefault();
-                          handleAsk(e);
-                        }
-                      }}
-                      placeholder="E.g., Can my landlord evict me without notice?"
-                      className="w-full bg-transparent border-none focus:ring-0 resize-none min-h-[80px] p-2 text-[#111111] placeholder:text-[#6B6B6B]/60 font-medium"
-                      disabled={loading}
-                    />
-                    
-                    {error && (
-                      <p className="text-red-500 text-sm font-medium px-2">{error}</p>
-                    )}
-
-                    <div className="flex items-center justify-between border-t border-[#E7E7E4] pt-4 mt-2">
-                      <div className="flex-1 flex flex-wrap gap-2 pr-4">
-                        {history.length === 0 && EXAMPLE_QUESTIONS.map((example, i) => (
-                          <button
-                            key={i}
-                            type="button"
-                            onClick={() => {
-                              setQuestion(example);
-                              setError("");
-                            }}
-                            className="text-xs bg-[#F3F2EF] hover:bg-[#E7E7E4] text-[#6B6B6B] hover:text-[#111111] px-3 py-1.5 rounded-full transition-colors truncate max-w-[200px]"
-                            disabled={loading}
-                          >
-                            {example}
-                          </button>
-                        ))}
-                      </div>
-                      
-                      <Button 
-                        type="submit" 
-                        variant="primary" 
-                        disabled={loading || !question.trim()}
-                        className="min-w-[120px] rounded-full"
-                      >
-                        {loading ? (
-                          <div className="flex items-center gap-2">
-                            <LoadingSpinner size="sm" color="white" />
-                            <span>Asking...</span>
-                          </div>
-                        ) : (
-                          <div className="flex items-center gap-2">
-                            <span>Ask AI</span>
-                            <span className="material-symbols-outlined text-sm">send</span>
-                          </div>
-                        )}
-                      </Button>
-                    </div>
-                  </form>
-                </Card>
+              <div className="flex flex-col gap-2 w-full max-w-sm">
+                {EXAMPLE_QUESTIONS.map((q, idx) => (
+                  <button 
+                    key={idx}
+                    onClick={() => setInputValue(q)} 
+                    className="text-sm bg-surface hover:bg-secondary border border-border px-4 py-3 rounded-xl text-text-primary text-left transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  >
+                    {q}
+                  </button>
+                ))}
               </div>
             </div>
+          ) : (
+            <div className="pb-32">
+              {messages.map((msg, idx) => (
+                <MessageBubble 
+                  key={idx} 
+                  message={msg} 
+                  renderContent={msg.role === 'assistant' ? (content) => <KanoonRenderer content={content} /> : null}
+                />
+              ))}
+              
+              {isGenerating && (
+                <MessageBubble 
+                  message={{ role: 'assistant', content: 'Thinking...' }} 
+                  renderContent={() => (
+                    <div className="flex items-center gap-2 text-primary font-medium">
+                      <span className="w-2 h-2 rounded-full bg-primary animate-bounce" style={{ animationDelay: '0ms' }} />
+                      <span className="w-2 h-2 rounded-full bg-primary animate-bounce" style={{ animationDelay: '150ms' }} />
+                      <span className="w-2 h-2 rounded-full bg-primary animate-bounce" style={{ animationDelay: '300ms' }} />
+                    </div>
+                  )}
+                />
+              )}
+              <div ref={messagesEndRef} />
+            </div>
+          )}
+        </div>
+
+        {/* Input Area */}
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background via-background to-transparent pt-10 pb-6 px-4 md:px-8 z-10 pointer-events-none">
+          <div className="max-w-4xl mx-auto w-full pointer-events-auto">
+            {error && (
+              <div className="mb-4 p-3 bg-error-bg border border-error/50 rounded-lg flex items-center gap-2 text-error text-sm shadow-sm">
+                <AlertCircle className="w-4 h-4" />
+                {error}
+              </div>
+            )}
+            <ChatInput 
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              onSubmit={handleSendMessage}
+              isLoading={isGenerating}
+              placeholder="E.g., Can my landlord evict me without notice?"
+            />
           </div>
         </div>
-      </PageContainer>
-      
-      <ConfirmationModal
-        isOpen={isDeleteModalOpen}
-        title="Delete Conversation?"
-        body="This action cannot be undone."
-        confirmText="Delete"
-        isDestructive={true}
-        loading={isDeleting}
-        onConfirm={handleDeleteConversation}
-        onCancel={() => {
-          setIsDeleteModalOpen(false);
-          setConversationToDelete(null);
-        }}
-      />
-      
-      <Toast 
-        isOpen={isToastOpen} 
-        message={toastMessage} 
-        onClose={() => setIsToastOpen(false)} 
-      />
-    </div>
+      </div>
+    </ConversationLayout>
+  );
+};
+
+const KnowYourKanoon = () => {
+  return (
+    <WorkspaceContainer>
+      <KanoonChatArea />
+    </WorkspaceContainer>
   );
 };
 

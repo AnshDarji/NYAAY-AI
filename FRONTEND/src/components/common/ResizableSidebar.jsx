@@ -59,7 +59,7 @@ const ResizableSidebar = ({ children, minWidth = 200, maxWidth = 600, defaultWid
             setIsResizing(true);
           }}
         >
-          <div className={`w-1 h-full rounded-full transition-colors duration-200 ${isResizing ? 'bg-[#111111]' : 'bg-[#E7E7E4] group-hover:bg-[#111111]/30'}`} />
+          <div className={`w-1 h-full rounded-full transition-colors duration-200 ${isResizing ? 'bg-primary' : 'bg-border group-hover:bg-primary/30'}`} />
         </div>
       )}
     </div>

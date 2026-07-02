@@ -14,8 +14,9 @@ class UploadChatService:
         api_key = settings.GEMINI_API_KEY or "DUMMY_KEY_FOR_TESTING"
         self.client = genai.Client(api_key=api_key)
 
-    def query(self, request: ChatQueryRequest, db: Session, user_uid: str) -> ChatQueryResponse:
+    def query(self, request: ChatQueryRequest, db: Session, user_uid: str, background_tasks) -> ChatQueryResponse:
         from app.ai.orchestrator import rag_orchestrator
+        from app.services.title_service import generate_conversation_title_async
         import json
         
         # 1. Verify Document Access
@@ -33,7 +34,7 @@ class UploadChatService:
             ).first()
                         
         if not conversation:
-            title = request.question[:60]
+            title = "New Conversation"
             conversation = Conversation(
                 user_id=user_uid,
                 title=title,
@@ -43,6 +44,8 @@ class UploadChatService:
             db.add(conversation)
             db.commit()
             db.refresh(conversation)
+            
+            background_tasks.add_task(generate_conversation_title_async, conversation.id, request.question)
 
         # Save User Message
         user_msg = Message(
@@ -53,6 +56,11 @@ class UploadChatService:
         db.add(user_msg)
         db.commit()
 
+        # Load real history from DB instead of empty array
+        past_messages = db.query(Message).filter(Message.conversation_id == conversation.id).order_by(Message.created_at.asc()).all()
+        # the history parameter is expecting list of dicts. We skip the very last message which is the current user_msg.
+        formatted_history = [{"role": m.role.value, "content": m.content} for m in past_messages[:-1]]
+
         # 3. Prompt RAG Orchestrator
         filters = {
             "$and": [
@@ -61,11 +69,10 @@ class UploadChatService:
             ]
         }
         
-        # Note: We can pass history if we want, but for now we'll keep it simple
         response_data = rag_orchestrator.trigger_pipeline(
             question=request.question,
             filters=filters,
-            history=[]
+            history=formatted_history
         )
         
         # Merge summary logic for backwards compatibility with the UI

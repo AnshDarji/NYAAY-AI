@@ -30,7 +30,8 @@ class RAGOrchestrator:
         history_text = "Conversation History:\n"
         # We take only last 2-3 turns to save tokens
         for msg in history[-4:]:
-            history_text += f"{msg['role']}: {msg['parts'][0]['text']}\n"
+            text_content = msg.get('content') or (msg.get('parts', [{}])[0].get('text', ''))
+            history_text += f"{msg['role']}: {text_content}\n"
         
         user_prompt = f"{history_text}\nFollow-up question: {question}\nRewritten standalone query:"
         

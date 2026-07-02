@@ -35,7 +35,7 @@ export default function LetterheadSettingsModal({ isOpen, onClose, config, onSav
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60" onClick={onClose}>
       <div
-        className="bg-white rounded-lg shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto"
+        className="bg-surface rounded-lg shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto"
         onClick={e => e.stopPropagation()}
       >
         {/* Header */}
@@ -58,7 +58,7 @@ export default function LetterheadSettingsModal({ isOpen, onClose, config, onSav
                   onClick={() => update('mode', t.id)}
                   className={`text-sm px-3 py-2 rounded border transition-all ${
                     local.mode === t.id
-                      ? 'border-zinc-800 bg-zinc-800 text-white'
+                      ? 'border-primary-hover bg-primary-hover text-white'
                       : 'border-zinc-300 hover:border-zinc-500'
                   }`}
                 >
@@ -101,7 +101,7 @@ export default function LetterheadSettingsModal({ isOpen, onClose, config, onSav
                     value={opt.id}
                     checked={local.refNumberMode === opt.id}
                     onChange={() => update('refNumberMode', opt.id)}
-                    className="accent-zinc-800"
+                    className="accent-primary-hover"
                   />
                   {opt.label}
                 </label>
@@ -152,7 +152,7 @@ export default function LetterheadSettingsModal({ isOpen, onClose, config, onSav
               type="checkbox"
               checked={!!local.showDraftVersion}
               onChange={e => update('showDraftVersion', e.target.checked)}
-              className="accent-zinc-800"
+              className="accent-primary-hover"
             />
             Show "Draft Version" in document footer
           </label>

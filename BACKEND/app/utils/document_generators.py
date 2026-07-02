@@ -151,3 +151,36 @@ class DocumentGenerator:
         doc.build(story)
         buffer.seek(0)
         return buffer
+
+    @staticmethod
+    def generate_reasoning_pdf(content: str) -> io.BytesIO:
+        buffer = io.BytesIO()
+        doc = SimpleDocTemplate(buffer, pagesize=A4, rightMargin=72, leftMargin=72, topMargin=72, bottomMargin=72)
+        styles = getSampleStyleSheet()
+        
+        # very basic markdown parsing for reportlab
+        story = []
+        lines = content.split('\n')
+        
+        for line in lines:
+            line = line.strip()
+            if not line:
+                story.append(Spacer(1, 12))
+            elif line.startswith('### '):
+                story.append(Paragraph(line[4:], styles['Heading3']))
+            elif line.startswith('## '):
+                story.append(Paragraph(line[3:], styles['Heading2']))
+            elif line.startswith('# '):
+                story.append(Paragraph(line[2:], styles['Heading1']))
+            elif line.startswith('- '):
+                story.append(Paragraph(f"• {line[2:]}", styles['BodyText']))
+            elif line.startswith('**') and line.endswith('**'):
+                story.append(Paragraph(f"<b>{line[2:-2]}</b>", styles['BodyText']))
+            else:
+                # Replace inline bold
+                line = line.replace('**', '<b>', 1).replace('**', '</b>', 1)
+                story.append(Paragraph(line, styles['BodyText']))
+                
+        doc.build(story)
+        buffer.seek(0)
+        return buffer

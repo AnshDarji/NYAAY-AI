@@ -59,12 +59,12 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F7F7F5] flex flex-col items-center justify-center p-6 text-[#111111] antialiased">
+    <div className="min-h-screen bg-background flex flex-col items-center justify-center p-6 text-primary antialiased">
       {/* Back to Home Link */}
       <div className="absolute top-8 left-8">
         <Link
           to="/"
-          className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#6B6B6B] hover:text-[#111111] transition-colors"
+          className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-text-secondary hover:text-primary transition-colors"
         >
           <span className="material-symbols-outlined text-[16px]">arrow_back</span>
           Home
@@ -74,17 +74,17 @@ export default function Login() {
       <div className="max-w-md w-full flex flex-col gap-8">
         {/* Brand */}
         <div className="text-center flex flex-col items-center">
-          <Link to="/" className="text-2xl font-bold tracking-tighter text-[#111111] flex items-center gap-1.5 mb-2">
+          <Link to="/" className="text-2xl font-bold tracking-tighter text-primary flex items-center gap-1.5 mb-2">
             <span className="material-symbols-outlined text-[28px]">gavel</span>
             NYAAY AI
           </Link>
-          <p className="text-xs text-[#6B6B6B] uppercase font-bold tracking-widest">
+          <p className="text-xs text-text-secondary uppercase font-bold tracking-widest">
             Secure Member Login
           </p>
         </div>
 
         {/* Card containing the form */}
-        <div className="bg-[#FCFCFB] rounded-3xl border border-[#E7E7E4] p-8 shadow-sm flex flex-col gap-6">
+        <div className="bg-background rounded-3xl border border-border p-8 shadow-sm flex flex-col gap-6">
           <h2 className="text-xl font-semibold tracking-tight">Sign In</h2>
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -144,9 +144,9 @@ export default function Login() {
           </Button>
 
           {/* Prompt to register */}
-          <p className="text-xs text-[#6B6B6B] text-center">
+          <p className="text-xs text-text-secondary text-center">
             New to NYAAY AI?{' '}
-            <Link to="/signup" className="text-[#111111] font-semibold hover:underline">
+            <Link to="/signup" className="text-primary font-semibold hover:underline">
               Create an account
             </Link>
           </p>

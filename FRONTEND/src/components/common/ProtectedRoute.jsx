@@ -9,9 +9,9 @@ export default function ProtectedRoute({ children }) {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#F7F7F5] flex flex-col items-center justify-center p-6">
+      <div className="min-h-screen bg-background flex flex-col items-center justify-center p-6">
         <LoadingSpinner size="lg" />
-        <p className="mt-4 text-[#6B6B6B] font-medium tracking-tight animate-pulse">Loading secure session...</p>
+        <p className="mt-4 text-text-secondary font-medium tracking-tight animate-pulse">Loading secure session...</p>
       </div>
     );
   }

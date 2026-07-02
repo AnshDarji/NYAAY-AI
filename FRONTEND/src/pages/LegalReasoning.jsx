@@ -1,184 +1,195 @@
-import React, { useState } from 'react';
-import ReactMarkdown from 'react-markdown';
-import { 
-  Briefcase, 
-  ChevronRight, 
-  CheckCircle2, 
-  AlertCircle,
-  Copy,
-  Download,
-  Loader2,
-  Scale,
-  FileText
-} from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Scale, AlertCircle } from 'lucide-react';
+import WorkspaceContainer from '../components/common/WorkspaceContainer';
+import ConversationLayout from '../components/chat/ConversationLayout';
+import ChatInput from '../components/chat/ChatInput';
+import MessageBubble from '../components/chat/MessageBubble';
+import LegalAnalysisRenderer from '../components/reasoning/LegalAnalysisRenderer';
 import { generateReasoning } from '../services/reasoningService';
+import { useAuth } from '../contexts/AuthContext';
 
-const LegalReasoning = () => {
-  const [step, setStep] = useState(1);
-  const [facts, setFacts] = useState('');
+const LegalReasoningChatArea = ({ refreshConversations }) => {
+  const { currentUser } = useAuth();
+  const [activeConversationId, setActiveConversationId] = useState(null);
+  const [messages, setMessages] = useState([]);
+  const [inputValue, setInputValue] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
-  const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
+  
+  const messagesEndRef = useRef(null);
+  const abortControllerRef = useRef(null);
 
-  const handleGenerate = async () => {
-    if (!facts.trim()) return;
+  useEffect(() => {
+    return () => {
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+      }
+    };
+  }, []);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages, isGenerating]);
+
+  const handleSendMessage = async () => {
+    if (!inputValue.trim() || isGenerating) return;
+    
+    const userMessage = { role: 'user', content: inputValue.trim() };
+    setMessages(prev => [...prev, userMessage]);
+    setInputValue('');
     setIsGenerating(true);
     setError(null);
+    
+    abortControllerRef.current = new AbortController();
+    
     try {
-      const response = await generateReasoning(facts);
-      setResult(response);
-      setStep(2);
+      const token = await currentUser.getIdToken();
+      const response = await generateReasoning(
+        token,
+        userMessage.content, 
+        activeConversationId, // pass conversation_id
+        abortControllerRef.current.signal
+      );
+      
+      setMessages(prev => [...prev, {
+        role: 'assistant',
+        content: response.content,
+        citations: response.citations || [],
+        id: response.analysis_id
+      }]);
+      
+      // If it's a new conversation, update the active ID and refresh sidebar
+      if (!activeConversationId && response.conversation_id) {
+        setActiveConversationId(response.conversation_id);
+        if (refreshConversations) refreshConversations();
+      }
+      
     } catch (err) {
-      setError(err.message || 'Failed to generate legal reasoning.');
+      if (err.name === 'CanceledError' || err.message === 'canceled') {
+        console.log('Request canceled');
+      } else {
+        setError(err.message || 'Failed to generate legal reasoning.');
+      }
     } finally {
       setIsGenerating(false);
     }
   };
 
-  const copyToClipboard = () => {
-    if (result) {
-      navigator.clipboard.writeText(result.content);
-      alert('Analysis copied to clipboard!');
-    }
+  const handleNewChat = () => {
+    setActiveConversationId(null);
+    setMessages([]);
+    setInputValue('');
+    setError(null);
+  };
+
+  const handleSelectConversation = (conv) => {
+    setActiveConversationId(conv.id);
+  };
+
+  const handleMessagesLoaded = (loadedMessages) => {
+    // Map backend messages to frontend format if needed
+    setMessages(loadedMessages);
   };
 
   return (
-    <div className="flex h-[calc(100vh-4rem)] bg-dark-900 text-gray-100 font-sans">
-      
-      {/* Main Content Area */}
-      <div className="flex-1 flex flex-col h-full overflow-hidden relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-900/10 via-dark-900 to-dark-900 pointer-events-none" />
-        
-        <header className="relative z-10 px-8 py-6 border-b border-dark-700 bg-dark-900/50 backdrop-blur-md">
-          <div className="flex items-center gap-3 mb-2">
-            <div className="p-2 bg-primary-500/20 rounded-lg">
-              <Scale className="w-6 h-6 text-primary-400" />
+    <ConversationLayout
+      featureType="legal_reasoning"
+      activeConversationId={activeConversationId}
+      onNewChat={handleNewChat}
+      onSelectConversation={handleSelectConversation}
+      onMessagesLoaded={handleMessagesLoaded}
+    >
+      <div className="flex flex-col h-full bg-surface relative">
+        {/* Header */}
+        <header className="h-16 flex items-center px-6 border-b border-border bg-surface/80 backdrop-blur-sm z-10 shrink-0">
+          <div className="flex items-center gap-3 md:ml-12">
+            <div className="p-1.5 bg-primary/10 rounded-button border border-primary/20">
+              <Scale className="w-5 h-5 text-primary" />
             </div>
-            <h1 className="text-2xl font-bold text-white tracking-tight">Legal Reasoning Engine</h1>
+            <div>
+              <h1 className="text-lg font-semibold text-text-primary tracking-tight leading-tight">Legal Reasoning</h1>
+              <p className="text-xs text-text-secondary">Continuous legal analysis workspace</p>
+            </div>
           </div>
-          <p className="text-gray-400 text-sm max-w-2xl leading-relaxed">
-            Submit a factual scenario. Our AI will analyze the legal issues, retrieve relevant statutory provisions, construct arguments for both sides, and provide a structured, objective legal assessment.
-          </p>
         </header>
 
-        <div className="flex-1 overflow-y-auto p-8 relative z-10 custom-scrollbar">
-          <div className="max-w-5xl mx-auto space-y-8">
-            
-            {/* Step 1: Input Facts */}
-            {step === 1 && (
-              <div className="bg-dark-800/50 border border-dark-700 rounded-2xl p-6 backdrop-blur-sm shadow-xl">
-                <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-                  <FileText className="w-5 h-5 text-primary-400" />
-                  Describe the Dispute or Scenario
-                </h2>
-                <textarea
-                  className="w-full h-64 bg-dark-900 border border-dark-600 rounded-xl p-4 text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 transition-all resize-none mb-6 text-base leading-relaxed"
-                  placeholder="E.g., My landlord Amit at 123 Main St. is refusing to return my security deposit of 50,000 INR even though my lease ended 3 months ago..."
-                  value={facts}
-                  onChange={(e) => setFacts(e.target.value)}
+        {/* Chat Area */}
+        <div className="flex-1 overflow-y-auto bg-background relative scroll-smooth scrollbar-thin scrollbar-thumb-border">
+          {messages.length === 0 ? (
+            <div className="h-full flex flex-col items-center justify-center text-center max-w-md mx-auto p-6">
+              <div className="w-16 h-16 bg-surface rounded-2xl shadow-sm border border-border flex items-center justify-center mb-6">
+                <Scale className="w-8 h-8 text-primary" />
+              </div>
+              <h2 className="text-xl font-semibold text-text-primary mb-2">Start a Legal Session</h2>
+              <p className="text-text-secondary text-sm mb-8">
+                Describe a scenario, outline a dispute, or ask a legal question. 
+                The AI associate will maintain context throughout the conversation.
+              </p>
+              <div className="flex gap-2 flex-wrap justify-center">
+                <button onClick={() => setInputValue("Analyze a potential contract dispute regarding late delivery...")} className="text-xs bg-surface hover:bg-secondary border border-border px-4 py-2 rounded-full text-text-secondary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">Contract Dispute</button>
+                <button onClick={() => setInputValue("What are the legal steps for an eviction notice...")} className="text-xs bg-surface hover:bg-secondary border border-border px-4 py-2 rounded-full text-text-secondary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">Eviction Notice</button>
+                <button onClick={() => setInputValue("Analyze the new BNS provisions regarding...")} className="text-xs bg-surface hover:bg-secondary border border-border px-4 py-2 rounded-full text-text-secondary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">BNS Analysis</button>
+              </div>
+            </div>
+          ) : (
+            <div className="pb-32">
+              {messages.map((msg, idx) => (
+                <MessageBubble 
+                  key={idx} 
+                  message={msg} 
+                  renderContent={msg.role === 'assistant' ? (content) => <LegalAnalysisRenderer content={content} /> : null}
                 />
-                
-                {error && (
-                  <div className="mb-6 p-4 bg-red-500/10 border border-red-500/20 rounded-xl flex items-center gap-3 text-red-400">
-                    <AlertCircle className="w-5 h-5 flex-shrink-0" />
-                    <p className="text-sm">{error}</p>
-                  </div>
-                )}
-
-                <div className="flex justify-end">
-                  <button
-                    onClick={handleGenerate}
-                    disabled={!facts.trim() || isGenerating}
-                    className="px-8 py-3 bg-primary-600 hover:bg-primary-500 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-xl font-medium transition-all shadow-lg shadow-primary-500/20 flex items-center gap-2"
-                  >
-                    {isGenerating ? (
-                      <>
-                        <Loader2 className="w-5 h-5 animate-spin" />
-                        Analyzing Legal Framework...
-                      </>
-                    ) : (
-                      <>
-                        Generate Legal Analysis
-                        <ChevronRight className="w-5 h-5" />
-                      </>
-                    )}
-                  </button>
-                </div>
-              </div>
-            )}
-
-            {/* Step 2: Results */}
-            {step === 2 && result && (
-              <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
-                <div className="flex items-center justify-between">
-                  <button 
-                    onClick={() => setStep(1)}
-                    className="text-primary-400 hover:text-primary-300 text-sm font-medium flex items-center gap-1 transition-colors"
-                  >
-                    ← Analyze Another Scenario
-                  </button>
-                  <div className="flex items-center gap-3">
-                    <button 
-                      onClick={copyToClipboard}
-                      className="p-2 bg-dark-800 hover:bg-dark-700 text-gray-400 hover:text-white rounded-lg border border-dark-700 transition-all"
-                      title="Copy Analysis"
-                    >
-                      <Copy className="w-4 h-4" />
-                    </button>
-                    <button 
-                      className="px-4 py-2 bg-primary-600/20 text-primary-400 hover:bg-primary-600/30 rounded-lg border border-primary-500/30 transition-all text-sm font-medium flex items-center gap-2"
-                    >
-                      <Download className="w-4 h-4" />
-                      Export PDF
-                    </button>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                  {/* Analysis Content */}
-                  <div className="lg:col-span-2 bg-dark-800/80 border border-dark-700 rounded-2xl p-8 backdrop-blur-md shadow-xl prose prose-invert prose-p:text-gray-300 prose-headings:text-white prose-a:text-primary-400 max-w-none">
-                    <ReactMarkdown>{result.content}</ReactMarkdown>
-                  </div>
-
-                  {/* Citations Sidebar */}
-                  <div className="bg-dark-800/50 border border-dark-700 rounded-2xl p-6 backdrop-blur-sm h-fit sticky top-0 shadow-lg">
-                    <h3 className="text-sm font-semibold text-gray-300 uppercase tracking-wider mb-4 flex items-center gap-2">
-                      <Briefcase className="w-4 h-4 text-primary-400" />
-                      Legal Citations
-                    </h3>
-                    <div className="space-y-4">
-                      {result.citations && result.citations.length > 0 ? (
-                        result.citations.map((citation, index) => (
-                          <div key={index} className="p-4 bg-dark-900 border border-dark-700 rounded-xl group hover:border-primary-500/50 transition-all">
-                            <div className="flex items-center gap-2 mb-2">
-                              <span className="text-xs font-mono bg-primary-500/20 text-primary-400 px-2 py-1 rounded">
-                                {citation.marker}
-                              </span>
-                              <span className="text-sm font-medium text-gray-200">
-                                {citation.metadata.source_name}
-                              </span>
-                            </div>
-                            <p className="text-xs text-gray-400 line-clamp-3 leading-relaxed">
-                              {citation.text_snippet}
-                            </p>
-                          </div>
-                        ))
-                      ) : (
-                        <div className="p-4 bg-dark-900 border border-dark-700 rounded-xl text-center">
-                          <AlertCircle className="w-6 h-6 text-gray-500 mx-auto mb-2" />
-                          <p className="text-sm text-gray-400">No citations mapped for this analysis.</p>
-                        </div>
-                      )}
+              ))}
+              
+              {isGenerating && (
+                <MessageBubble 
+                  message={{ role: 'assistant', content: 'Thinking...' }} 
+                  renderContent={() => (
+                    <div className="flex items-center gap-2 text-primary font-medium">
+                      <span className="w-2 h-2 rounded-full bg-primary animate-bounce" style={{ animationDelay: '0ms' }} />
+                      <span className="w-2 h-2 rounded-full bg-primary animate-bounce" style={{ animationDelay: '150ms' }} />
+                      <span className="w-2 h-2 rounded-full bg-primary animate-bounce" style={{ animationDelay: '300ms' }} />
                     </div>
-                  </div>
-                </div>
+                  )}
+                />
+              )}
+              <div ref={messagesEndRef} />
+            </div>
+          )}
+        </div>
+
+        {/* Input Area */}
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background via-background to-transparent pt-10 pb-6 px-4 md:px-8 z-10 pointer-events-none">
+          <div className="max-w-4xl mx-auto w-full pointer-events-auto">
+            {error && (
+              <div className="mb-4 p-3 bg-error-bg border border-error/50 rounded-lg flex items-center gap-2 text-error text-sm shadow-sm">
+                <AlertCircle className="w-4 h-4" />
+                {error}
               </div>
             )}
-
+            <ChatInput 
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              onSubmit={handleSendMessage}
+              isLoading={isGenerating}
+              placeholder="Ask a legal question, request drafting modifications..."
+            />
           </div>
         </div>
       </div>
-    </div>
+    </ConversationLayout>
+  );
+};
+
+const LegalReasoning = () => {
+  return (
+    <WorkspaceContainer>
+      <LegalReasoningChatArea />
+    </WorkspaceContainer>
   );
 };
 

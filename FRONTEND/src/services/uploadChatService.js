@@ -30,7 +30,7 @@ export const uploadDocument = async (token, file) => {
   }
 };
 
-export const queryDocument = async (token, documentId, question, conversationId = null) => {
+export const queryDocument = async (token, documentId, question, conversationId = null, signal = null) => {
   try {
     const payload = {
       document_id: documentId,
@@ -49,10 +49,14 @@ export const queryDocument = async (token, documentId, question, conversationId 
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         },
+        signal
       }
     );
     return response.data;
   } catch (error) {
+    if (error.name === 'CanceledError' || error.message === 'canceled') {
+      throw error;
+    }
     if (error.response?.status === 429) {
       throw new Error("You are asking questions too quickly. Please wait a moment.");
     }
