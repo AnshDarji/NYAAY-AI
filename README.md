@@ -25,7 +25,7 @@ NYAAY AI is a full-stack, AI-powered legal assistant designed for the Indian leg
 
 ## Key Features
 
-* **Legal Reasoning Engine:** Queries a custom RAG pipeline built on Indian legal corpora, including Bharatiya Nyaya Sanhita, the Constitution of India, and CPC.
+* **Deterministic Metadata-Aware Legal Engine:** Queries a custom RAG pipeline built on Indian legal corpora using a hybrid approach (BM25 + Embeddings) enhanced with deterministic metadata-filtering (Domain Classification & Document Type tagging) to strictly eliminate hallucination and context leakage.
 * **Document Drafting:** Generates structured legal drafts such as notices, agreements, complaints, and applications — with a deterministic PDF/DOCX pipeline that prevents LLM hallucination of formatting.
 * **Document Upload and Chat:** Allows users to upload PDFs/DOCX files and ask questions, extract insights, or summarize complex documents.
 * **Know Your Kanoon:** Answers Indian legal queries with citations sourced from the RAG knowledge base.
