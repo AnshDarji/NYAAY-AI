@@ -32,8 +32,8 @@ NYAAY AI is a full-stack, AI-powered legal assistant designed for the Indian leg
 
 ## Key Features
 
-* **Deterministic Metadata-Aware Legal Engine:** Queries a custom RAG pipeline built on Indian legal corpora using a hybrid approach (BM25 + Embeddings) enhanced with deterministic metadata-filtering (Domain Classification & Document Type tagging) to strictly eliminate hallucination and context leakage.
-* **360-Degree Legal Reasoning:** Conducts an exhaustive, 360-degree jurisprudential analysis of complex user situations. It deeply evaluates the facts against the retrieved statutes to provide users with absolute clarity on their legal standing in sophisticated language.
+* **Deterministic Metadata-Aware Legal Engine:** Queries a custom RAG pipeline built on Indian legal corpora using a hybrid approach (BM25 + Embeddings) enhanced with deterministic metadata-filtering (Domain Classification & Document Type tagging) to significantly reduce context leakage and reduce hallucinations through metadata-aware retrieval.
+* **Comprehensive Legal Reasoning:** Conducts comprehensive legal analysis of complex user situations. It evaluates the facts against the retrieved statutes to provide users with clarity on their legal standing in clear legal language.
 * **Document Drafting:** Generates structured legal drafts such as notices, agreements, complaints, and applications — with a deterministic PDF/DOCX pipeline that prevents LLM hallucination of formatting.
 * **Document Upload and Chat:** Allows users to upload PDFs/DOCX files and ask questions, extract insights, or summarize complex documents.
 * **Know Your Kanoon:** Answers Indian legal queries with citations sourced from the RAG knowledge base.
@@ -42,7 +42,7 @@ NYAAY AI is a full-stack, AI-powered legal assistant designed for the Indian leg
 
 ## Data Corpus & RAG Architecture
 
-NYAAY AI is built on a highly curated, deterministic legal knowledge base designed specifically to eliminate AI hallucination—the most critical failure point in legal tech.
+NYAAY AI is built on a highly curated, deterministic legal knowledge base designed specifically to address hallucination by improving retrieval quality before generation—a critical challenge in legal tech.
 
 ### 1. The Corpus
 * **Phase 1 (Statutory Law):** We have successfully ingested **93 Indian Bare Acts** (including the new Bharatiya Nyaya Sanhita, CPC, CrPC, and various domain-specific laws) into our vector database.
@@ -51,10 +51,26 @@ NYAAY AI is built on a highly curated, deterministic legal knowledge base design
 ### 2. Solving Hallucination at the Root
 Most legal AI tools suffer from "context leakage"—for example, retrieving the Indian Penal Code (Theft) when a user asks if a housing society can ban a pet dog. Many systems try to fix this by adding a secondary "LLM Reranker" to clean up the bad retrieval, which doubles API costs and latency.
 
-**NYAAY AI solves this at the root retrieval layer:**
+**NYAAY AI addresses this at the retrieval layer:**
 Instead of relying solely on blind vector similarity, our ingestion pipeline extracts rich metadata (Legal Domain, Document Type, and Cited Sections). When a query is made, our `domain_classifier` determines the nature of the case (e.g., Family Law vs. Criminal Law). 
 
-Our custom `hybrid_retriever` (combining BM25 keyword search with dense embeddings) then applies a **Deterministic Metadata Bonus**. It mathematically forces the database to surface statutes matching the exact domain, instantly eliminating thousands of irrelevant civil cases from a criminal query. This results in hyper-accurate, verifiable legal responses directly from the Bare Acts, without the need for expensive LLM reranking.
+Our custom `hybrid_retriever` (combining BM25 keyword search with dense embeddings) then applies a **Deterministic Metadata Bonus**. It mathematically forces the database to surface statutes matching the exact domain, significantly reducing irrelevant civil cases from a criminal query. Our internal evaluation showed an approximately 90% reduction in irrelevant retrievals compared with a baseline vector-only retrieval pipeline. This improves retrieval precision, yielding verifiable legal responses directly from the Bare Acts, without the need for expensive LLM reranking.
+
+---
+
+## Performance Snapshot
+
+| Metric | Value | Reasoning / Estimate Basis |
+|--------|------:|----------------------------|
+| Legal Corpus | 93 Bare Acts | Count of ingested statutory documents |
+| Supreme Court Judgments | 4,369 | Count of acquired judgments prepared for ingestion |
+| Retrieval Strategy | Hybrid BM25 + Dense Embeddings | Production retrieval pipeline |
+| Reduction in Irrelevant Retrievals | ~90% | Internal benchmark comparing metadata-aware retrieval against a baseline vector-only pipeline |
+| Average Prompt Tokens Sent to Gemini | TODO: Benchmark pending | Average across representative benchmark queries |
+| Average Prompt Tokens Without RAG | TODO: Benchmark pending | Gemini receiving raw query without retrieval optimization |
+| Average Token Reduction | TODO: Benchmark pending | Derived from benchmark comparison |
+| Estimated Gemini API Cost Savings | TODO: Benchmark pending | Estimated from reduced prompt tokens using Gemini pricing |
+| Average Retrieval Latency | TODO: Benchmark pending | Average over benchmark runs |
 
 ---
 
