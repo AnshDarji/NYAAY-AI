@@ -22,16 +22,16 @@ NYAAY AI is a full-stack, AI-powered legal assistant designed for the Indian leg
 ## Screenshots
 
 <div align="center">
-  <img src="Screenshots/1.png" width="48%" />
-  <img src="Screenshots/2.png" width="48%" />
-  <img src="Screenshots/3.png" width="48%" />
-  <img src="Screenshots/4.png" width="48%" />
-  <img src="Screenshots/5.png" width="48%" />
-  <img src="Screenshots/6.png" width="48%" />
-  <img src="Screenshots/7.png" width="48%" />
-  <img src="Screenshots/8.png" width="48%" />
-  <img src="Screenshots/9.png" width="48%" />
-  <img src="Screenshots/10.png" width="48%" />
+  <img src="SCREENSHOTS/1.png" width="48%" />
+  <img src="SCREENSHOTS/2.png" width="48%" />
+  <img src="SCREENSHOTS/3.png" width="48%" />
+  <img src="SCREENSHOTS/4.png" width="48%" />
+  <img src="SCREENSHOTS/5.png" width="48%" />
+  <img src="SCREENSHOTS/6.png" width="48%" />
+  <img src="SCREENSHOTS/7.png" width="48%" />
+  <img src="SCREENSHOTS/8.png" width="48%" />
+  <img src="SCREENSHOTS/9.png" width="48%" />
+  <img src="SCREENSHOTS/10.png" width="48%" />
 </div>
 
 ---
