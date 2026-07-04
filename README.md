@@ -26,7 +26,6 @@ NYAAY AI is a full-stack, AI-powered legal assistant designed for the Indian leg
   <img src="SCREENSHOTS/2.png" width="48%" />
   <img src="SCREENSHOTS/3.png" width="48%" />
   <img src="SCREENSHOTS/11.png" width="48%" />
-  <img src="SCREENSHOTS/5.png" width="48%" />
 </div>
 
 ---
