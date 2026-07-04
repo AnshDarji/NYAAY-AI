@@ -186,9 +186,7 @@ NYAAY-AI/
 │   └── .env.example
 │
 ├── DOCS/                           ← Architecture, API spec, PRDs, decisions
-├── screenshots/                    ← UI screenshots (see screenshots/README.md)
 ├── README.md
-├── CONTRIBUTING.md
 ├── SECURITY.md
 └── CODE_OF_CONDUCT.md
 ```
@@ -255,13 +253,6 @@ Development smoke tests are in `BACKEND/devtools/`.
 
 ---
 
-## Screenshots
-
-> 📸 Screenshots will be added to [`screenshots/`](screenshots/) after initial deployment.
-> See [`screenshots/README.md`](screenshots/README.md) for the planned screenshot structure.
-
----
-
 ## Future Roadmap
 
 * **Court Filing Integration** — direct integration with eCourts APIs
@@ -269,8 +260,6 @@ Development smoke tests are in `BACKEND/devtools/`.
 * **Expanded Document Templates** — court petitions, bail applications, writ petitions
 * **Lawyer Marketplace** — connect citizens with verified legal professionals
 * **Offline Mode** — Progressive Web App with cached corpus for low-connectivity regions
-
-See [`DOCS/ROADMAP.md`](DOCS/ROADMAP.md) for the detailed roadmap.
 
 ---
 
@@ -284,11 +273,5 @@ See [`DOCS/ROADMAP.md`](DOCS/ROADMAP.md) for the detailed roadmap.
 | [`DOCS/RAG_ARCHITECTURE.md`](DOCS/RAG_ARCHITECTURE.md) | RAG pipeline design |
 | [`DOCS/DECISIONS.md`](DOCS/DECISIONS.md) | Architecture Decision Records (ADRs) |
 | [`DOCS/DEVELOPER_GUIDE.md`](DOCS/DEVELOPER_GUIDE.md) | Developer setup and workflow |
-
----
-
-## Contributing
-
-Contributions are welcome. Please read [`CONTRIBUTING.md`](CONTRIBUTING.md) before opening a pull request.
 
 ---
