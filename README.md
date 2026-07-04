@@ -62,15 +62,16 @@ Our custom `hybrid_retriever` (combining BM25 keyword search with dense embeddin
 
 | Metric | Value | Reasoning / Estimate Basis |
 |--------|------:|----------------------------|
-| Legal Corpus | 93 Bare Acts | Count of ingested statutory documents |
-| Supreme Court Judgments | 4,369 | Count of acquired judgments prepared for ingestion |
-| Retrieval Strategy | Hybrid BM25 + Dense Embeddings | Production retrieval pipeline |
-| Reduction in Irrelevant Retrievals | ~90% | Internal benchmark comparing metadata-aware retrieval against a baseline vector-only pipeline |
-| Average Prompt Tokens Sent to Gemini | ~4,500 tokens | Average across representative benchmark queries |
-| Average Prompt Tokens Without RAG | ~1,500,000 tokens | Estimated total corpus size (93 Bare Acts) passed in context |
-| Average Token Reduction | ~99.7% | Derived from benchmark comparison |
-| Estimated Gemini API Cost Savings | ~$1.86 per query | Estimated from reduced prompt tokens using Gemini pricing ($1.25/1M tokens) |
-| Average Retrieval Latency | 0.010s (10ms) | Measured from internal evaluation benchmark report |
+| Corpus Size | 93 Bare Acts | Count of ingested statutory documents |
+| Judgments | 4,369 | Count of acquired judgments prepared for ingestion |
+| Retrieval Strategy | Metadata-aware Hybrid RAG | Production implementation |
+| Top-k Retrieved Chunks | 8 | Configured threshold for retrieval |
+| Prompt Context | ~4.5k tokens | Internal benchmark average |
+| Retrieval Latency | 10 ms | Average over benchmark runs |
+| Average Response Time | ~2.8 s | Average Pure Model Latency |
+| Irrelevant Retrieval Reduction | ~90% | Internal benchmark vs naïve vector-only retrieval |
+| Estimated Token Reduction | ~35–60% | Compared against naïve top-k retrieval without metadata filtering |
+| Estimated API Cost Savings | Proportional | Based on reduced prompt context compared to baseline RAG |
 
 ---
 
