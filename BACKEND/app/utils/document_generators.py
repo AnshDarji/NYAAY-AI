@@ -27,7 +27,8 @@ class DocumentGenerator:
         if doc_obj.title:
             title_p = doc.add_paragraph()
             title_p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-            run = title_p.add_run(doc_obj.title)
+            run = title_p.add_run(doc_obj.title.replace('₹', 'Rs. '))
+            run.font.underline = True
             run.bold = True
             run.font.name = 'Times New Roman'
             run.font.size = Pt(14)
@@ -40,7 +41,7 @@ class DocumentGenerator:
             run.bold = True
             run.font.name = 'Times New Roman'
             run.font.size = Pt(12)
-            run_val = p.add_run(value)
+            run_val = p.add_run(value.replace('₹', 'Rs. '))
             run_val.font.name = 'Times New Roman'
             run_val.font.size = Pt(12)
             
@@ -48,7 +49,7 @@ class DocumentGenerator:
 
         # Body
         for para in doc_obj.body:
-            p = doc.add_paragraph(para)
+            p = doc.add_paragraph(para.replace('₹', 'Rs. '))
             p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
             for run in p.runs:
                 run.font.name = 'Times New Roman'
@@ -116,15 +117,26 @@ class DocumentGenerator:
         story = []
         
         if doc_obj.title:
-            story.append(Paragraph(doc_obj.title, title_style))
+            sanitized_title = doc_obj.title.replace('₹', 'Rs. ')
+            story.append(Paragraph(f"<u>{sanitized_title}</u>", title_style))
             
         for key, value in doc_obj.parties.items():
-            story.append(Paragraph(f"<b>{key.replace('_', ' ').title()}:</b> {value}", body_style))
+            sanitized_val = value.replace('₹', 'Rs. ')
+            story.append(Paragraph(f"<b>{key.replace('_', ' ').title()}:</b> {sanitized_val}", body_style))
             
         story.append(Spacer(1, 12))
         
         for para in doc_obj.body:
-            story.append(Paragraph(para, body_style))
+            sanitized_para = para.replace('₹', 'Rs. ')
+            
+            # Simple markdown bold parsing for ReportLab
+            if '**' in sanitized_para:
+                parts = sanitized_para.split('**')
+                for i in range(1, len(parts), 2):
+                    parts[i] = f"<b>{parts[i]}</b>"
+                sanitized_para = "".join(parts)
+                
+            story.append(Paragraph(sanitized_para, body_style))
             
         story.append(Spacer(1, 12))
         

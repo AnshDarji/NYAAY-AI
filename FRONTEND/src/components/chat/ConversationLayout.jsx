@@ -33,7 +33,7 @@ const ConversationLayout = ({
 
   useEffect(() => {
     fetchConversations();
-  }, [fetchConversations]);
+  }, [fetchConversations, activeConversationId]);
 
   const handleSelectConversation = async (conv) => {
     onSelectConversation(conv);
@@ -91,13 +91,7 @@ const ConversationLayout = ({
 
       {/* Main Chat Area */}
       <div className="flex-1 flex flex-col min-w-0 bg-surface relative h-full">
-        {/* We can expose fetchConversations to children via Context or React.cloneElement, but React.cloneElement is easier here. */}
-        {React.Children.map(children, child => {
-          if (React.isValidElement(child)) {
-            return React.cloneElement(child, { refreshConversations: fetchConversations });
-          }
-          return child;
-        })}
+        {children}
       </div>
     </div>
   );
