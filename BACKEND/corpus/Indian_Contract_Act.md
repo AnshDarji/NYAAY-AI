@@ -1,3 +1,9 @@
+---
+source_name: Indian_Contract_Act
+legal_domain: General Law
+document_type: statute
+act_name: Indian Contract Act
+---
 # Indian Contract Act, 1872
 
 ## CHAPTER I

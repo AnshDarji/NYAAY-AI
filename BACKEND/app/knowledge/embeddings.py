@@ -1,18 +1,17 @@
-from google import genai
-import os
-from typing import List
 import logging
-from app.core.config import settings
+from typing import List
+from sentence_transformers import SentenceTransformer
+import torch
 
 logger = logging.getLogger(__name__)
 
 class EmbeddingService:
     def __init__(self):
-        api_key = settings.GEMINI_API_KEY
-        if not api_key:
-            raise ValueError("GEMINI_API_KEY is missing in settings")
-        self.client = genai.Client(api_key=api_key)
-        self.model = "gemini-embedding-2"
+        self.model_name = "BAAI/bge-base-en-v1.5"
+        self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        logger.info(f"Loading embedding model {self.model_name} on {self.device}...")
+        self.model = SentenceTransformer(self.model_name, device=self.device)
+        logger.info(f"Embedding model loaded successfully.")
         
     def embed_texts(self, texts: List[str]) -> List[List[float]]:
         """Generate embeddings for a list of texts."""
@@ -20,15 +19,10 @@ class EmbeddingService:
             return []
             
         try:
-            embeddings = []
-            # Loop over texts as google-genai treats a list of strings as a single multi-part content
-            for text in texts:
-                result = self.client.models.embed_content(
-                    model=self.model,
-                    contents=text,
-                )
-                embeddings.append(result.embeddings[0].values)
-            return embeddings
+            # sentence_transformers encodes batches efficiently under the hood
+            # normalize_embeddings=True is recommended for BGE models
+            embeddings = self.model.encode(texts, normalize_embeddings=True)
+            return embeddings.tolist()
             
         except Exception as e:
             logger.error(f"Failed to generate embeddings: {e}")
@@ -36,7 +30,10 @@ class EmbeddingService:
             
     def embed_query(self, query: str) -> List[float]:
         """Generate embedding for a single query."""
-        results = self.embed_texts([query])
+        # BGE models use a specific prefix for queries to improve retrieval
+        prefix = "Represent this sentence for searching relevant passages: "
+        prefixed_query = prefix + query
+        results = self.embed_texts([prefixed_query])
         if results and len(results) > 0:
             return results[0]
         return []

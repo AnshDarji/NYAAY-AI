@@ -43,3 +43,14 @@ BACKEND/uploads/
 BACKEND/nyaay.db
 BACKEND/data/metrics.json
 BACKEND/uploads/
+
+# Datasets and Test Outputs
+BACKEND/data/judgments/
+IndLegal/
+ai-indian-law/
+all-indian-acts/
+laws-of-india/
+laws-of-india-2/
+full_rag_test_results.json
+hard_queries_test.json
+retrieval_test_results.json

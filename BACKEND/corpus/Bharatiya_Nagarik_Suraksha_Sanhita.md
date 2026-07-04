@@ -1,3 +1,9 @@
+---
+source_name: Bharatiya_Nagarik_Suraksha_Sanhita
+legal_domain: General Law
+document_type: statute
+act_name: Bharatiya Nagarik Suraksha Sanhita
+---
 # Bharatiya Nagarik Suraksha Sanhita, 2023
 
 ## CHAPTER XII

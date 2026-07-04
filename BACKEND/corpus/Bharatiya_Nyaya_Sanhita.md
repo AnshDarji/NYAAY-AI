@@ -1,3 +1,9 @@
+---
+source_name: Bharatiya_Nyaya_Sanhita
+legal_domain: General Law
+document_type: statute
+act_name: Bharatiya Nyaya Sanhita
+---
 # Bharatiya Nyaya Sanhita, 2023
 
 ## CHAPTER VI

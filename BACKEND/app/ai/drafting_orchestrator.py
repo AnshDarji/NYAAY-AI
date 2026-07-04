@@ -52,30 +52,46 @@ Respond strictly in JSON format matching this schema:
   "alternatives": ["string"]
 }"""
         
-        try:
-            response = self.client.models.generate_content(
-                model='gemini-2.5-flash',
-                contents=user_facts,
-                config=types.GenerateContentConfig(
-                    system_instruction=sys_prompt,
-                    response_mime_type="application/json"
+        import time
+        models_to_try = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-flash-lite-latest']
+        max_retries = 3
+        
+        for attempt in range(max_retries):
+            model_name = models_to_try[attempt % len(models_to_try)]
+            try:
+                response = self.client.models.generate_content(
+                    model=model_name,
+                    contents=user_facts,
+                    config=types.GenerateContentConfig(
+                        system_instruction=sys_prompt,
+                        response_mime_type="application/json"
+                    )
                 )
-            )
-            return json.loads(response.text)
-        except Exception as e:
-            logger.error(f"Intent classification failed: {e}")
-            return {"document_type": "UNKNOWN", "missing_essential_fields": [], "alternatives": []}
+                return json.loads(response.text)
+            except Exception as e:
+                error_str = str(e)
+                logger.warning(f"Intent classification with {model_name} failed: {error_str}")
+                if attempt < max_retries - 1:
+                    if "429" in error_str or "RESOURCE_EXHAUSTED" in error_str or "503" in error_str:
+                        time.sleep(2 ** attempt * 2)
+                    continue
+                logger.error(f"Intent classification failed completely after {max_retries} attempts.")
+                return {"document_type": "UNKNOWN", "missing_essential_fields": [], "alternatives": []}
 
-    def _generate_with_retry(self, prompt: str, sys_prompt: str, retries: int = 1) -> StructuredDocumentObject:
-        """Helper to generate content and parse it robustly with 1 retry on malformed JSON."""
+    def _generate_with_retry(self, prompt: str, sys_prompt: str, retries: int = 2) -> StructuredDocumentObject:
+        """Helper to generate content and parse it robustly with retries on malformed JSON and rate limits."""
         # Include Pydantic schema structure in the prompt to guide the LLM
         schema_str = StructuredDocumentObject.model_json_schema()
         sys_prompt += f"\n\nOUTPUT FORMAT:\nYou MUST return a single JSON object strictly adhering to this schema:\n{json.dumps(schema_str, indent=2)}\nDo NOT include markdown wrapping like ```json."
         
+        import time
+        models_to_try = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-flash-lite-latest']
+        
         for attempt in range(retries + 1):
+            model_name = models_to_try[attempt % len(models_to_try)]
             try:
                 response = self.client.models.generate_content(
-                    model='gemini-2.5-flash',
+                    model=model_name,
                     contents=prompt,
                     config=types.GenerateContentConfig(
                         system_instruction=sys_prompt,
@@ -87,14 +103,20 @@ Respond strictly in JSON format matching this schema:
                 raw_json = response.text.strip()
                 if raw_json.startswith("```json"):
                     raw_json = raw_json[7:-3].strip()
+                elif raw_json.startswith("```"):
+                    raw_json = raw_json[3:-3].strip()
                     
                 # Validate and parse
                 doc_obj = StructuredDocumentObject.model_validate_json(raw_json)
                 return doc_obj
             except Exception as e:
-                logger.warning(f"Generation attempt {attempt + 1} failed: {e}. Output was: {response.text if 'response' in locals() else 'None'}")
-                if attempt == retries:
-                    raise ValueError(f"Failed to generate structured document after {retries + 1} attempts. Error: {str(e)}")
+                error_str = str(e)
+                logger.warning(f"Generation attempt {attempt + 1} with {model_name} failed: {error_str}")
+                if attempt < retries:
+                    if "429" in error_str or "RESOURCE_EXHAUSTED" in error_str or "503" in error_str:
+                        time.sleep(2 ** attempt * 2)
+                    continue
+                raise ValueError(f"Failed to generate structured document after {retries + 1} attempts. Error: {error_str}")
 
     def generate_document_object(self, user_facts: str, document_type: str, context_chunks: List[Dict[str, Any]]) -> StructuredDocumentObject:
         template_data = self._get_template_data(document_type)
@@ -129,6 +151,12 @@ Increment the 'metadata.version' by 1.
         intent_res = self.classify_intent(user_facts)
         doc_type = intent_res.get("document_type", "UNKNOWN")
         
+        if doc_type == "UNKNOWN" or not self._get_template_data(doc_type):
+            return {
+                "status": "ERROR",
+                "message": "We could not determine a supported legal document type for your request. Please try providing more details or request one of the supported types (e.g., Affidavit, Police Complaint, Legal Notice)."
+            }
+            
         # Override missing fields based on the template registry
         template_data = self._get_template_data(doc_type)
         if template_data:

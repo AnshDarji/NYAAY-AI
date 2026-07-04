@@ -1,15 +1,12 @@
 {
-    "document_id": "Hindu_Marriage_Act_1955.txt",
+    "document_id": "hindu_marriage_act_1955.txt",
     "status": "PASS",
     "errors": [],
-    "warnings": [
-        "Possible missing section between 1 and 5",
-        "Possible missing section between 5 and 13"
-    ],
+    "warnings": [],
     "stats": {
-        "total_blocks": 5,
-        "parts": 1,
-        "chapters": 1,
-        "sections": 3
+        "total_blocks": 1,
+        "parts": 0,
+        "chapters": 0,
+        "sections": 0
     }
 }

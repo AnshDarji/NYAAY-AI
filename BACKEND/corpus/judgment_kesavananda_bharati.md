@@ -1,3 +1,9 @@
+---
+source_name: judgment_kesavananda_bharati
+legal_domain: General Law
+document_type: statute
+act_name: judgment kesavananda bharati
+---
 # Kesavananda Bharati Sripadagalvaru & Ors vs State of Kerala & Anr
 **Citation:** (1973) 4 SCC 225
 **Court:** Supreme Court of India

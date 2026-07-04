@@ -73,11 +73,24 @@ class RAGOrchestrator:
 
         if not query_embedding:
             return self._fallback_response("Failed to process question text.")
+            
+        # 2.5 Pre-Search Domain Classification
+        from app.ai.domain_classifier import domain_classifier
+        domain_predictions = domain_classifier.predict_domain(search_query)
+        predicted_domains = domain_predictions.get("domains", {})
+        doc_type_priority = domain_predictions.get("document_type_priority", "any")
 
-        # 3. Hybrid Retrieval
+        # 3. Hybrid Retrieval with Metadata Re-ranking
         retrieval_start = time.time()
         try:
-            chunks = hybrid_retriever.search(search_query, query_embedding, n_results=10, where=filters)
+            chunks = hybrid_retriever.search(
+                query=search_query, 
+                query_embedding=query_embedding, 
+                n_results=10, 
+                where=filters,
+                predicted_domains=predicted_domains,
+                document_type_priority=doc_type_priority
+            )
         except Exception as e:
             logger.error(f"Vector search failed: {e}")
             return self._fallback_response("Failed to retrieve context.")

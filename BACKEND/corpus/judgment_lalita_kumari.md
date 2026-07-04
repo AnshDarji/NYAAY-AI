@@ -1,3 +1,9 @@
+---
+source_name: judgment_lalita_kumari
+legal_domain: General Law
+document_type: statute
+act_name: judgment lalita kumari
+---
 # Lalita Kumari vs Govt. of U.P. & Ors
 **Citation:** (2014) 2 SCC 1
 **Court:** Supreme Court of India

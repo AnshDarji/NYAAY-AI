@@ -1,0 +1,1397 @@
+[
+  {
+    "id": "1a865bb0-7f2a-4297-9500-0cf993c5d478",
+    "document": "[BHARATIYA_NAGARIK_SURAKSHA_SANHITA]\n# Bharatiya Nagarik Suraksha Sanhita, 2023\n## CHAPTER XII\n### INFORMATION TO THE POLICE AND THEIR POWERS TO INVESTIGATE\n**Section 173. Information in cognizable cases.**\n(1) Every information relating to the commission of a cognizable offence, irrespective of the area where the offence is committed, may be given orally or by electronic communication to an officer in charge of a police station, and if given orally, it shall be reduced to writing by him or under his direction, and be read over to the informant.\n(2) A copy of the information as recorded under sub-section (1) shall be given forthwith, free of cost, to the informant.\n(3) Any person aggrieved by a refusal on the part of an officer in charge of a police station to record the information referred to in sub-section (1) may send the substance of such information, in writing and by post, to the Superintendent of Police concerned who, if satisfied that such information discloses the commission of a cognizable offence, shall either investigate the case himself or direct an investigation to be made by any police officer subordinate to him.\n(4) A person can also approach the Magistrate under Section 175(3) of this Sanhita.\n**Section 175. Magistrate's power to direct investigation.**\n(3) Any Magistrate empowered under section 210 may order such an investigation as above-mentioned.\n## CHAPTER XXXV\n### BAIL AND BONDS\n**Section 479. Maximum period for which an undertrial prisoner can be detained.**\n(1) Where a person has, during the period of investigation, inquiry or trial under this Sanhita of an offence under any law (not being an offence for which the punishment of death or life imprisonment has been specified as one of the punishments under that law) undergone detention for a period extending up to one-half of the maximum period of imprisonment specified for that offence under that law, he shall be released by the Court on bail.",
+    "metadata": {
+      "source_name": "BHARATIYA_NAGARIK_SURAKSHA_SANHITA",
+      "type": "statute",
+      "legal_domain": "General Law",
+      "file_hash": "79ea8517640fc713d396b5ca8377780c6025b50c6b1638b47c43a4299021d461",
+      "ingestion_timestamp": 1782735799,
+      "tenant_id": "global",
+      "document_id": "Bharatiya_Nagarik_Suraksha_Sanhita.md"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "35a8b10ce358285c6027ea653a002d86574646015a96ebfcc14ffa73445e272c"
+  },
+  {
+    "id": "a7e1a1ad-a373-4694-a389-e0fc77585f55",
+    "document": "[BHARATIYA_NAGARIK_SURAKSHA_SANHITA]\n**Section 479. Maximum period for which an undertrial prisoner can be detained.**\n(1) Where a person has, during the period of investigation, inquiry or trial under this Sanhita of an offence under any law (not being an offence for which the punishment of death or life imprisonment has been specified as one of the punishments under that law) undergone detention for a period extending up to one-half of the maximum period of imprisonment specified for that offence under that law, he shall be released by the Court on bail.\n**Section 482. Direction for grant of bail to person apprehending arrest (Anticipatory Bail).**\n(1) Where any person has reason to believe that he may be arrested on an accusation of having committed a non-bailable offence, he may apply to the High Court or the Court of Session for a direction under this section that in the event of such arrest he shall be released on bail.",
+    "metadata": {
+      "legal_domain": "General Law",
+      "ingestion_timestamp": 1782735799,
+      "source_name": "BHARATIYA_NAGARIK_SURAKSHA_SANHITA",
+      "type": "statute",
+      "tenant_id": "global",
+      "file_hash": "79ea8517640fc713d396b5ca8377780c6025b50c6b1638b47c43a4299021d461",
+      "document_id": "Bharatiya_Nagarik_Suraksha_Sanhita.md"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "607f3e290544cdbfe36617210e0844d863120fdc02c69e91885c933d48ab6f82"
+  },
+  {
+    "id": "9a3fc4d9-236f-4265-ae51-d791289efb37",
+    "document": "[BHARATIYA_NYAYA_SANHITA]\n# Bharatiya Nyaya Sanhita, 2023\n## CHAPTER VI\n### OF OFFENCES AFFECTING THE HUMAN BODY\n**Section 103. Punishment for murder.**\n(1) Whoever commits murder shall be punished with death or imprisonment for life, and shall also be liable to fine.\n**Section 105. Culpable homicide not amounting to murder.**\nWhoever causes the death of any person by doing any rash or negligent act not amounting to culpable homicide, shall be punished with imprisonment of either description for a term which may extend to five years, and shall also be liable to fine.\n## CHAPTER XVII\n### OF OFFENCES AGAINST PROPERTY\n**Section 303. Theft.**\n(1) Whoever, intending to take dishonestly any movable property out of the possession of any person without that person's consent, moves that property in order to such taking, is said to commit theft.\n(2) Whoever commits theft shall be punished with imprisonment of either description for a term which may extend to three years, or with fine, or with both.\n**Section 309. Robbery.**\nIn all robbery there is either theft or extortion. Theft is \"robbery\" if, in order to the committing of the theft, or in committing the theft, or in carrying away or attempting to carry away property obtained by the theft, the offender, for that end, voluntarily causes or attempts to cause to any person death or hurt or wrongful restraint, or fear of instant death or of instant hurt, or of instant wrongful restraint.",
+    "metadata": {
+      "ingestion_timestamp": 1782735801,
+      "type": "statute",
+      "tenant_id": "global",
+      "file_hash": "685d4a135caf639a7822eefe2d808cba150a26f10d3d19cc16188758f5aa0fc6",
+      "document_id": "Bharatiya_Nyaya_Sanhita.md",
+      "legal_domain": "General Law",
+      "source_name": "BHARATIYA_NYAYA_SANHITA"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "988ef4b0d350f310f8fffdb8d5d4d90c97536b4d4805e8a44d065e7bfb897a15"
+  },
+  {
+    "id": "eb1f1dc5-449a-4ce9-ab2d-daf4b9cffe01",
+    "document": "[BSA_2023]\n# Bharatiya Sakshya Adhiniyam, 2023\n## PART I\nPRELIMINARY\n1. Short title, extent and commencement.\n(1) This Act may be called the Bharatiya Sakshya Adhiniyam, 2023.\n(2) It extends to the whole of India.\n(3) It shall come into force on such date as the Central Government may, by notification in the Official Gazette, appoint.\n## PART II\nRELEVANCY OF FACTS\n### CHAPTER I\nGENERAL\n2. Definitions.\nIn this Adhiniyam, unless the context otherwise requires,\u2014\n(a) \"Court\" includes all Judges and Magistrates, and all persons, except arbitrators, legally authorised to take evidence;\n(b) \"Document\" means any matter expressed or described upon any substance by means of letters, figures or marks.\n### CHAPTER II\nRELEVANCY OF FACTS\n3. Evidence may be given of facts in issue and relevant facts.\nEvidence may be given in any suit or proceeding of the existence or non-existence of every fact in issue and of such other facts as are hereinafter declared to be relevant, and of no others.",
+    "metadata": {
+      "ingestion_timestamp": 1782735802,
+      "type": "statute",
+      "file_hash": "d8199608e9fe0572f696e2ad1a30379aa6c30c6ac927b1f6cf22a09bb97226a8",
+      "document_id": "BSA_2023.md",
+      "legal_domain": "General Law",
+      "tenant_id": "global",
+      "source_name": "BSA_2023"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "09dd2d09012164dcf4bea69b765702a90429775326c7b17abbf1f45229541e9a"
+  },
+  {
+    "id": "310ca290-3166-4d1c-97d1-e94126c6ef30",
+    "document": "[CONSTITUTION_OF_INDIA]\n# The Constitution of India\n## PART III\n### FUNDAMENTAL RIGHTS\n#### Right to Equality\n**Article 14. Equality before law.**\nThe State shall not deny to any person equality before the law or the equal protection of the laws within the territory of India.\n**Article 15. Prohibition of discrimination on grounds of religion, race, caste, sex or place of birth.**\n(1) The State shall not discriminate against any citizen on grounds only of religion, race, caste, sex, place of birth or any of them.\n#### Right to Freedom\n**Article 19. Protection of certain rights regarding freedom of speech, etc.**\n(1) All citizens shall have the right\u2014\n(a) to freedom of speech and expression;\n(b) to assemble peaceably and without arms;\n(c) to form associations or unions;\n(d) to move freely throughout the territory of India;\n(e) to reside and settle in any part of the territory of India; and\n(g) to practise any profession, or to carry on any occupation, trade or business.\n**Article 21. Protection of life and personal liberty.**\nNo person shall be deprived of his life or personal liberty except according to procedure established by law.\n## PART IV\n### DIRECTIVE PRINCIPLES OF STATE POLICY\n**Article 39A. Equal justice and free legal aid.**\nThe State shall secure that the operation of the legal system promotes justice, on a basis of equal opportunity, and shall, in particular, provide free legal aid, by suitable legislation or schemes or in any other way, to ensure that opportunities for securing justice are not denied to any citizen by reason of economic or other disabilities.",
+    "metadata": {
+      "file_hash": "2f68a339e299fdf857419730c8bb769fa1e9fdeea441e927c89e5e362ddde84b",
+      "document_id": "Constitution_of_India.md",
+      "legal_domain": "Constitutional Law",
+      "type": "statute",
+      "source_name": "CONSTITUTION_OF_INDIA",
+      "tenant_id": "global",
+      "ingestion_timestamp": 1782735802
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "9ba59da619c9224cdbb099bc338954cf9285d06a5845fd36e61eae3bd12b7dda"
+  },
+  {
+    "id": "b9aa276a-dae6-482a-aebc-4a786f1e51d3",
+    "document": "[CONSTITUTION_OF_INDIA]\n**Article 39A. Equal justice and free legal aid.**\nThe State shall secure that the operation of the legal system promotes justice, on a basis of equal opportunity, and shall, in particular, provide free legal aid, by suitable legislation or schemes or in any other way, to ensure that opportunities for securing justice are not denied to any citizen by reason of economic or other disabilities.",
+    "metadata": {
+      "source_name": "CONSTITUTION_OF_INDIA",
+      "file_hash": "2f68a339e299fdf857419730c8bb769fa1e9fdeea441e927c89e5e362ddde84b",
+      "ingestion_timestamp": 1782735802,
+      "type": "statute",
+      "document_id": "Constitution_of_India.md",
+      "legal_domain": "Constitutional Law",
+      "tenant_id": "global"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "86195e6fc1c7c997ee9607883b233f3311b0274b4fc7b271c5ab7989b5280677"
+  },
+  {
+    "id": "2cc87dda-56d9-484c-a7d0-5eecdd1cec58",
+    "document": "[CONSUMER_PROTECTION_ACT]\n# Consumer Protection Act, 2019\n## CHAPTER I\n### PRELIMINARY\n**Section 2. Definitions.**\n(7) \"consumer\" means any person who buys any goods for a consideration which has been paid or promised or partly paid and partly promised, or under any system of deferred payment.\n(9) \"consumer rights\" includes the right to be protected against the marketing of goods, products or services which are hazardous to life and property.\n(10) \"defect\" means any fault, imperfection or shortcoming in the quality, quantity, potency, purity or standard which is required to be maintained by or under any law for the time being in force.\n## CHAPTER IV\n### CONSUMER DISPUTES REDRESSAL COMMISSION\n**Section 34. Jurisdiction of District Commission.**\n(1) Subject to the other provisions of this Act, the District Commission shall have jurisdiction to entertain complaints where the value of the goods or services paid as consideration does not exceed one crore rupees.",
+    "metadata": {
+      "file_hash": "08d425fac46db8d8e6ad469d52a8a15973027066ca581e855f1eb212a29c788c",
+      "tenant_id": "global",
+      "type": "statute",
+      "source_name": "CONSUMER_PROTECTION_ACT",
+      "legal_domain": "General Law",
+      "document_id": "Consumer_Protection_Act.md",
+      "ingestion_timestamp": 1782735803
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "c2d20565b02a81b01444fdf29f23aecaf696bc1ea710eefa85a0030736901afa"
+  },
+  {
+    "id": "1c6004de-3e26-4378-8fda-c0896b7a102c",
+    "document": "[CPC_1908]\n# Code of Civil Procedure, 1908\n## PART I\nSUITS IN GENERAL\n1. Short title, commencement and extent.\n(1) This Act may be cited as the Code of Civil Procedure, 1908.\n(2) It shall come into force on the first day of January, 1909.\n### CHAPTER I\nJURISDICTION OF THE COURTS AND RES JUDICATA\n9. Courts to try all civil suits unless barred.\nThe Courts shall (subject to the provisions herein contained) have jurisdiction to try all suits of a civil nature excepting suits of which their cognizance is either expressly or impliedly barred.\n10. Stay of suit.\nNo Court shall proceed with the trial of any suit in which the matter in issue is also directly and substantially in issue in a previously instituted suit between the same parties.\n11. Res judicata.\nNo Court shall try any suit or issue in which the matter directly and substantially in issue has been directly and substantially in issue in a former suit between the same parties.",
+    "metadata": {
+      "source_name": "CPC_1908",
+      "legal_domain": "General Law",
+      "type": "statute",
+      "ingestion_timestamp": 1782735804,
+      "tenant_id": "global",
+      "file_hash": "461765495ca1961861080ea680f2b85bf54776b010c10e28e330f6e9a2172ebd",
+      "document_id": "CPC_1908.md"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "813b5db02d6bd2463eca4563d6ea8ab146c05b1b54584369a3f0e149a4e6e4ae"
+  },
+  {
+    "id": "9a2ce60c-41f2-47ad-8cf7-b7e547d1fb16",
+    "document": "[HINDU_MARRIAGE_ACT_1955]\n# Hindu Marriage Act, 1955\n## PART I\nPRELIMINARY\n1. Short title and extent.\n(1) This Act may be called the Hindu Marriage Act, 1955.\n(2) It extends to the whole of India except the State of Jammu and Kashmir, and applies also to Hindus domiciled in the territories to which this Act extends who are outside the said territories.\n### CHAPTER II\nHINDU MARRIAGES\n5. Conditions for a Hindu marriage.\nA marriage may be solemnized between any two Hindus, if the following conditions are fulfilled, namely:\u2014\n(i) neither party has a spouse living at the time of the marriage;\n(ii) at the time of the marriage, neither party is incapable of giving a valid consent to it in consequence of unsoundness of mind.\n13. Divorce.\n(1) Any marriage solemnized, whether before or after the commencement of this Act, may, on a petition presented by either the husband or the wife, be dissolved by a decree of divorce on the ground that the other party\u2014\n(i) has, after the solemnization of the marriage, had voluntary sexual intercourse with any person other than his or her spouse.",
+    "metadata": {
+      "ingestion_timestamp": 1782735805,
+      "document_id": "HINDU_MARRIAGE_ACT_1955.md",
+      "source_name": "HINDU_MARRIAGE_ACT_1955",
+      "type": "statute",
+      "legal_domain": "General Law",
+      "tenant_id": "global",
+      "file_hash": "4cfcb867b7ad9fbd62b800ee98e4d9440b16ce7da20775299dd3c096f90cf9a6"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "2210b2e43bd1064b407c21c0d559a80c115b792497848ec94c183f310ab9f3d6"
+  },
+  {
+    "id": "5118179a-3d9a-4de0-a202-35f14b7de689",
+    "document": "[INDIAN_CONTRACT_ACT]\n# Indian Contract Act, 1872\n## CHAPTER I\n### OF THE COMMUNICATION, ACCEPTANCE AND REVOCATION OF PROPOSALS\n**Section 2. Interpretation-clause.**\nIn this Act the following words and expressions are used in the following senses, unless a contrary intention appears from the context:\n(a) When one person signifies to another his willingness to do or to abstain from doing anything, with a view to obtaining the assent of that other to such act or abstinence, he is said to make a proposal;\n(b) When the person to whom the proposal is made signifies his assent thereto, the proposal is said to be accepted. A proposal, when accepted, becomes a promise;\n(h) An agreement enforceable by law is a contract.\n## CHAPTER VI\n### OF THE CONSEQUENCES OF BREACH OF CONTRACT\n**Section 73. Compensation for loss or damage caused by breach of contract.**\nWhen a contract has been broken, the party who suffers by such breach is entitled to receive, from the party who has broken the contract, compensation for any loss or damage caused to him thereby, which naturally arose in the usual course of things from such breach, or which the parties knew, when they made the contract, to be likely to result from the breach of it.",
+    "metadata": {
+      "source_name": "INDIAN_CONTRACT_ACT",
+      "type": "statute",
+      "document_id": "Indian_Contract_Act.md",
+      "legal_domain": "General Law",
+      "tenant_id": "global",
+      "ingestion_timestamp": 1782735805,
+      "file_hash": "8044466728cbd99a798c1a5e2c8387d6f62ed7115b9195cc3b60b43af41d2060"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "a4ddae84729c3249e2af472ab28eebbad56e0e01b2c47bcc77b2cd80024b2437"
+  },
+  {
+    "id": "442375ae-72f7-49e2-9836-87a2e4beadd8",
+    "document": "[INFORMATION_TECHNOLOGY_ACT]\n# Information Technology Act, 2000\n## CHAPTER XI\n### OFFENCES\n**Section 43. Penalty and compensation for damage to computer, computer system, etc.**\nIf any person without permission of the owner or any other person who is incharge of a computer, computer system or computer network, accesses or secures access to such computer, downloads, copies or extracts any data, or introduces any computer contaminant or computer virus into any computer, he shall be liable to pay damages by way of compensation to the person so affected.\n**Section 66. Computer related offences.**\nIf any person, dishonestly or fraudulently, does any act referred to in section 43, he shall be punishable with imprisonment for a term which may extend to three years or with fine which may extend to five lakh rupees or with both.\n**Section 66D. Punishment for cheating by personation by using computer resource.**\nWhoever, by means of any communication device or computer resource cheats by personation, shall be punished with imprisonment of either description for a term which may extend to three years and shall also be liable to fine which may extend to one lakh rupees.",
+    "metadata": {
+      "tenant_id": "global",
+      "legal_domain": "General Law",
+      "file_hash": "c9db3941f8dff90c83de2abdf7c51cc19b72ca17c3c0831dbf75f0129a96bd31",
+      "source_name": "INFORMATION_TECHNOLOGY_ACT",
+      "type": "statute",
+      "document_id": "Information_Technology_Act.md",
+      "ingestion_timestamp": 1782735806
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "c815e01eb5ffcd3329423e618e100bd93dbf5bda1bc0b905fdb2811d91a6cd38"
+  },
+  {
+    "id": "772b5d65-e1f5-4307-9fd2-3605827d0b20",
+    "document": "[JUDGMENT_KESAVANANDA_BHARATI]\n# Kesavananda Bharati Sripadagalvaru & Ors vs State of Kerala & Anr\n**Citation:** (1973) 4 SCC 225\n**Court:** Supreme Court of India\n**Bench:** S.M. Sikri (CJ), J.M. Shelat, K.S. Hegde, A.N. Grover, A.N. Ray, P. Jaganmohan Reddy, D.G. Palekar, H.R. Khanna, K.K. Mathew, M.H. Beg, S.N. Dwivedi, A.K. Mukherjea, Y.V. Chandrachud\n**Date:** 24 April 1973\n## Facts\nThe petitioner, Kesavananda Bharati, head of a Hindu math in Kerala, challenged the Kerala Land Reforms Act, 1963, which sought to impose restrictions on the management of the math's property. He argued that his fundamental rights under Articles 25, 26, and 31 of the Constitution were violated. During the pendency of the petition, the 24th, 25th, and 29th Amendments to the Constitution were passed, which the petitioner also challenged.\n## Issues\n1. What is the extent of the amending power of Parliament under Article 368 of the Constitution?\n2. Does the power to amend include the power to destroy or alter the \"basic structure\" of the Constitution?\n## Arguments\nThe petitioners argued that the power of Parliament to amend the Constitution under Article 368 is not absolute and cannot be used to alter the fundamental features or the \"basic structure\" of the Constitution. The respondents (State and Union) argued that the amending power is limitless and encompasses all provisions of the Constitution.\n## Reasoning\nThe majority held that while Parliament has wide powers to amend the Constitution, this power is not absolute. Article 368 does not enable Parliament to alter the basic structure or framework of the Constitution. The Court reasoned that an amendment must leave the fundamental identity of the Constitution intact.",
+    "metadata": {
+      "source_name": "JUDGMENT_KESAVANANDA_BHARATI",
+      "legal_domain": "Criminal Law",
+      "file_hash": "56b6fd3d2027088042c7947093506ce5d526db3a92d63da640f5b74c13c16453",
+      "type": "judgment",
+      "tenant_id": "global",
+      "document_id": "judgment_kesavananda_bharati.md",
+      "ingestion_timestamp": 1782735806
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "a859a4df04ae02ff48e3e6e9a66746958532bf158997a79b455a32e568860b8c"
+  },
+  {
+    "id": "bbe64fbf-6076-4543-88ea-18e8a252dada",
+    "document": "[JUDGMENT_KESAVANANDA_BHARATI]\n## Reasoning\nThe majority held that while Parliament has wide powers to amend the Constitution, this power is not absolute. Article 368 does not enable Parliament to alter the basic structure or framework of the Constitution. The Court reasoned that an amendment must leave the fundamental identity of the Constitution intact.\n## Ratio Decidendi\nParliament cannot alter the basic structure or framework of the Constitution of India.\n## Held\nThe 24th Amendment is valid, but the power to amend the Constitution under Article 368 is subject to the implied limitation that the basic structure cannot be altered.\n## Acts Referenced\n- Constitution of India\n## Sections Referenced\n- Article 368\n- Article 13\n- Article 25\n- Article 26\n- Article 31\n## Keywords\nBasic Structure Doctrine, Amending Power, Fundamental Rights, Constitutional Amendment, Land Reforms.",
+    "metadata": {
+      "source_name": "JUDGMENT_KESAVANANDA_BHARATI",
+      "type": "judgment",
+      "ingestion_timestamp": 1782735806,
+      "document_id": "judgment_kesavananda_bharati.md",
+      "file_hash": "56b6fd3d2027088042c7947093506ce5d526db3a92d63da640f5b74c13c16453",
+      "legal_domain": "Criminal Law",
+      "tenant_id": "global"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "4096e6ac926956aa66b345a33aaef1d0ea2c07d7a37570e437d0c2d2b5614764"
+  },
+  {
+    "id": "cec971d8-2a91-4b62-b5c0-5136e84f9587",
+    "document": "[JUDGMENT_LALITA_KUMARI]\n# Lalita Kumari vs Govt. of U.P. & Ors\n**Citation:** (2014) 2 SCC 1\n**Court:** Supreme Court of India\n**Bench:** P. Sathasivam (CJ), B.S. Chauhan, Ranjana Prakash Desai, Ranjan Gogoi, S.A. Bobde\n**Date:** 12 November 2013\n## Facts\nThe petitioner filed a writ petition under Article 32 of the Constitution, stating that the police had refused to register an FIR regarding the kidnapping of his minor daughter. He approached the Superintendent of Police but no action was taken.\n## Issues\nWhether a police officer is bound to register a First Information Report (FIR) upon receiving any information relating to commission of a cognizable offence under Section 154 of the Code of Criminal Procedure, 1973 (now Section 173 of BNSS, 2023), or whether the police officer has the power to conduct a preliminary inquiry in order to test the veracity of such information before registering the FIR.\n## Arguments\nThe petitioners argued that Section 154 uses the word \"shall\", making the registration of an FIR mandatory if the information discloses a cognizable offence. The respondents argued that a preliminary inquiry is necessary to prevent frivolous or malicious complaints.\n## Reasoning\nThe Court emphasized the mandatory nature of Section 154 (now 173 BNSS). The legislative intent behind the use of the word \"shall\" leaves no discretion to the police officer if the information discloses a cognizable offence. The Court reasoned that mandatory registration of FIRs guarantees transparency, upholds the rule of law, and ensures the victim's right to justice. Preliminary inquiries are only permitted in specific categories of cases (e.g., matrimonial disputes, commercial offences, medical negligence, corruption cases) or when there is a delay in reporting.",
+    "metadata": {
+      "legal_domain": "Criminal Law",
+      "tenant_id": "global",
+      "document_id": "judgment_lalita_kumari.md",
+      "file_hash": "c4e2e78072b4a0e83e128c4173cb9289acbf4b2a48f2b72fcb81ddb5d5588e49",
+      "ingestion_timestamp": 1782735808,
+      "source_name": "JUDGMENT_LALITA_KUMARI",
+      "type": "judgment"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "9c368f491ea3e3cf0154d0f57d8914c94db55578e1d28ae4d15cb143a1be1af1"
+  },
+  {
+    "id": "6bddd7a5-ee63-4cd7-896e-197e5057f3e0",
+    "document": "[JUDGMENT_LALITA_KUMARI]\n## Reasoning\nThe Court emphasized the mandatory nature of Section 154 (now 173 BNSS). The legislative intent behind the use of the word \"shall\" leaves no discretion to the police officer if the information discloses a cognizable offence. The Court reasoned that mandatory registration of FIRs guarantees transparency, upholds the rule of law, and ensures the victim's right to justice. Preliminary inquiries are only permitted in specific categories of cases (e.g., matrimonial disputes, commercial offences, medical negligence, corruption cases) or when there is a delay in reporting.\n## Ratio Decidendi\nRegistration of FIR is mandatory under Section 154 of the CrPC (Section 173 BNSS) if the information discloses commission of a cognizable offence and no preliminary inquiry is permissible in such a situation.\n## Held\nThe Court issued mandatory guidelines stating that FIR registration is obligatory if a cognizable offence is disclosed. If the information does not disclose a cognizable offence but indicates the necessity for an inquiry, a preliminary inquiry may be conducted only to ascertain whether a cognizable offence is disclosed or not.\n## Acts Referenced\n- Code of Criminal Procedure, 1973\n- Bharatiya Nagarik Suraksha Sanhita, 2023\n- Constitution of India\n## Sections Referenced\n- Section 154 CrPC\n- Section 173 BNSS\n- Article 32\n## Keywords\nMandatory FIR, Cognizable Offence, Preliminary Inquiry, Police Officer Duty.",
+    "metadata": {
+      "tenant_id": "global",
+      "type": "judgment",
+      "document_id": "judgment_lalita_kumari.md",
+      "source_name": "JUDGMENT_LALITA_KUMARI",
+      "ingestion_timestamp": 1782735808,
+      "file_hash": "c4e2e78072b4a0e83e128c4173cb9289acbf4b2a48f2b72fcb81ddb5d5588e49",
+      "legal_domain": "Criminal Law"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "154696e3c0e37376a89ff2e98ead3edf02bad6a2b3a5561a7533bb43e4f147b5"
+  },
+  {
+    "id": "fd7d6348-2aa2-4ab2-a5f0-026657957bbe",
+    "document": "[India France Sample.pdf > Article 1]\nAGREEMENT\nBETWEEN\nTHE GOVERNMENT OF THE REPUBLIC OF INDIA\nAND\nTHE GOVERNMENT OF THE REPUBLIC OF FRANCE\nON THE RECIPROCAL PROMOTION AND PROTECTION\nOF INVESTMENTS\nThe Government of the Republic of India and the Government of the Republic of France. hereinafter\nreferred to as the Contracting Parties.\nDesiring to strengthen the economic cooperation between both States and to create favourable\nconditions for French investments in India and Indian investments in France.\nConvinced that the promotion and protection of these investments would succeed in stimulating\ntransfers of capital and technology between the two countries in the interest of their economic\ndevelopment.\nHave agreed as follows.",
+    "metadata": {
+      "tenant_id": "mock-uid",
+      "source_name": "India France Sample.pdf",
+      "document_id": "8033a294-0f10-46ea-a93b-c9931f0f3536",
+      "article": "1",
+      "document_type": "user_upload"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "003eac3b402d95a07c13fbb94b0db480a010a75c789fe27ffa5b7c88a51655b7"
+  },
+  {
+    "id": "329003c3-bb35-4770-99a4-c9be9dc26410",
+    "document": "[India France Sample.pdf > Article 1]\nARTICLE 1\nDefinitions\nFor the purpose of this Agreement:\n(1)\nThe term \u201cinvestment\u201d means every kind of asset, such as goods, intellectual property rights\nand other tights and interest of whatever nature, invested in the area of the Contracting Party in\naccordance with the laws of that Contracting Party, and in particular though not exclusively includes:\na)\nMovable and immovable property as well as any other rights In rem such as mortgages,\nliens, usufructs and pledges, and similar rights;\nb)\nShares and other kinds of interest including minority or indirect forms, in companies\nconstituted in the territory of one Contracting Party;\nc)\nDebentures or rights to money, or to any legitimate performance having a financial\nvalue;\nd)\nBusiness concessions conferred by law or under contract, including concessions to\nsearch for, extract or exploit natural resources, which are located in the maritime area\nof the Contracting parties.\n(2)\nThe term \u201cnationals\u201d means physical persons possessing the nationality o.f either Contracting\nParty.\n(3)\nThe term \u201ccompany\u201d means any legal person constituted on the territory of one Contracting\nParty in accordance with the laws of that Party.\n(4)\nThe term \u201cinvestor\u201d means any national or company of a Contracting Party.\n(5) The term \u201creturns\u201d means all amounts produced by an investment, such as profits, royalties and\ninterest.\n(6)\nThe term \u201carea\u201d means:\na)\nin respect of India. the territory of India including the territorial sea and air space above\nit, as well as any other maritime zone in which India, according to the Indian Law, has",
+    "metadata": {
+      "article": "1",
+      "document_type": "user_upload",
+      "source_name": "India France Sample.pdf",
+      "tenant_id": "mock-uid",
+      "document_id": "8033a294-0f10-46ea-a93b-c9931f0f3536"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "9dd7dbb9dac93bc9f7eb446ff67b33d6d38a35c37c33610ea60ab83496910300"
+  },
+  {
+    "id": "d2db7a0f-229b-410f-a578-f07fdf135cc7",
+    "document": "[India France Sample.pdf > Article 2]\n[ARTICLE 1 - continued]\nin respect of India. the territory of India including the territorial sea and air space above\nit, as well as any other maritime zone in which India, according to the Indian Law, has\nsovereign rights, other rights and jurisdictions in accordance with international law;\nb)\nin respect of France, the territory of France including the territorial sea and the air\nspace above it as well as the areas within which, in accordance with International law,\nthe French Republic has sovereign tights for the purpose of exploring and exploiting the\nnatural resources of the sea-bed and its sub-soil and of the superjacent waters.",
+    "metadata": {
+      "document_id": "8033a294-0f10-46ea-a93b-c9931f0f3536",
+      "source_name": "India France Sample.pdf",
+      "tenant_id": "mock-uid",
+      "article": "2",
+      "document_type": "user_upload"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "bcc981c6d0c9749ceb5a60e7ebd8463d4c51d692d3c3bca659de8f129bc3039b"
+  },
+  {
+    "id": "f0f85913-656d-4738-b3d9-a112311cc444",
+    "document": "[India France Sample.pdf > Article 3]\nARTICLE 2\nScope of the Agreement\n(1)\nThis Agreement shall apply to any investment made by investors of either Contracting Party in\nthe area of the other Contracting Party, including an indirect investment made through another\ncompany, wherever located, which is owned to an extent of at least 51 per cent by such investors,\nwhether made before or after the coming into force of this Agreement.\n(2)\nAny alteration of the form in which assets are invested shall not affect their qualification as\ninvestments provided that such alteration is not in conflict with the laws of the Contracting Party within\nwhose area the investment is made.",
+    "metadata": {
+      "source_name": "India France Sample.pdf",
+      "document_id": "8033a294-0f10-46ea-a93b-c9931f0f3536",
+      "document_type": "user_upload",
+      "tenant_id": "mock-uid",
+      "article": "3"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "54b5e3e4213e584dfc7286088254faab535e2bb633f950628354903cad0e7f43"
+  },
+  {
+    "id": "e0744518-50db-4a8b-bd5b-61e520e6d1b7",
+    "document": "[India France Sample.pdf > Article 4]\nARTICLE 3\nAdmission and promotion of investment\n(1)\nEach Contracting Party shall admit and encourage on its territory and in its maritime area, in\naccordance with its laws and with the provisions of this Agreement, investments made by investors of\nthe other Contracting Party.\n(2)\nWithin the framework of their internal laws, the Contracting Parties shall favourably examine\nrequests for entry and authorisation to reside, work and travel made by the national of one Contracting\nParty in relation to an investment made in the area of the other Contracting Party.",
+    "metadata": {
+      "document_type": "user_upload",
+      "source_name": "India France Sample.pdf",
+      "document_id": "8033a294-0f10-46ea-a93b-c9931f0f3536",
+      "tenant_id": "mock-uid",
+      "article": "4"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "b76de9d572beefc8bc47546d29790158242b6619664f8fbfb0d8f1483d3e9a83"
+  },
+  {
+    "id": "2f0b409f-ecd3-4bd0-a73c-3c3674ae2b4a",
+    "document": "[India France Sample.pdf > Article 5]\nARTICLE 4\nFair and equitable treatment of investment\n(1)\nThe investments made by investors of one Contracting Party shall enjoy full and complete\nprotection and safety in the area of the other Contracting Party.\n(2)\nEach Contracting Party shall extend fair and equitable treatment in accordance with\ninternationally established principles to investments made by investors of the other Contracting Party in\nits area and shall permit the full exercise of this right in principle and in practice. In particular, though\nnot exclusively, each Contracting Party shall extend fair and equitable treatment to the domestic\ntransportation of goods or persons directly connected with an investment and to their international\ntransportation, subject to bilateral or international agreements governing such transport which are in\nforce between the Contracting Parties.\n(3)\nNationals authorised to work in the area of one Contracting Party shall not be prevented by that\nContracting Party from availing of facilities relevant to the exercise of their professional activities.",
+    "metadata": {
+      "article": "5",
+      "document_id": "8033a294-0f10-46ea-a93b-c9931f0f3536",
+      "document_type": "user_upload",
+      "source_name": "India France Sample.pdf",
+      "tenant_id": "mock-uid"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "c357d932070063db69bee2660eff2cca45449c71da2cbdfff8c84047ba2bd910"
+  },
+  {
+    "id": "9b97bcea-f907-4b87-a0de-7ff5dd8f92f9",
+    "document": "[India France Sample.pdf > Article 6]\nARTICLE 5\nNational and most-favoured nation treatment\n(1)\nEach Contracting Party shall accord to investments of investors of the other Contracting Party,\nincluding their operation, management, maintenance, use, enjoyment or disposal by such investors,\ntreatment which shall not be less favourable than that accorded to investments of its investors, or than\nthe most favourable treatment accorded to investments of investors of any third country, whichever is\nmore favourable.\n(2)\nIn addition each Contracting Party shall accord to investors of the other Contracting Party,\nincluding inrespect of returns on their investments, treatment which shall not be less favourable than\nthat accorded to investors of any third State.\n(3)\nThis treatment shall not include the privileges granted by one Contracting Party to nationals or\ninvestors of a third party State by virtue of its participation or association in a free trade zone, customs\nunion, common market or any other form of regional economic organization.\n(4)\nThe provisions of this article do not apply to tax matters.",
+    "metadata": {
+      "document_id": "8033a294-0f10-46ea-a93b-c9931f0f3536",
+      "document_type": "user_upload",
+      "source_name": "India France Sample.pdf",
+      "tenant_id": "mock-uid",
+      "article": "6"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "4a1c156320c5039b84fa38245421520432baf58f7effe95058a212967bca8cde"
+  },
+  {
+    "id": "81c1c457-6c1f-49e4-8783-cf8352c02dcc",
+    "document": "[India France Sample.pdf > Article 6]\nARTICLE 6\nExpropriation and compensation\n(1)\nNeither Contracting Party shall take any measure of expropriation or nationalisation or any\nother measures having the effect of dispossession, direct or indirect, of investors of the other\nContracting Party of their investments in its area, except in the public interest and provided that these\nmeasures are not discriminatory or contrary to a specific obligation entered into by Contracting Party\nnot to take a measure of dispossession.\n(2)\nAny measure of dispossession which might be taken shall give rise to adequate and reasonably\nprompt compensation, the amount of which shall be equal to the real value of the investments\nconcerned and shall be set, indicating conditions of payment, in accordance with the normal economic\nsituation prevailing prior to any threat of dispossession. This compensation shall be effectively\nrealisable, and shall then be paid without delay. Until the date of payment, it shall produce interest\ncalculated at the appropriate market rate of interest.\n(3)\nThe investor affected shall have a right, under the law of the Contracting Party taking the\nmeasure of dispossession, to review, by a judicial or other independent authority of that Party, of his or\nits case and of the valuation of his or its investment in accordance with the principles set out in this\nparagraph. The Contracting Party taking the measure of dispossession shall make every endeavour to\nensure that such review is carried out promptly.\n(4)\nInvestors of one Contracting Party whose investments have sustained losses due to war or any",
+    "metadata": {
+      "document_type": "user_upload",
+      "tenant_id": "mock-uid",
+      "document_id": "8033a294-0f10-46ea-a93b-c9931f0f3536",
+      "source_name": "India France Sample.pdf",
+      "article": "6"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "b2de030e64e3c84efe8c1ac4a033a08e8e26c2be393e6b948822743cc234a46f"
+  },
+  {
+    "id": "dc46b123-a6b1-45cc-a76d-83b806b77ce6",
+    "document": "[India France Sample.pdf > Article 7]\n[ARTICLE 6 - continued]\n(4)\nInvestors of one Contracting Party whose investments have sustained losses due to war or any\nother armed conflict, a state of national emergency or civil disturbances occurring in the area of the\nother Contracting Party, shall enjoy treatment from the latter Contracting Party that is not less\nfavourable than that granted to its own investors or to those of the most favoured nation.",
+    "metadata": {
+      "article": "7",
+      "document_id": "8033a294-0f10-46ea-a93b-c9931f0f3536",
+      "tenant_id": "mock-uid",
+      "source_name": "India France Sample.pdf",
+      "document_type": "user_upload"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "fb9499bf5902d429136a7c1515be019949542a1bdb8f5523e4eb0cff91182270"
+  },
+  {
+    "id": "3389e018-3ab3-4719-aa4a-5a8dbba01bba",
+    "document": "[India France Sample.pdf > Article 8]\nARTICLE 7\nTransfers\n(1)\nEach Contracting Party, in the area of which the investments have been made by investors of\nthe other Contracting Party, shall grant to these investors the free transfer of:\na)\ninterest, dividends, profits and other current income,\nb)\nroyalties deriving from rights as defined in Article 1, Paragraph 1,\nc)\nrepayments of loans which have been regulary contracted,\nd)\nvalue of partial or total liquidation or disposition of the investment, including capital\ngains on the capital invested.\ne)\ncompensation for dispossession or loss described in Article 6, Paragraphs 2 and 4,\nf)\nany other returns.\n(2)\nThe nationals of either Contracting Party, who have been authorised to work in the area of the\nother Contracting Party, as the result of an investment, shall also be permitted to transfer to their\ncountry of origin an appropriate proportion of their earnings.\n(3)\nThe transfers referred to in the foregoing paragraphs shall be promptly effected at the official\nexchange rate prevailing on the date of transfer.",
+    "metadata": {
+      "article": "8",
+      "document_id": "8033a294-0f10-46ea-a93b-c9931f0f3536",
+      "tenant_id": "mock-uid",
+      "source_name": "India France Sample.pdf",
+      "document_type": "user_upload"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "e1bb811d2e368d5a445e68ebde9effeee15d345faaf3caf7cc7eddd097108910"
+  },
+  {
+    "id": "a667869f-5492-47ab-9391-fb49d29d0804",
+    "document": "[India France Sample.pdf > Article 9]\nARTICLE 8\nSubrogation\n(1)\nIn the event that the regulations of one Contracting Party contain a guarantee for investments\nmade abroad, the guarantee may be accorded to investments made by investors of this Party in the area\nof the other Party.\n(2)\nIf one Contractiny Party, as a result of a guarantee given for an investment made in the area of\nthe other Contracting Party, makes payments to its own investors, the first mentioned Party has in this\ncase full rights of subrogation with regard to the rights and actions of the said investor.\n(3)\nThe said payments shall not affect the rights of the beneficiary of the guarantee, to the extent of\nthe non-subrogated rights of claims, to take recourse to or to continue proceedings under Article 9.",
+    "metadata": {
+      "tenant_id": "mock-uid",
+      "document_type": "user_upload",
+      "article": "9",
+      "document_id": "8033a294-0f10-46ea-a93b-c9931f0f3536",
+      "source_name": "India France Sample.pdf"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "d3f99e6d0e2fba11d00b4dc4dc0231eea3d8fd2abbc9efc776cefcd46af3998a"
+  },
+  {
+    "id": "2403d054-9623-4fd8-8468-35c6bc22949d",
+    "document": "[India France Sample.pdf > Article 9]\nARTICLE 9\nSettlement of investment disputes\n(I)\nAny dispute concerning the investments occuring between one Contracting Party and an\ninvestor of the other Contracting Party shall, if possible. be settled amicably between the two parties\nconcerned.\n(2)\nAny such dispute which has not been amicably settled within a period of six months from\nwritten notification of a claim may be sumitted to international conciliation under the Conciliation Rules\nof the United Nations Commission on International Trade Law, if the parties so agree.\n(3)\nNotwithstanding paragraph 2. the dispute may be referred to arbitration at any time as follows:\na)\nif the Contracting Party of the investor and the other Contracting Party are both parties\nto the Convention on the Settlement of Investment-Disputes between States and\nNationals of other States open to signature in Washington on March 18, 1965, and the\ninvestor consents in writing to submit the dispute to the lnternaitonal Centre for the\nSettlement of Investment Disputes, such a dispute shall be referred to the Centre; or\nb)\nif the investor so decides, the dispute shall be referred to an ad hoc arbitral tribunal in\naccordance with the Arbitration Rules of the United Nations Commission on\nInternational Trade Law, as adopted by the General Assembly on December 15, 1976. In\nrespect of such arbitral proceedings, the following shall apply;\n-\nthe arbitral Tribunal shall consist of three arbitrators. Each party shall select an\narbitrator. These two arbitrators shall appoint by mutual agreement a third",
+    "metadata": {
+      "document_type": "user_upload",
+      "article": "9",
+      "source_name": "India France Sample.pdf",
+      "document_id": "8033a294-0f10-46ea-a93b-c9931f0f3536",
+      "tenant_id": "mock-uid"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "62ede192408b0247113d77355655f03cb1c87fc85c3932a2bae60473be22f943"
+  },
+  {
+    "id": "a6f1482a-201e-441e-9edc-a11aa00b1fc4",
+    "document": "[India France Sample.pdf > Article 10]\n[ARTICLE 9 - continued]\nthe arbitral Tribunal shall consist of three arbitrators. Each party shall select an\narbitrator. These two arbitrators shall appoint by mutual agreement a third\narbitrator, the Chairman, who shall be a national of a third State. The arbitrators\nshall be appointed within two months from the date when one of the parties to the\ndispute informs the other of its intention to submit the dispute to arbitration;\n-\nif the necessary appointments are not made within the period specified in the above\nparagraph, either party may request the Secretary General of the Permanent Court\nof Arbitration to make the necessary appointments;\n-\nthe arbitral award shall be made in accordance with the provisions of this\nAgreement;\n-\nthe tribunal shall reach its decision by a majority of votes;\n-\nthe decision of the arbitral tribunal shall be final and binding, and the parties shall\nabide by and comply with the terms of its award;\n-\nthe arbitral tribunal shall state the basis of its decision and give reasons upon the\nrequest of either party;\n-\neach party concerned shall bear the cost of its own arbitrator and its representation\nin the arbitral proceedings. The cost of the Chairman in discharging his arbitral\nfunction and the remaining costs of the tribunal shall be borne equally by the\nparties concerned. The tribunal may, however, in its decision direct that a higher\nproportion of costs shall be borne by one of the two parties. and this award shall be\nbinding on both parties.",
+    "metadata": {
+      "tenant_id": "mock-uid",
+      "document_id": "8033a294-0f10-46ea-a93b-c9931f0f3536",
+      "article": "10",
+      "document_type": "user_upload",
+      "source_name": "India France Sample.pdf"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "e7ffbf16d1d37a29ba899cf8ab3827605f6eabfa8295c4586878f8805f7284f4"
+  },
+  {
+    "id": "9cb2ef4a-1bf7-4a13-8458-212d1f7e512b",
+    "document": "[India France Sample.pdf > Article 10]\nARTICLE 10\nSettlement of disputes between Contracting Parties\n(1)\nDisputes relating to the interpretation or application of this Agreement shall, if possible, be\nsettled amicably.\n(2)\nIf the dispute has not been settled within a period of six months from the date on which the\nmatter was raised by either Contracting Party, it may be submitted at the request of either Contracting\nParty to an Arbitral Tribunal.\n(3)\nThe said Tribunal shall be created as follows for each specific case : each Contracting Party shall\nappoint one arbitrator, and the two arbitrators thus appointed shall appoint by mutual agreement a\nnational of a third Country, who shall be designated as Chairman of the Tribunal by the two Contracting\nParties. All the arbitrators must be appointed within three months from the date of notification by one\nContracting Party to the other Contracting Party of its intention to submit the disagreement to\narbitration.\n(4)\nIf the periods specified in Paragraph 3 above have not been met, either Contracting Party, in the\nabsensce of any other agreement, shall invite the Secretary General of the Permanent Court of\nArbitration to make the necessary appointments. If the Secretary General is a national of either\nContracting Party, of if he is otherwise prevented from discharging the said function, the judge next in\nseniority to the Secretary General, who is not a national of either Contracting Party, shall make the\nnecessary appointments.\n(5)\nThe tribunal shall reach its decisions by a majority of votes. These decisions shall be final and",
+    "metadata": {
+      "document_id": "8033a294-0f10-46ea-a93b-c9931f0f3536",
+      "document_type": "user_upload",
+      "article": "10",
+      "source_name": "India France Sample.pdf",
+      "tenant_id": "mock-uid"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "faa30b0965243a81d6ac47574ebf6644f2f8675a7f3a5b55e9d0a9df547d3588"
+  },
+  {
+    "id": "cf854f53-0e30-4921-ac97-1a640a08d235",
+    "document": "[India France Sample.pdf > Article 11]\n[ARTICLE 10 - continued]\n(5)\nThe tribunal shall reach its decisions by a majority of votes. These decisions shall be final and\nlegally binding upon the Contracting Parties.\n(6)\nThe Tribunal shall set its own rules of procedure. It shall interpret the judgement at the request\nof either Contracting Party. Unless otherwise decided by the tribunal, in accordance with special\ncircumstances, the legal costs, including the fees of the arbitrators, shall be shared equally between the\ntwo Contracting Parties.",
+    "metadata": {
+      "article": "11",
+      "tenant_id": "mock-uid",
+      "document_id": "8033a294-0f10-46ea-a93b-c9931f0f3536",
+      "document_type": "user_upload",
+      "source_name": "India France Sample.pdf"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "c42ef153da61fa7b56da5b73b11ea2265888be684f5609aa794635cdb3083281"
+  },
+  {
+    "id": "b23c5cb4-28b2-4a5e-a53b-b747fca032ba",
+    "document": "[India France Sample.pdf > Article 12]\nARTICLE 11\nApplication of other rules\nIf the provisions of law of either Contracting Party or obligations under international law existing\nat present or established hereafter between the Contracting Parties in addition to the present\nAgreeement or obligations of either Contracting Party towards an investor of the other Contracting\nParty contain rules, whether general or specific, entitling investments by investors of the other\nContracting Party to a treatment more favourable than is provided by the presenet Agreement, such\nrules shall to the extent that they are more favourable prevail over the present Agreement.",
+    "metadata": {
+      "document_type": "user_upload",
+      "source_name": "India France Sample.pdf",
+      "document_id": "8033a294-0f10-46ea-a93b-c9931f0f3536",
+      "tenant_id": "mock-uid",
+      "article": "12"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "c7a58ca61ce15efd4192d88ab1e8e53938a735f125151b7d03cd905c260a5c1c"
+  },
+  {
+    "id": "08abd4e5-b0d8-4cef-9b79-d8f8f88b4c39",
+    "document": "[India France Sample.pdf > Article 13]\nARTICLE 12\nExceptions\nThe provision of this Agreement shall not in any way limit the right of either Contracting Party in\ncases of extreme emergency to take action in accordance with its laws applied in good faith, on a\nnondiscriminatory basis, and only to the extent and duration necessary for the protection of its essential\nsecurity interests, or for the prevention of diseases and pests in animals or plants.",
+    "metadata": {
+      "tenant_id": "mock-uid",
+      "source_name": "India France Sample.pdf",
+      "article": "13",
+      "document_type": "user_upload",
+      "document_id": "8033a294-0f10-46ea-a93b-c9931f0f3536"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "9f6b82e96ec8bc0c6d7f089efc2530af45f08d870b80d59b2f672b84cd8dc815"
+  },
+  {
+    "id": "c055d3b2-793a-498f-ae0e-48e4d6f8604f",
+    "document": "[India France Sample.pdf > Article 13]\nARTICLE 13\nEntry into force and duration\nEach Contracting Party shall notify the other of the completion of the constitutional procedures\nrequired concerning the entry into force of this Agreement, which shall enter into force one month after\nthe date of receipt of the final notification.\nThe Agreement shall be in force for an initial period of ten years. It shall remain in force\nthereafter, unless one of the Contracting Parties gives one year\u2019s written notice of termination through\ndiplomatic channels.\nIn case of termination of this Agreement, investments made while it was in force shall continue\nto enjoy the protection of its provisions for a period of fifteen years.\nIn witness whereof the undersigned, duly authorised thereto by their respective Governments,\nhave signed this Agreement.\nDone in Paris on 02 September, 1997 in duplicate in the Hindi, English and French languages,\neach text being equally authentic.\nFor the Government of\nFor the Government of\nthe Republic of India\nthe Republic of France",
+    "metadata": {
+      "source_name": "India France Sample.pdf",
+      "document_type": "user_upload",
+      "tenant_id": "mock-uid",
+      "document_id": "8033a294-0f10-46ea-a93b-c9931f0f3536",
+      "article": "13"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "813ed3ecff33420e9b540d779bb4c94fb90b07a39ca14277362d5a4b8d7cb976"
+  },
+  {
+    "id": "e0f72d91-6532-4d50-a796-0d16a766ad30",
+    "document": "[India France Sample.pdf > Article 1]\nAGREEMENT\nBETWEEN\nTHE GOVERNMENT OF THE REPUBLIC OF INDIA\nAND\nTHE GOVERNMENT OF THE REPUBLIC OF FRANCE\nON THE RECIPROCAL PROMOTION AND PROTECTION\nOF INVESTMENTS\nThe Government of the Republic of India and the Government of the Republic of France. hereinafter\nreferred to as the Contracting Parties.\nDesiring to strengthen the economic cooperation between both States and to create favourable\nconditions for French investments in India and Indian investments in France.\nConvinced that the promotion and protection of these investments would succeed in stimulating\ntransfers of capital and technology between the two countries in the interest of their economic\ndevelopment.\nHave agreed as follows.",
+    "metadata": {
+      "source_name": "India France Sample.pdf",
+      "document_type": "user_upload",
+      "article": "1",
+      "document_id": "f6b41f26-9668-4b1a-9923-93f7a6b34088",
+      "tenant_id": "mock-uid"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "003eac3b402d95a07c13fbb94b0db480a010a75c789fe27ffa5b7c88a51655b7"
+  },
+  {
+    "id": "dc8ab311-7c4e-4cdf-acad-5fad9e9602d6",
+    "document": "[India France Sample.pdf > Article 1]\nARTICLE 1\nDefinitions\nFor the purpose of this Agreement:\n(1)\nThe term \u201cinvestment\u201d means every kind of asset, such as goods, intellectual property rights\nand other tights and interest of whatever nature, invested in the area of the Contracting Party in\naccordance with the laws of that Contracting Party, and in particular though not exclusively includes:\na)\nMovable and immovable property as well as any other rights In rem such as mortgages,\nliens, usufructs and pledges, and similar rights;\nb)\nShares and other kinds of interest including minority or indirect forms, in companies\nconstituted in the territory of one Contracting Party;\nc)\nDebentures or rights to money, or to any legitimate performance having a financial\nvalue;\nd)\nBusiness concessions conferred by law or under contract, including concessions to\nsearch for, extract or exploit natural resources, which are located in the maritime area\nof the Contracting parties.\n(2)\nThe term \u201cnationals\u201d means physical persons possessing the nationality o.f either Contracting\nParty.\n(3)\nThe term \u201ccompany\u201d means any legal person constituted on the territory of one Contracting\nParty in accordance with the laws of that Party.\n(4)\nThe term \u201cinvestor\u201d means any national or company of a Contracting Party.\n(5) The term \u201creturns\u201d means all amounts produced by an investment, such as profits, royalties and\ninterest.\n(6)\nThe term \u201carea\u201d means:\na)\nin respect of India. the territory of India including the territorial sea and air space above\nit, as well as any other maritime zone in which India, according to the Indian Law, has",
+    "metadata": {
+      "document_type": "user_upload",
+      "source_name": "India France Sample.pdf",
+      "tenant_id": "mock-uid",
+      "article": "1",
+      "document_id": "f6b41f26-9668-4b1a-9923-93f7a6b34088"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "9dd7dbb9dac93bc9f7eb446ff67b33d6d38a35c37c33610ea60ab83496910300"
+  },
+  {
+    "id": "1a505cb6-f804-439b-9c6f-d6d9db8280cf",
+    "document": "[India France Sample.pdf > Article 2]\n[ARTICLE 1 - continued]\nin respect of India. the territory of India including the territorial sea and air space above\nit, as well as any other maritime zone in which India, according to the Indian Law, has\nsovereign rights, other rights and jurisdictions in accordance with international law;\nb)\nin respect of France, the territory of France including the territorial sea and the air\nspace above it as well as the areas within which, in accordance with International law,\nthe French Republic has sovereign tights for the purpose of exploring and exploiting the\nnatural resources of the sea-bed and its sub-soil and of the superjacent waters.",
+    "metadata": {
+      "tenant_id": "mock-uid",
+      "document_type": "user_upload",
+      "source_name": "India France Sample.pdf",
+      "article": "2",
+      "document_id": "f6b41f26-9668-4b1a-9923-93f7a6b34088"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "bcc981c6d0c9749ceb5a60e7ebd8463d4c51d692d3c3bca659de8f129bc3039b"
+  },
+  {
+    "id": "ed68be4f-06ab-447e-8687-d501ce6d2b14",
+    "document": "[India France Sample.pdf > Article 3]\nARTICLE 2\nScope of the Agreement\n(1)\nThis Agreement shall apply to any investment made by investors of either Contracting Party in\nthe area of the other Contracting Party, including an indirect investment made through another\ncompany, wherever located, which is owned to an extent of at least 51 per cent by such investors,\nwhether made before or after the coming into force of this Agreement.\n(2)\nAny alteration of the form in which assets are invested shall not affect their qualification as\ninvestments provided that such alteration is not in conflict with the laws of the Contracting Party within\nwhose area the investment is made.",
+    "metadata": {
+      "document_id": "f6b41f26-9668-4b1a-9923-93f7a6b34088",
+      "source_name": "India France Sample.pdf",
+      "tenant_id": "mock-uid",
+      "article": "3",
+      "document_type": "user_upload"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "54b5e3e4213e584dfc7286088254faab535e2bb633f950628354903cad0e7f43"
+  },
+  {
+    "id": "030148d8-0e02-4228-a1a7-598b207edf8e",
+    "document": "[India France Sample.pdf > Article 4]\nARTICLE 3\nAdmission and promotion of investment\n(1)\nEach Contracting Party shall admit and encourage on its territory and in its maritime area, in\naccordance with its laws and with the provisions of this Agreement, investments made by investors of\nthe other Contracting Party.\n(2)\nWithin the framework of their internal laws, the Contracting Parties shall favourably examine\nrequests for entry and authorisation to reside, work and travel made by the national of one Contracting\nParty in relation to an investment made in the area of the other Contracting Party.",
+    "metadata": {
+      "document_type": "user_upload",
+      "source_name": "India France Sample.pdf",
+      "document_id": "f6b41f26-9668-4b1a-9923-93f7a6b34088",
+      "article": "4",
+      "tenant_id": "mock-uid"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "b76de9d572beefc8bc47546d29790158242b6619664f8fbfb0d8f1483d3e9a83"
+  },
+  {
+    "id": "fd070f9e-c86d-44e2-987a-2c3138050729",
+    "document": "[India France Sample.pdf > Article 5]\nARTICLE 4\nFair and equitable treatment of investment\n(1)\nThe investments made by investors of one Contracting Party shall enjoy full and complete\nprotection and safety in the area of the other Contracting Party.\n(2)\nEach Contracting Party shall extend fair and equitable treatment in accordance with\ninternationally established principles to investments made by investors of the other Contracting Party in\nits area and shall permit the full exercise of this right in principle and in practice. In particular, though\nnot exclusively, each Contracting Party shall extend fair and equitable treatment to the domestic\ntransportation of goods or persons directly connected with an investment and to their international\ntransportation, subject to bilateral or international agreements governing such transport which are in\nforce between the Contracting Parties.\n(3)\nNationals authorised to work in the area of one Contracting Party shall not be prevented by that\nContracting Party from availing of facilities relevant to the exercise of their professional activities.",
+    "metadata": {
+      "article": "5",
+      "tenant_id": "mock-uid",
+      "source_name": "India France Sample.pdf",
+      "document_type": "user_upload",
+      "document_id": "f6b41f26-9668-4b1a-9923-93f7a6b34088"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "c357d932070063db69bee2660eff2cca45449c71da2cbdfff8c84047ba2bd910"
+  },
+  {
+    "id": "5d617f85-bcd7-4700-a95c-3c5a34db1d44",
+    "document": "[India France Sample.pdf > Article 6]\nARTICLE 5\nNational and most-favoured nation treatment\n(1)\nEach Contracting Party shall accord to investments of investors of the other Contracting Party,\nincluding their operation, management, maintenance, use, enjoyment or disposal by such investors,\ntreatment which shall not be less favourable than that accorded to investments of its investors, or than\nthe most favourable treatment accorded to investments of investors of any third country, whichever is\nmore favourable.\n(2)\nIn addition each Contracting Party shall accord to investors of the other Contracting Party,\nincluding inrespect of returns on their investments, treatment which shall not be less favourable than\nthat accorded to investors of any third State.\n(3)\nThis treatment shall not include the privileges granted by one Contracting Party to nationals or\ninvestors of a third party State by virtue of its participation or association in a free trade zone, customs\nunion, common market or any other form of regional economic organization.\n(4)\nThe provisions of this article do not apply to tax matters.",
+    "metadata": {
+      "document_id": "f6b41f26-9668-4b1a-9923-93f7a6b34088",
+      "document_type": "user_upload",
+      "article": "6",
+      "tenant_id": "mock-uid",
+      "source_name": "India France Sample.pdf"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "4a1c156320c5039b84fa38245421520432baf58f7effe95058a212967bca8cde"
+  },
+  {
+    "id": "b434cafb-648b-4fc7-8fe4-a7bae5cd34e2",
+    "document": "[India France Sample.pdf > Article 6]\nARTICLE 6\nExpropriation and compensation\n(1)\nNeither Contracting Party shall take any measure of expropriation or nationalisation or any\nother measures having the effect of dispossession, direct or indirect, of investors of the other\nContracting Party of their investments in its area, except in the public interest and provided that these\nmeasures are not discriminatory or contrary to a specific obligation entered into by Contracting Party\nnot to take a measure of dispossession.\n(2)\nAny measure of dispossession which might be taken shall give rise to adequate and reasonably\nprompt compensation, the amount of which shall be equal to the real value of the investments\nconcerned and shall be set, indicating conditions of payment, in accordance with the normal economic\nsituation prevailing prior to any threat of dispossession. This compensation shall be effectively\nrealisable, and shall then be paid without delay. Until the date of payment, it shall produce interest\ncalculated at the appropriate market rate of interest.\n(3)\nThe investor affected shall have a right, under the law of the Contracting Party taking the\nmeasure of dispossession, to review, by a judicial or other independent authority of that Party, of his or\nits case and of the valuation of his or its investment in accordance with the principles set out in this\nparagraph. The Contracting Party taking the measure of dispossession shall make every endeavour to\nensure that such review is carried out promptly.\n(4)\nInvestors of one Contracting Party whose investments have sustained losses due to war or any",
+    "metadata": {
+      "tenant_id": "mock-uid",
+      "source_name": "India France Sample.pdf",
+      "document_id": "f6b41f26-9668-4b1a-9923-93f7a6b34088",
+      "document_type": "user_upload",
+      "article": "6"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "b2de030e64e3c84efe8c1ac4a033a08e8e26c2be393e6b948822743cc234a46f"
+  },
+  {
+    "id": "f1d259bf-b22f-455a-ace3-3957650b87d7",
+    "document": "[India France Sample.pdf > Article 7]\n[ARTICLE 6 - continued]\n(4)\nInvestors of one Contracting Party whose investments have sustained losses due to war or any\nother armed conflict, a state of national emergency or civil disturbances occurring in the area of the\nother Contracting Party, shall enjoy treatment from the latter Contracting Party that is not less\nfavourable than that granted to its own investors or to those of the most favoured nation.",
+    "metadata": {
+      "tenant_id": "mock-uid",
+      "article": "7",
+      "document_type": "user_upload",
+      "source_name": "India France Sample.pdf",
+      "document_id": "f6b41f26-9668-4b1a-9923-93f7a6b34088"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "fb9499bf5902d429136a7c1515be019949542a1bdb8f5523e4eb0cff91182270"
+  },
+  {
+    "id": "98480e9d-0f20-477d-b8c3-a1337c907849",
+    "document": "[India France Sample.pdf > Article 8]\nARTICLE 7\nTransfers\n(1)\nEach Contracting Party, in the area of which the investments have been made by investors of\nthe other Contracting Party, shall grant to these investors the free transfer of:\na)\ninterest, dividends, profits and other current income,\nb)\nroyalties deriving from rights as defined in Article 1, Paragraph 1,\nc)\nrepayments of loans which have been regulary contracted,\nd)\nvalue of partial or total liquidation or disposition of the investment, including capital\ngains on the capital invested.\ne)\ncompensation for dispossession or loss described in Article 6, Paragraphs 2 and 4,\nf)\nany other returns.\n(2)\nThe nationals of either Contracting Party, who have been authorised to work in the area of the\nother Contracting Party, as the result of an investment, shall also be permitted to transfer to their\ncountry of origin an appropriate proportion of their earnings.\n(3)\nThe transfers referred to in the foregoing paragraphs shall be promptly effected at the official\nexchange rate prevailing on the date of transfer.",
+    "metadata": {
+      "article": "8",
+      "document_id": "f6b41f26-9668-4b1a-9923-93f7a6b34088",
+      "document_type": "user_upload",
+      "source_name": "India France Sample.pdf",
+      "tenant_id": "mock-uid"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "e1bb811d2e368d5a445e68ebde9effeee15d345faaf3caf7cc7eddd097108910"
+  },
+  {
+    "id": "f68f6a2b-2288-49d3-8a4e-c6dc98946f0f",
+    "document": "[India France Sample.pdf > Article 9]\nARTICLE 8\nSubrogation\n(1)\nIn the event that the regulations of one Contracting Party contain a guarantee for investments\nmade abroad, the guarantee may be accorded to investments made by investors of this Party in the area\nof the other Party.\n(2)\nIf one Contractiny Party, as a result of a guarantee given for an investment made in the area of\nthe other Contracting Party, makes payments to its own investors, the first mentioned Party has in this\ncase full rights of subrogation with regard to the rights and actions of the said investor.\n(3)\nThe said payments shall not affect the rights of the beneficiary of the guarantee, to the extent of\nthe non-subrogated rights of claims, to take recourse to or to continue proceedings under Article 9.",
+    "metadata": {
+      "document_id": "f6b41f26-9668-4b1a-9923-93f7a6b34088",
+      "document_type": "user_upload",
+      "tenant_id": "mock-uid",
+      "article": "9",
+      "source_name": "India France Sample.pdf"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "d3f99e6d0e2fba11d00b4dc4dc0231eea3d8fd2abbc9efc776cefcd46af3998a"
+  },
+  {
+    "id": "b44e6be2-934c-4c32-8a95-1e1a11895905",
+    "document": "[India France Sample.pdf > Article 9]\nARTICLE 9\nSettlement of investment disputes\n(I)\nAny dispute concerning the investments occuring between one Contracting Party and an\ninvestor of the other Contracting Party shall, if possible. be settled amicably between the two parties\nconcerned.\n(2)\nAny such dispute which has not been amicably settled within a period of six months from\nwritten notification of a claim may be sumitted to international conciliation under the Conciliation Rules\nof the United Nations Commission on International Trade Law, if the parties so agree.\n(3)\nNotwithstanding paragraph 2. the dispute may be referred to arbitration at any time as follows:\na)\nif the Contracting Party of the investor and the other Contracting Party are both parties\nto the Convention on the Settlement of Investment-Disputes between States and\nNationals of other States open to signature in Washington on March 18, 1965, and the\ninvestor consents in writing to submit the dispute to the lnternaitonal Centre for the\nSettlement of Investment Disputes, such a dispute shall be referred to the Centre; or\nb)\nif the investor so decides, the dispute shall be referred to an ad hoc arbitral tribunal in\naccordance with the Arbitration Rules of the United Nations Commission on\nInternational Trade Law, as adopted by the General Assembly on December 15, 1976. In\nrespect of such arbitral proceedings, the following shall apply;\n-\nthe arbitral Tribunal shall consist of three arbitrators. Each party shall select an\narbitrator. These two arbitrators shall appoint by mutual agreement a third",
+    "metadata": {
+      "document_type": "user_upload",
+      "tenant_id": "mock-uid",
+      "article": "9",
+      "source_name": "India France Sample.pdf",
+      "document_id": "f6b41f26-9668-4b1a-9923-93f7a6b34088"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "62ede192408b0247113d77355655f03cb1c87fc85c3932a2bae60473be22f943"
+  },
+  {
+    "id": "1c3a5a7c-d61d-4c7b-8ac0-495dc98b4f42",
+    "document": "[India France Sample.pdf > Article 10]\n[ARTICLE 9 - continued]\nthe arbitral Tribunal shall consist of three arbitrators. Each party shall select an\narbitrator. These two arbitrators shall appoint by mutual agreement a third\narbitrator, the Chairman, who shall be a national of a third State. The arbitrators\nshall be appointed within two months from the date when one of the parties to the\ndispute informs the other of its intention to submit the dispute to arbitration;\n-\nif the necessary appointments are not made within the period specified in the above\nparagraph, either party may request the Secretary General of the Permanent Court\nof Arbitration to make the necessary appointments;\n-\nthe arbitral award shall be made in accordance with the provisions of this\nAgreement;\n-\nthe tribunal shall reach its decision by a majority of votes;\n-\nthe decision of the arbitral tribunal shall be final and binding, and the parties shall\nabide by and comply with the terms of its award;\n-\nthe arbitral tribunal shall state the basis of its decision and give reasons upon the\nrequest of either party;\n-\neach party concerned shall bear the cost of its own arbitrator and its representation\nin the arbitral proceedings. The cost of the Chairman in discharging his arbitral\nfunction and the remaining costs of the tribunal shall be borne equally by the\nparties concerned. The tribunal may, however, in its decision direct that a higher\nproportion of costs shall be borne by one of the two parties. and this award shall be\nbinding on both parties.",
+    "metadata": {
+      "tenant_id": "mock-uid",
+      "article": "10",
+      "document_type": "user_upload",
+      "source_name": "India France Sample.pdf",
+      "document_id": "f6b41f26-9668-4b1a-9923-93f7a6b34088"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "e7ffbf16d1d37a29ba899cf8ab3827605f6eabfa8295c4586878f8805f7284f4"
+  },
+  {
+    "id": "1e5dbe3f-ecaf-47b7-8cb8-f5fde35dbc5e",
+    "document": "[India France Sample.pdf > Article 10]\nARTICLE 10\nSettlement of disputes between Contracting Parties\n(1)\nDisputes relating to the interpretation or application of this Agreement shall, if possible, be\nsettled amicably.\n(2)\nIf the dispute has not been settled within a period of six months from the date on which the\nmatter was raised by either Contracting Party, it may be submitted at the request of either Contracting\nParty to an Arbitral Tribunal.\n(3)\nThe said Tribunal shall be created as follows for each specific case : each Contracting Party shall\nappoint one arbitrator, and the two arbitrators thus appointed shall appoint by mutual agreement a\nnational of a third Country, who shall be designated as Chairman of the Tribunal by the two Contracting\nParties. All the arbitrators must be appointed within three months from the date of notification by one\nContracting Party to the other Contracting Party of its intention to submit the disagreement to\narbitration.\n(4)\nIf the periods specified in Paragraph 3 above have not been met, either Contracting Party, in the\nabsensce of any other agreement, shall invite the Secretary General of the Permanent Court of\nArbitration to make the necessary appointments. If the Secretary General is a national of either\nContracting Party, of if he is otherwise prevented from discharging the said function, the judge next in\nseniority to the Secretary General, who is not a national of either Contracting Party, shall make the\nnecessary appointments.\n(5)\nThe tribunal shall reach its decisions by a majority of votes. These decisions shall be final and",
+    "metadata": {
+      "tenant_id": "mock-uid",
+      "document_type": "user_upload",
+      "source_name": "India France Sample.pdf",
+      "document_id": "f6b41f26-9668-4b1a-9923-93f7a6b34088",
+      "article": "10"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "faa30b0965243a81d6ac47574ebf6644f2f8675a7f3a5b55e9d0a9df547d3588"
+  },
+  {
+    "id": "0b41db8e-8c95-47a7-bf94-66fb4fccf5c7",
+    "document": "[India France Sample.pdf > Article 11]\n[ARTICLE 10 - continued]\n(5)\nThe tribunal shall reach its decisions by a majority of votes. These decisions shall be final and\nlegally binding upon the Contracting Parties.\n(6)\nThe Tribunal shall set its own rules of procedure. It shall interpret the judgement at the request\nof either Contracting Party. Unless otherwise decided by the tribunal, in accordance with special\ncircumstances, the legal costs, including the fees of the arbitrators, shall be shared equally between the\ntwo Contracting Parties.",
+    "metadata": {
+      "document_id": "f6b41f26-9668-4b1a-9923-93f7a6b34088",
+      "article": "11",
+      "tenant_id": "mock-uid",
+      "document_type": "user_upload",
+      "source_name": "India France Sample.pdf"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "c42ef153da61fa7b56da5b73b11ea2265888be684f5609aa794635cdb3083281"
+  },
+  {
+    "id": "20cc0b9f-d321-4841-a302-832e4f9ae0d1",
+    "document": "[India France Sample.pdf > Article 12]\nARTICLE 11\nApplication of other rules\nIf the provisions of law of either Contracting Party or obligations under international law existing\nat present or established hereafter between the Contracting Parties in addition to the present\nAgreeement or obligations of either Contracting Party towards an investor of the other Contracting\nParty contain rules, whether general or specific, entitling investments by investors of the other\nContracting Party to a treatment more favourable than is provided by the presenet Agreement, such\nrules shall to the extent that they are more favourable prevail over the present Agreement.",
+    "metadata": {
+      "document_type": "user_upload",
+      "tenant_id": "mock-uid",
+      "article": "12",
+      "source_name": "India France Sample.pdf",
+      "document_id": "f6b41f26-9668-4b1a-9923-93f7a6b34088"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "c7a58ca61ce15efd4192d88ab1e8e53938a735f125151b7d03cd905c260a5c1c"
+  },
+  {
+    "id": "2438b3be-6e57-48c7-9d69-78affd2da095",
+    "document": "[India France Sample.pdf > Article 13]\nARTICLE 12\nExceptions\nThe provision of this Agreement shall not in any way limit the right of either Contracting Party in\ncases of extreme emergency to take action in accordance with its laws applied in good faith, on a\nnondiscriminatory basis, and only to the extent and duration necessary for the protection of its essential\nsecurity interests, or for the prevention of diseases and pests in animals or plants.",
+    "metadata": {
+      "document_id": "f6b41f26-9668-4b1a-9923-93f7a6b34088",
+      "document_type": "user_upload",
+      "tenant_id": "mock-uid",
+      "source_name": "India France Sample.pdf",
+      "article": "13"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "9f6b82e96ec8bc0c6d7f089efc2530af45f08d870b80d59b2f672b84cd8dc815"
+  },
+  {
+    "id": "5f1139fb-d977-45d9-ab81-3824883d5b78",
+    "document": "[India France Sample.pdf > Article 13]\nARTICLE 13\nEntry into force and duration\nEach Contracting Party shall notify the other of the completion of the constitutional procedures\nrequired concerning the entry into force of this Agreement, which shall enter into force one month after\nthe date of receipt of the final notification.\nThe Agreement shall be in force for an initial period of ten years. It shall remain in force\nthereafter, unless one of the Contracting Parties gives one year\u2019s written notice of termination through\ndiplomatic channels.\nIn case of termination of this Agreement, investments made while it was in force shall continue\nto enjoy the protection of its provisions for a period of fifteen years.\nIn witness whereof the undersigned, duly authorised thereto by their respective Governments,\nhave signed this Agreement.\nDone in Paris on 02 September, 1997 in duplicate in the Hindi, English and French languages,\neach text being equally authentic.\nFor the Government of\nFor the Government of\nthe Republic of India\nthe Republic of France",
+    "metadata": {
+      "article": "13",
+      "source_name": "India France Sample.pdf",
+      "document_id": "f6b41f26-9668-4b1a-9923-93f7a6b34088",
+      "document_type": "user_upload",
+      "tenant_id": "mock-uid"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "813ed3ecff33420e9b540d779bb4c94fb90b07a39ca14277362d5a4b8d7cb976"
+  },
+  {
+    "id": "be955cd7-f8e2-41f6-ad7b-3d6bd7743acb",
+    "document": "[India France Sample.pdf > Article 1]\nAGREEMENT\nBETWEEN\nTHE GOVERNMENT OF THE REPUBLIC OF INDIA\nAND\nTHE GOVERNMENT OF THE REPUBLIC OF FRANCE\nON THE RECIPROCAL PROMOTION AND PROTECTION\nOF INVESTMENTS\nThe Government of the Republic of India and the Government of the Republic of France. hereinafter\nreferred to as the Contracting Parties.\nDesiring to strengthen the economic cooperation between both States and to create favourable\nconditions for French investments in India and Indian investments in France.\nConvinced that the promotion and protection of these investments would succeed in stimulating\ntransfers of capital and technology between the two countries in the interest of their economic\ndevelopment.\nHave agreed as follows.",
+    "metadata": {
+      "source_name": "India France Sample.pdf",
+      "tenant_id": "mock-uid",
+      "document_id": "d8b4b581-f1a5-4b77-87d8-5ca42dbf3916",
+      "article": "1",
+      "document_type": "user_upload"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "003eac3b402d95a07c13fbb94b0db480a010a75c789fe27ffa5b7c88a51655b7"
+  },
+  {
+    "id": "a22bde36-520c-404f-9cd0-beda50e10df1",
+    "document": "[India France Sample.pdf > Article 1]\nARTICLE 1\nDefinitions\nFor the purpose of this Agreement:\n(1)\nThe term \u201cinvestment\u201d means every kind of asset, such as goods, intellectual property rights\nand other tights and interest of whatever nature, invested in the area of the Contracting Party in\naccordance with the laws of that Contracting Party, and in particular though not exclusively includes:\na)\nMovable and immovable property as well as any other rights In rem such as mortgages,\nliens, usufructs and pledges, and similar rights;\nb)\nShares and other kinds of interest including minority or indirect forms, in companies\nconstituted in the territory of one Contracting Party;\nc)\nDebentures or rights to money, or to any legitimate performance having a financial\nvalue;\nd)\nBusiness concessions conferred by law or under contract, including concessions to\nsearch for, extract or exploit natural resources, which are located in the maritime area\nof the Contracting parties.\n(2)\nThe term \u201cnationals\u201d means physical persons possessing the nationality o.f either Contracting\nParty.\n(3)\nThe term \u201ccompany\u201d means any legal person constituted on the territory of one Contracting\nParty in accordance with the laws of that Party.\n(4)\nThe term \u201cinvestor\u201d means any national or company of a Contracting Party.\n(5) The term \u201creturns\u201d means all amounts produced by an investment, such as profits, royalties and\ninterest.\n(6)\nThe term \u201carea\u201d means:\na)\nin respect of India. the territory of India including the territorial sea and air space above\nit, as well as any other maritime zone in which India, according to the Indian Law, has",
+    "metadata": {
+      "tenant_id": "mock-uid",
+      "document_type": "user_upload",
+      "source_name": "India France Sample.pdf",
+      "document_id": "d8b4b581-f1a5-4b77-87d8-5ca42dbf3916",
+      "article": "1"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "9dd7dbb9dac93bc9f7eb446ff67b33d6d38a35c37c33610ea60ab83496910300"
+  },
+  {
+    "id": "f11e4f39-645d-4724-bd7f-4383ff12b24d",
+    "document": "[India France Sample.pdf > Article 2]\n[ARTICLE 1 - continued]\nin respect of India. the territory of India including the territorial sea and air space above\nit, as well as any other maritime zone in which India, according to the Indian Law, has\nsovereign rights, other rights and jurisdictions in accordance with international law;\nb)\nin respect of France, the territory of France including the territorial sea and the air\nspace above it as well as the areas within which, in accordance with International law,\nthe French Republic has sovereign tights for the purpose of exploring and exploiting the\nnatural resources of the sea-bed and its sub-soil and of the superjacent waters.",
+    "metadata": {
+      "source_name": "India France Sample.pdf",
+      "article": "2",
+      "document_type": "user_upload",
+      "tenant_id": "mock-uid",
+      "document_id": "d8b4b581-f1a5-4b77-87d8-5ca42dbf3916"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "bcc981c6d0c9749ceb5a60e7ebd8463d4c51d692d3c3bca659de8f129bc3039b"
+  },
+  {
+    "id": "93cbdd7b-e52f-4c97-8b51-4e99110a520b",
+    "document": "[India France Sample.pdf > Article 3]\nARTICLE 2\nScope of the Agreement\n(1)\nThis Agreement shall apply to any investment made by investors of either Contracting Party in\nthe area of the other Contracting Party, including an indirect investment made through another\ncompany, wherever located, which is owned to an extent of at least 51 per cent by such investors,\nwhether made before or after the coming into force of this Agreement.\n(2)\nAny alteration of the form in which assets are invested shall not affect their qualification as\ninvestments provided that such alteration is not in conflict with the laws of the Contracting Party within\nwhose area the investment is made.",
+    "metadata": {
+      "article": "3",
+      "tenant_id": "mock-uid",
+      "document_type": "user_upload",
+      "document_id": "d8b4b581-f1a5-4b77-87d8-5ca42dbf3916",
+      "source_name": "India France Sample.pdf"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "54b5e3e4213e584dfc7286088254faab535e2bb633f950628354903cad0e7f43"
+  },
+  {
+    "id": "f66ffa98-cf0a-4805-b1e0-89472e78c962",
+    "document": "[India France Sample.pdf > Article 4]\nARTICLE 3\nAdmission and promotion of investment\n(1)\nEach Contracting Party shall admit and encourage on its territory and in its maritime area, in\naccordance with its laws and with the provisions of this Agreement, investments made by investors of\nthe other Contracting Party.\n(2)\nWithin the framework of their internal laws, the Contracting Parties shall favourably examine\nrequests for entry and authorisation to reside, work and travel made by the national of one Contracting\nParty in relation to an investment made in the area of the other Contracting Party.",
+    "metadata": {
+      "document_id": "d8b4b581-f1a5-4b77-87d8-5ca42dbf3916",
+      "document_type": "user_upload",
+      "article": "4",
+      "source_name": "India France Sample.pdf",
+      "tenant_id": "mock-uid"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "b76de9d572beefc8bc47546d29790158242b6619664f8fbfb0d8f1483d3e9a83"
+  },
+  {
+    "id": "5f209a2b-52f6-4f20-becf-cc63f5dea5ab",
+    "document": "[India France Sample.pdf > Article 5]\nARTICLE 4\nFair and equitable treatment of investment\n(1)\nThe investments made by investors of one Contracting Party shall enjoy full and complete\nprotection and safety in the area of the other Contracting Party.\n(2)\nEach Contracting Party shall extend fair and equitable treatment in accordance with\ninternationally established principles to investments made by investors of the other Contracting Party in\nits area and shall permit the full exercise of this right in principle and in practice. In particular, though\nnot exclusively, each Contracting Party shall extend fair and equitable treatment to the domestic\ntransportation of goods or persons directly connected with an investment and to their international\ntransportation, subject to bilateral or international agreements governing such transport which are in\nforce between the Contracting Parties.\n(3)\nNationals authorised to work in the area of one Contracting Party shall not be prevented by that\nContracting Party from availing of facilities relevant to the exercise of their professional activities.",
+    "metadata": {
+      "source_name": "India France Sample.pdf",
+      "article": "5",
+      "document_id": "d8b4b581-f1a5-4b77-87d8-5ca42dbf3916",
+      "tenant_id": "mock-uid",
+      "document_type": "user_upload"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "c357d932070063db69bee2660eff2cca45449c71da2cbdfff8c84047ba2bd910"
+  },
+  {
+    "id": "4364de6e-e685-474f-beb7-34445df889f1",
+    "document": "[India France Sample.pdf > Article 6]\nARTICLE 5\nNational and most-favoured nation treatment\n(1)\nEach Contracting Party shall accord to investments of investors of the other Contracting Party,\nincluding their operation, management, maintenance, use, enjoyment or disposal by such investors,\ntreatment which shall not be less favourable than that accorded to investments of its investors, or than\nthe most favourable treatment accorded to investments of investors of any third country, whichever is\nmore favourable.\n(2)\nIn addition each Contracting Party shall accord to investors of the other Contracting Party,\nincluding inrespect of returns on their investments, treatment which shall not be less favourable than\nthat accorded to investors of any third State.\n(3)\nThis treatment shall not include the privileges granted by one Contracting Party to nationals or\ninvestors of a third party State by virtue of its participation or association in a free trade zone, customs\nunion, common market or any other form of regional economic organization.\n(4)\nThe provisions of this article do not apply to tax matters.",
+    "metadata": {
+      "document_id": "d8b4b581-f1a5-4b77-87d8-5ca42dbf3916",
+      "source_name": "India France Sample.pdf",
+      "tenant_id": "mock-uid",
+      "document_type": "user_upload",
+      "article": "6"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "4a1c156320c5039b84fa38245421520432baf58f7effe95058a212967bca8cde"
+  },
+  {
+    "id": "08618b9e-a680-4e9a-832b-6d84cffc453e",
+    "document": "[India France Sample.pdf > Article 6]\nARTICLE 6\nExpropriation and compensation\n(1)\nNeither Contracting Party shall take any measure of expropriation or nationalisation or any\nother measures having the effect of dispossession, direct or indirect, of investors of the other\nContracting Party of their investments in its area, except in the public interest and provided that these\nmeasures are not discriminatory or contrary to a specific obligation entered into by Contracting Party\nnot to take a measure of dispossession.\n(2)\nAny measure of dispossession which might be taken shall give rise to adequate and reasonably\nprompt compensation, the amount of which shall be equal to the real value of the investments\nconcerned and shall be set, indicating conditions of payment, in accordance with the normal economic\nsituation prevailing prior to any threat of dispossession. This compensation shall be effectively\nrealisable, and shall then be paid without delay. Until the date of payment, it shall produce interest\ncalculated at the appropriate market rate of interest.\n(3)\nThe investor affected shall have a right, under the law of the Contracting Party taking the\nmeasure of dispossession, to review, by a judicial or other independent authority of that Party, of his or\nits case and of the valuation of his or its investment in accordance with the principles set out in this\nparagraph. The Contracting Party taking the measure of dispossession shall make every endeavour to\nensure that such review is carried out promptly.\n(4)\nInvestors of one Contracting Party whose investments have sustained losses due to war or any",
+    "metadata": {
+      "source_name": "India France Sample.pdf",
+      "tenant_id": "mock-uid",
+      "article": "6",
+      "document_type": "user_upload",
+      "document_id": "d8b4b581-f1a5-4b77-87d8-5ca42dbf3916"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "b2de030e64e3c84efe8c1ac4a033a08e8e26c2be393e6b948822743cc234a46f"
+  },
+  {
+    "id": "e63df38f-a082-4e22-b397-7e41a960135a",
+    "document": "[India France Sample.pdf > Article 7]\n[ARTICLE 6 - continued]\n(4)\nInvestors of one Contracting Party whose investments have sustained losses due to war or any\nother armed conflict, a state of national emergency or civil disturbances occurring in the area of the\nother Contracting Party, shall enjoy treatment from the latter Contracting Party that is not less\nfavourable than that granted to its own investors or to those of the most favoured nation.",
+    "metadata": {
+      "source_name": "India France Sample.pdf",
+      "document_id": "d8b4b581-f1a5-4b77-87d8-5ca42dbf3916",
+      "tenant_id": "mock-uid",
+      "article": "7",
+      "document_type": "user_upload"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "fb9499bf5902d429136a7c1515be019949542a1bdb8f5523e4eb0cff91182270"
+  },
+  {
+    "id": "1258b701-e54f-46a2-9b1b-afa16fac1919",
+    "document": "[India France Sample.pdf > Article 8]\nARTICLE 7\nTransfers\n(1)\nEach Contracting Party, in the area of which the investments have been made by investors of\nthe other Contracting Party, shall grant to these investors the free transfer of:\na)\ninterest, dividends, profits and other current income,\nb)\nroyalties deriving from rights as defined in Article 1, Paragraph 1,\nc)\nrepayments of loans which have been regulary contracted,\nd)\nvalue of partial or total liquidation or disposition of the investment, including capital\ngains on the capital invested.\ne)\ncompensation for dispossession or loss described in Article 6, Paragraphs 2 and 4,\nf)\nany other returns.\n(2)\nThe nationals of either Contracting Party, who have been authorised to work in the area of the\nother Contracting Party, as the result of an investment, shall also be permitted to transfer to their\ncountry of origin an appropriate proportion of their earnings.\n(3)\nThe transfers referred to in the foregoing paragraphs shall be promptly effected at the official\nexchange rate prevailing on the date of transfer.",
+    "metadata": {
+      "document_id": "d8b4b581-f1a5-4b77-87d8-5ca42dbf3916",
+      "tenant_id": "mock-uid",
+      "article": "8",
+      "source_name": "India France Sample.pdf",
+      "document_type": "user_upload"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "e1bb811d2e368d5a445e68ebde9effeee15d345faaf3caf7cc7eddd097108910"
+  },
+  {
+    "id": "9a1b2685-5f64-4afb-a9d4-f30bfdf76c02",
+    "document": "[India France Sample.pdf > Article 9]\nARTICLE 8\nSubrogation\n(1)\nIn the event that the regulations of one Contracting Party contain a guarantee for investments\nmade abroad, the guarantee may be accorded to investments made by investors of this Party in the area\nof the other Party.\n(2)\nIf one Contractiny Party, as a result of a guarantee given for an investment made in the area of\nthe other Contracting Party, makes payments to its own investors, the first mentioned Party has in this\ncase full rights of subrogation with regard to the rights and actions of the said investor.\n(3)\nThe said payments shall not affect the rights of the beneficiary of the guarantee, to the extent of\nthe non-subrogated rights of claims, to take recourse to or to continue proceedings under Article 9.",
+    "metadata": {
+      "document_type": "user_upload",
+      "article": "9",
+      "tenant_id": "mock-uid",
+      "source_name": "India France Sample.pdf",
+      "document_id": "d8b4b581-f1a5-4b77-87d8-5ca42dbf3916"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "d3f99e6d0e2fba11d00b4dc4dc0231eea3d8fd2abbc9efc776cefcd46af3998a"
+  },
+  {
+    "id": "18ad6ee0-95ce-439f-8e2e-ef6514ad2ded",
+    "document": "[India France Sample.pdf > Article 9]\nARTICLE 9\nSettlement of investment disputes\n(I)\nAny dispute concerning the investments occuring between one Contracting Party and an\ninvestor of the other Contracting Party shall, if possible. be settled amicably between the two parties\nconcerned.\n(2)\nAny such dispute which has not been amicably settled within a period of six months from\nwritten notification of a claim may be sumitted to international conciliation under the Conciliation Rules\nof the United Nations Commission on International Trade Law, if the parties so agree.\n(3)\nNotwithstanding paragraph 2. the dispute may be referred to arbitration at any time as follows:\na)\nif the Contracting Party of the investor and the other Contracting Party are both parties\nto the Convention on the Settlement of Investment-Disputes between States and\nNationals of other States open to signature in Washington on March 18, 1965, and the\ninvestor consents in writing to submit the dispute to the lnternaitonal Centre for the\nSettlement of Investment Disputes, such a dispute shall be referred to the Centre; or\nb)\nif the investor so decides, the dispute shall be referred to an ad hoc arbitral tribunal in\naccordance with the Arbitration Rules of the United Nations Commission on\nInternational Trade Law, as adopted by the General Assembly on December 15, 1976. In\nrespect of such arbitral proceedings, the following shall apply;\n-\nthe arbitral Tribunal shall consist of three arbitrators. Each party shall select an\narbitrator. These two arbitrators shall appoint by mutual agreement a third",
+    "metadata": {
+      "document_type": "user_upload",
+      "article": "9",
+      "document_id": "d8b4b581-f1a5-4b77-87d8-5ca42dbf3916",
+      "tenant_id": "mock-uid",
+      "source_name": "India France Sample.pdf"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "62ede192408b0247113d77355655f03cb1c87fc85c3932a2bae60473be22f943"
+  },
+  {
+    "id": "cf2a3138-5012-45a3-ac75-b83c59e07688",
+    "document": "[India France Sample.pdf > Article 10]\n[ARTICLE 9 - continued]\nthe arbitral Tribunal shall consist of three arbitrators. Each party shall select an\narbitrator. These two arbitrators shall appoint by mutual agreement a third\narbitrator, the Chairman, who shall be a national of a third State. The arbitrators\nshall be appointed within two months from the date when one of the parties to the\ndispute informs the other of its intention to submit the dispute to arbitration;\n-\nif the necessary appointments are not made within the period specified in the above\nparagraph, either party may request the Secretary General of the Permanent Court\nof Arbitration to make the necessary appointments;\n-\nthe arbitral award shall be made in accordance with the provisions of this\nAgreement;\n-\nthe tribunal shall reach its decision by a majority of votes;\n-\nthe decision of the arbitral tribunal shall be final and binding, and the parties shall\nabide by and comply with the terms of its award;\n-\nthe arbitral tribunal shall state the basis of its decision and give reasons upon the\nrequest of either party;\n-\neach party concerned shall bear the cost of its own arbitrator and its representation\nin the arbitral proceedings. The cost of the Chairman in discharging his arbitral\nfunction and the remaining costs of the tribunal shall be borne equally by the\nparties concerned. The tribunal may, however, in its decision direct that a higher\nproportion of costs shall be borne by one of the two parties. and this award shall be\nbinding on both parties.",
+    "metadata": {
+      "tenant_id": "mock-uid",
+      "document_type": "user_upload",
+      "source_name": "India France Sample.pdf",
+      "document_id": "d8b4b581-f1a5-4b77-87d8-5ca42dbf3916",
+      "article": "10"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "e7ffbf16d1d37a29ba899cf8ab3827605f6eabfa8295c4586878f8805f7284f4"
+  },
+  {
+    "id": "8b8d4d30-8e7a-40ec-adc6-16d7cd0e7c79",
+    "document": "[India France Sample.pdf > Article 10]\nARTICLE 10\nSettlement of disputes between Contracting Parties\n(1)\nDisputes relating to the interpretation or application of this Agreement shall, if possible, be\nsettled amicably.\n(2)\nIf the dispute has not been settled within a period of six months from the date on which the\nmatter was raised by either Contracting Party, it may be submitted at the request of either Contracting\nParty to an Arbitral Tribunal.\n(3)\nThe said Tribunal shall be created as follows for each specific case : each Contracting Party shall\nappoint one arbitrator, and the two arbitrators thus appointed shall appoint by mutual agreement a\nnational of a third Country, who shall be designated as Chairman of the Tribunal by the two Contracting\nParties. All the arbitrators must be appointed within three months from the date of notification by one\nContracting Party to the other Contracting Party of its intention to submit the disagreement to\narbitration.\n(4)\nIf the periods specified in Paragraph 3 above have not been met, either Contracting Party, in the\nabsensce of any other agreement, shall invite the Secretary General of the Permanent Court of\nArbitration to make the necessary appointments. If the Secretary General is a national of either\nContracting Party, of if he is otherwise prevented from discharging the said function, the judge next in\nseniority to the Secretary General, who is not a national of either Contracting Party, shall make the\nnecessary appointments.\n(5)\nThe tribunal shall reach its decisions by a majority of votes. These decisions shall be final and",
+    "metadata": {
+      "document_type": "user_upload",
+      "document_id": "d8b4b581-f1a5-4b77-87d8-5ca42dbf3916",
+      "tenant_id": "mock-uid",
+      "source_name": "India France Sample.pdf",
+      "article": "10"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "faa30b0965243a81d6ac47574ebf6644f2f8675a7f3a5b55e9d0a9df547d3588"
+  },
+  {
+    "id": "92da4caa-8c16-48a5-9de9-2eba39bb02fe",
+    "document": "[India France Sample.pdf > Article 11]\n[ARTICLE 10 - continued]\n(5)\nThe tribunal shall reach its decisions by a majority of votes. These decisions shall be final and\nlegally binding upon the Contracting Parties.\n(6)\nThe Tribunal shall set its own rules of procedure. It shall interpret the judgement at the request\nof either Contracting Party. Unless otherwise decided by the tribunal, in accordance with special\ncircumstances, the legal costs, including the fees of the arbitrators, shall be shared equally between the\ntwo Contracting Parties.",
+    "metadata": {
+      "source_name": "India France Sample.pdf",
+      "document_id": "d8b4b581-f1a5-4b77-87d8-5ca42dbf3916",
+      "article": "11",
+      "tenant_id": "mock-uid",
+      "document_type": "user_upload"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "c42ef153da61fa7b56da5b73b11ea2265888be684f5609aa794635cdb3083281"
+  },
+  {
+    "id": "e9f80c24-0603-4cc1-91dc-6e14a121cc96",
+    "document": "[India France Sample.pdf > Article 12]\nARTICLE 11\nApplication of other rules\nIf the provisions of law of either Contracting Party or obligations under international law existing\nat present or established hereafter between the Contracting Parties in addition to the present\nAgreeement or obligations of either Contracting Party towards an investor of the other Contracting\nParty contain rules, whether general or specific, entitling investments by investors of the other\nContracting Party to a treatment more favourable than is provided by the presenet Agreement, such\nrules shall to the extent that they are more favourable prevail over the present Agreement.",
+    "metadata": {
+      "article": "12",
+      "source_name": "India France Sample.pdf",
+      "document_id": "d8b4b581-f1a5-4b77-87d8-5ca42dbf3916",
+      "document_type": "user_upload",
+      "tenant_id": "mock-uid"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "c7a58ca61ce15efd4192d88ab1e8e53938a735f125151b7d03cd905c260a5c1c"
+  },
+  {
+    "id": "3b1798b0-f10a-4ca6-9a4f-ac2e4de1e21f",
+    "document": "[India France Sample.pdf > Article 13]\nARTICLE 12\nExceptions\nThe provision of this Agreement shall not in any way limit the right of either Contracting Party in\ncases of extreme emergency to take action in accordance with its laws applied in good faith, on a\nnondiscriminatory basis, and only to the extent and duration necessary for the protection of its essential\nsecurity interests, or for the prevention of diseases and pests in animals or plants.",
+    "metadata": {
+      "document_type": "user_upload",
+      "document_id": "d8b4b581-f1a5-4b77-87d8-5ca42dbf3916",
+      "tenant_id": "mock-uid",
+      "source_name": "India France Sample.pdf",
+      "article": "13"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "9f6b82e96ec8bc0c6d7f089efc2530af45f08d870b80d59b2f672b84cd8dc815"
+  },
+  {
+    "id": "5c14cd98-b45b-4083-bf0a-538a3337e513",
+    "document": "[India France Sample.pdf > Article 13]\nARTICLE 13\nEntry into force and duration\nEach Contracting Party shall notify the other of the completion of the constitutional procedures\nrequired concerning the entry into force of this Agreement, which shall enter into force one month after\nthe date of receipt of the final notification.\nThe Agreement shall be in force for an initial period of ten years. It shall remain in force\nthereafter, unless one of the Contracting Parties gives one year\u2019s written notice of termination through\ndiplomatic channels.\nIn case of termination of this Agreement, investments made while it was in force shall continue\nto enjoy the protection of its provisions for a period of fifteen years.\nIn witness whereof the undersigned, duly authorised thereto by their respective Governments,\nhave signed this Agreement.\nDone in Paris on 02 September, 1997 in duplicate in the Hindi, English and French languages,\neach text being equally authentic.\nFor the Government of\nFor the Government of\nthe Republic of India\nthe Republic of France",
+    "metadata": {
+      "document_id": "d8b4b581-f1a5-4b77-87d8-5ca42dbf3916",
+      "tenant_id": "mock-uid",
+      "source_name": "India France Sample.pdf",
+      "article": "13",
+      "document_type": "user_upload"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "813ed3ecff33420e9b540d779bb4c94fb90b07a39ca14277362d5a4b8d7cb976"
+  },
+  {
+    "id": "d7762106-282a-4d2e-8b9e-5ab2e8ad0ab3",
+    "document": "[India France Sample.pdf > Article 1]\nAGREEMENT\nBETWEEN\nTHE GOVERNMENT OF THE REPUBLIC OF INDIA\nAND\nTHE GOVERNMENT OF THE REPUBLIC OF FRANCE\nON THE RECIPROCAL PROMOTION AND PROTECTION\nOF INVESTMENTS\nThe Government of the Republic of India and the Government of the Republic of France. hereinafter\nreferred to as the Contracting Parties.\nDesiring to strengthen the economic cooperation between both States and to create favourable\nconditions for French investments in India and Indian investments in France.\nConvinced that the promotion and protection of these investments would succeed in stimulating\ntransfers of capital and technology between the two countries in the interest of their economic\ndevelopment.\nHave agreed as follows.",
+    "metadata": {
+      "article": "1",
+      "tenant_id": "mock-uid",
+      "document_type": "user_upload",
+      "source_name": "India France Sample.pdf",
+      "document_id": "4991baaa-c216-4264-8f0d-0dbdd5855bdb"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "003eac3b402d95a07c13fbb94b0db480a010a75c789fe27ffa5b7c88a51655b7"
+  },
+  {
+    "id": "2846b252-438e-4969-8c3c-30c22aea2b29",
+    "document": "[India France Sample.pdf > Article 1]\nARTICLE 1\nDefinitions\nFor the purpose of this Agreement:\n(1)\nThe term \u201cinvestment\u201d means every kind of asset, such as goods, intellectual property rights\nand other tights and interest of whatever nature, invested in the area of the Contracting Party in\naccordance with the laws of that Contracting Party, and in particular though not exclusively includes:\na)\nMovable and immovable property as well as any other rights In rem such as mortgages,\nliens, usufructs and pledges, and similar rights;\nb)\nShares and other kinds of interest including minority or indirect forms, in companies\nconstituted in the territory of one Contracting Party;\nc)\nDebentures or rights to money, or to any legitimate performance having a financial\nvalue;\nd)\nBusiness concessions conferred by law or under contract, including concessions to\nsearch for, extract or exploit natural resources, which are located in the maritime area\nof the Contracting parties.\n(2)\nThe term \u201cnationals\u201d means physical persons possessing the nationality o.f either Contracting\nParty.\n(3)\nThe term \u201ccompany\u201d means any legal person constituted on the territory of one Contracting\nParty in accordance with the laws of that Party.\n(4)\nThe term \u201cinvestor\u201d means any national or company of a Contracting Party.\n(5) The term \u201creturns\u201d means all amounts produced by an investment, such as profits, royalties and\ninterest.\n(6)\nThe term \u201carea\u201d means:\na)\nin respect of India. the territory of India including the territorial sea and air space above\nit, as well as any other maritime zone in which India, according to the Indian Law, has",
+    "metadata": {
+      "source_name": "India France Sample.pdf",
+      "article": "1",
+      "document_type": "user_upload",
+      "tenant_id": "mock-uid",
+      "document_id": "4991baaa-c216-4264-8f0d-0dbdd5855bdb"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "9dd7dbb9dac93bc9f7eb446ff67b33d6d38a35c37c33610ea60ab83496910300"
+  },
+  {
+    "id": "4ad98176-d398-462a-9388-78dd5cbcb051",
+    "document": "[India France Sample.pdf > Article 2]\n[ARTICLE 1 - continued]\nin respect of India. the territory of India including the territorial sea and air space above\nit, as well as any other maritime zone in which India, according to the Indian Law, has\nsovereign rights, other rights and jurisdictions in accordance with international law;\nb)\nin respect of France, the territory of France including the territorial sea and the air\nspace above it as well as the areas within which, in accordance with International law,\nthe French Republic has sovereign tights for the purpose of exploring and exploiting the\nnatural resources of the sea-bed and its sub-soil and of the superjacent waters.",
+    "metadata": {
+      "tenant_id": "mock-uid",
+      "document_id": "4991baaa-c216-4264-8f0d-0dbdd5855bdb",
+      "article": "2",
+      "source_name": "India France Sample.pdf",
+      "document_type": "user_upload"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "bcc981c6d0c9749ceb5a60e7ebd8463d4c51d692d3c3bca659de8f129bc3039b"
+  },
+  {
+    "id": "b0838aef-233d-4c2d-af1f-edd238126eda",
+    "document": "[India France Sample.pdf > Article 3]\nARTICLE 2\nScope of the Agreement\n(1)\nThis Agreement shall apply to any investment made by investors of either Contracting Party in\nthe area of the other Contracting Party, including an indirect investment made through another\ncompany, wherever located, which is owned to an extent of at least 51 per cent by such investors,\nwhether made before or after the coming into force of this Agreement.\n(2)\nAny alteration of the form in which assets are invested shall not affect their qualification as\ninvestments provided that such alteration is not in conflict with the laws of the Contracting Party within\nwhose area the investment is made.",
+    "metadata": {
+      "document_id": "4991baaa-c216-4264-8f0d-0dbdd5855bdb",
+      "document_type": "user_upload",
+      "article": "3",
+      "tenant_id": "mock-uid",
+      "source_name": "India France Sample.pdf"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "54b5e3e4213e584dfc7286088254faab535e2bb633f950628354903cad0e7f43"
+  },
+  {
+    "id": "3d3af5d8-2b66-411d-be47-17a2e85fd046",
+    "document": "[India France Sample.pdf > Article 4]\nARTICLE 3\nAdmission and promotion of investment\n(1)\nEach Contracting Party shall admit and encourage on its territory and in its maritime area, in\naccordance with its laws and with the provisions of this Agreement, investments made by investors of\nthe other Contracting Party.\n(2)\nWithin the framework of their internal laws, the Contracting Parties shall favourably examine\nrequests for entry and authorisation to reside, work and travel made by the national of one Contracting\nParty in relation to an investment made in the area of the other Contracting Party.",
+    "metadata": {
+      "source_name": "India France Sample.pdf",
+      "document_id": "4991baaa-c216-4264-8f0d-0dbdd5855bdb",
+      "document_type": "user_upload",
+      "tenant_id": "mock-uid",
+      "article": "4"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "b76de9d572beefc8bc47546d29790158242b6619664f8fbfb0d8f1483d3e9a83"
+  },
+  {
+    "id": "0b1dd0d2-196c-4d71-be74-5b2405d2bb89",
+    "document": "[India France Sample.pdf > Article 5]\nARTICLE 4\nFair and equitable treatment of investment\n(1)\nThe investments made by investors of one Contracting Party shall enjoy full and complete\nprotection and safety in the area of the other Contracting Party.\n(2)\nEach Contracting Party shall extend fair and equitable treatment in accordance with\ninternationally established principles to investments made by investors of the other Contracting Party in\nits area and shall permit the full exercise of this right in principle and in practice. In particular, though\nnot exclusively, each Contracting Party shall extend fair and equitable treatment to the domestic\ntransportation of goods or persons directly connected with an investment and to their international\ntransportation, subject to bilateral or international agreements governing such transport which are in\nforce between the Contracting Parties.\n(3)\nNationals authorised to work in the area of one Contracting Party shall not be prevented by that\nContracting Party from availing of facilities relevant to the exercise of their professional activities.",
+    "metadata": {
+      "source_name": "India France Sample.pdf",
+      "article": "5",
+      "document_type": "user_upload",
+      "tenant_id": "mock-uid",
+      "document_id": "4991baaa-c216-4264-8f0d-0dbdd5855bdb"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "c357d932070063db69bee2660eff2cca45449c71da2cbdfff8c84047ba2bd910"
+  },
+  {
+    "id": "c9c5f983-d427-486a-ba69-34c7166a1276",
+    "document": "[India France Sample.pdf > Article 6]\nARTICLE 5\nNational and most-favoured nation treatment\n(1)\nEach Contracting Party shall accord to investments of investors of the other Contracting Party,\nincluding their operation, management, maintenance, use, enjoyment or disposal by such investors,\ntreatment which shall not be less favourable than that accorded to investments of its investors, or than\nthe most favourable treatment accorded to investments of investors of any third country, whichever is\nmore favourable.\n(2)\nIn addition each Contracting Party shall accord to investors of the other Contracting Party,\nincluding inrespect of returns on their investments, treatment which shall not be less favourable than\nthat accorded to investors of any third State.\n(3)\nThis treatment shall not include the privileges granted by one Contracting Party to nationals or\ninvestors of a third party State by virtue of its participation or association in a free trade zone, customs\nunion, common market or any other form of regional economic organization.\n(4)\nThe provisions of this article do not apply to tax matters.",
+    "metadata": {
+      "document_id": "4991baaa-c216-4264-8f0d-0dbdd5855bdb",
+      "document_type": "user_upload",
+      "tenant_id": "mock-uid",
+      "article": "6",
+      "source_name": "India France Sample.pdf"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "4a1c156320c5039b84fa38245421520432baf58f7effe95058a212967bca8cde"
+  },
+  {
+    "id": "58e329d5-a4f2-4c37-80bc-4750cb433b8f",
+    "document": "[India France Sample.pdf > Article 6]\nARTICLE 6\nExpropriation and compensation\n(1)\nNeither Contracting Party shall take any measure of expropriation or nationalisation or any\nother measures having the effect of dispossession, direct or indirect, of investors of the other\nContracting Party of their investments in its area, except in the public interest and provided that these\nmeasures are not discriminatory or contrary to a specific obligation entered into by Contracting Party\nnot to take a measure of dispossession.\n(2)\nAny measure of dispossession which might be taken shall give rise to adequate and reasonably\nprompt compensation, the amount of which shall be equal to the real value of the investments\nconcerned and shall be set, indicating conditions of payment, in accordance with the normal economic\nsituation prevailing prior to any threat of dispossession. This compensation shall be effectively\nrealisable, and shall then be paid without delay. Until the date of payment, it shall produce interest\ncalculated at the appropriate market rate of interest.\n(3)\nThe investor affected shall have a right, under the law of the Contracting Party taking the\nmeasure of dispossession, to review, by a judicial or other independent authority of that Party, of his or\nits case and of the valuation of his or its investment in accordance with the principles set out in this\nparagraph. The Contracting Party taking the measure of dispossession shall make every endeavour to\nensure that such review is carried out promptly.\n(4)\nInvestors of one Contracting Party whose investments have sustained losses due to war or any",
+    "metadata": {
+      "document_id": "4991baaa-c216-4264-8f0d-0dbdd5855bdb",
+      "tenant_id": "mock-uid",
+      "article": "6",
+      "document_type": "user_upload",
+      "source_name": "India France Sample.pdf"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "b2de030e64e3c84efe8c1ac4a033a08e8e26c2be393e6b948822743cc234a46f"
+  },
+  {
+    "id": "a2a078a7-4f50-42fd-9a41-5939988ef89a",
+    "document": "[India France Sample.pdf > Article 7]\n[ARTICLE 6 - continued]\n(4)\nInvestors of one Contracting Party whose investments have sustained losses due to war or any\nother armed conflict, a state of national emergency or civil disturbances occurring in the area of the\nother Contracting Party, shall enjoy treatment from the latter Contracting Party that is not less\nfavourable than that granted to its own investors or to those of the most favoured nation.",
+    "metadata": {
+      "document_type": "user_upload",
+      "source_name": "India France Sample.pdf",
+      "document_id": "4991baaa-c216-4264-8f0d-0dbdd5855bdb",
+      "article": "7",
+      "tenant_id": "mock-uid"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "fb9499bf5902d429136a7c1515be019949542a1bdb8f5523e4eb0cff91182270"
+  },
+  {
+    "id": "c51a55d3-3d2e-4557-9fe4-4cc92da41f1b",
+    "document": "[India France Sample.pdf > Article 8]\nARTICLE 7\nTransfers\n(1)\nEach Contracting Party, in the area of which the investments have been made by investors of\nthe other Contracting Party, shall grant to these investors the free transfer of:\na)\ninterest, dividends, profits and other current income,\nb)\nroyalties deriving from rights as defined in Article 1, Paragraph 1,\nc)\nrepayments of loans which have been regulary contracted,\nd)\nvalue of partial or total liquidation or disposition of the investment, including capital\ngains on the capital invested.\ne)\ncompensation for dispossession or loss described in Article 6, Paragraphs 2 and 4,\nf)\nany other returns.\n(2)\nThe nationals of either Contracting Party, who have been authorised to work in the area of the\nother Contracting Party, as the result of an investment, shall also be permitted to transfer to their\ncountry of origin an appropriate proportion of their earnings.\n(3)\nThe transfers referred to in the foregoing paragraphs shall be promptly effected at the official\nexchange rate prevailing on the date of transfer.",
+    "metadata": {
+      "article": "8",
+      "tenant_id": "mock-uid",
+      "document_id": "4991baaa-c216-4264-8f0d-0dbdd5855bdb",
+      "document_type": "user_upload",
+      "source_name": "India France Sample.pdf"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "e1bb811d2e368d5a445e68ebde9effeee15d345faaf3caf7cc7eddd097108910"
+  },
+  {
+    "id": "72548075-d858-473f-9360-be7c3c04ffe4",
+    "document": "[India France Sample.pdf > Article 9]\nARTICLE 8\nSubrogation\n(1)\nIn the event that the regulations of one Contracting Party contain a guarantee for investments\nmade abroad, the guarantee may be accorded to investments made by investors of this Party in the area\nof the other Party.\n(2)\nIf one Contractiny Party, as a result of a guarantee given for an investment made in the area of\nthe other Contracting Party, makes payments to its own investors, the first mentioned Party has in this\ncase full rights of subrogation with regard to the rights and actions of the said investor.\n(3)\nThe said payments shall not affect the rights of the beneficiary of the guarantee, to the extent of\nthe non-subrogated rights of claims, to take recourse to or to continue proceedings under Article 9.",
+    "metadata": {
+      "document_id": "4991baaa-c216-4264-8f0d-0dbdd5855bdb",
+      "article": "9",
+      "source_name": "India France Sample.pdf",
+      "tenant_id": "mock-uid",
+      "document_type": "user_upload"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "d3f99e6d0e2fba11d00b4dc4dc0231eea3d8fd2abbc9efc776cefcd46af3998a"
+  },
+  {
+    "id": "4e6ee5c6-adf0-4282-b0d0-d0d0c440d160",
+    "document": "[India France Sample.pdf > Article 9]\nARTICLE 9\nSettlement of investment disputes\n(I)\nAny dispute concerning the investments occuring between one Contracting Party and an\ninvestor of the other Contracting Party shall, if possible. be settled amicably between the two parties\nconcerned.\n(2)\nAny such dispute which has not been amicably settled within a period of six months from\nwritten notification of a claim may be sumitted to international conciliation under the Conciliation Rules\nof the United Nations Commission on International Trade Law, if the parties so agree.\n(3)\nNotwithstanding paragraph 2. the dispute may be referred to arbitration at any time as follows:\na)\nif the Contracting Party of the investor and the other Contracting Party are both parties\nto the Convention on the Settlement of Investment-Disputes between States and\nNationals of other States open to signature in Washington on March 18, 1965, and the\ninvestor consents in writing to submit the dispute to the lnternaitonal Centre for the\nSettlement of Investment Disputes, such a dispute shall be referred to the Centre; or\nb)\nif the investor so decides, the dispute shall be referred to an ad hoc arbitral tribunal in\naccordance with the Arbitration Rules of the United Nations Commission on\nInternational Trade Law, as adopted by the General Assembly on December 15, 1976. In\nrespect of such arbitral proceedings, the following shall apply;\n-\nthe arbitral Tribunal shall consist of three arbitrators. Each party shall select an\narbitrator. These two arbitrators shall appoint by mutual agreement a third",
+    "metadata": {
+      "article": "9",
+      "source_name": "India France Sample.pdf",
+      "tenant_id": "mock-uid",
+      "document_type": "user_upload",
+      "document_id": "4991baaa-c216-4264-8f0d-0dbdd5855bdb"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "62ede192408b0247113d77355655f03cb1c87fc85c3932a2bae60473be22f943"
+  },
+  {
+    "id": "0ff1642a-6449-4134-9ccc-563772598d17",
+    "document": "[India France Sample.pdf > Article 10]\n[ARTICLE 9 - continued]\nthe arbitral Tribunal shall consist of three arbitrators. Each party shall select an\narbitrator. These two arbitrators shall appoint by mutual agreement a third\narbitrator, the Chairman, who shall be a national of a third State. The arbitrators\nshall be appointed within two months from the date when one of the parties to the\ndispute informs the other of its intention to submit the dispute to arbitration;\n-\nif the necessary appointments are not made within the period specified in the above\nparagraph, either party may request the Secretary General of the Permanent Court\nof Arbitration to make the necessary appointments;\n-\nthe arbitral award shall be made in accordance with the provisions of this\nAgreement;\n-\nthe tribunal shall reach its decision by a majority of votes;\n-\nthe decision of the arbitral tribunal shall be final and binding, and the parties shall\nabide by and comply with the terms of its award;\n-\nthe arbitral tribunal shall state the basis of its decision and give reasons upon the\nrequest of either party;\n-\neach party concerned shall bear the cost of its own arbitrator and its representation\nin the arbitral proceedings. The cost of the Chairman in discharging his arbitral\nfunction and the remaining costs of the tribunal shall be borne equally by the\nparties concerned. The tribunal may, however, in its decision direct that a higher\nproportion of costs shall be borne by one of the two parties. and this award shall be\nbinding on both parties.",
+    "metadata": {
+      "article": "10",
+      "source_name": "India France Sample.pdf",
+      "tenant_id": "mock-uid",
+      "document_id": "4991baaa-c216-4264-8f0d-0dbdd5855bdb",
+      "document_type": "user_upload"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "e7ffbf16d1d37a29ba899cf8ab3827605f6eabfa8295c4586878f8805f7284f4"
+  },
+  {
+    "id": "f47c3607-45ca-4e08-aadf-dc0b32a94bda",
+    "document": "[India France Sample.pdf > Article 10]\nARTICLE 10\nSettlement of disputes between Contracting Parties\n(1)\nDisputes relating to the interpretation or application of this Agreement shall, if possible, be\nsettled amicably.\n(2)\nIf the dispute has not been settled within a period of six months from the date on which the\nmatter was raised by either Contracting Party, it may be submitted at the request of either Contracting\nParty to an Arbitral Tribunal.\n(3)\nThe said Tribunal shall be created as follows for each specific case : each Contracting Party shall\nappoint one arbitrator, and the two arbitrators thus appointed shall appoint by mutual agreement a\nnational of a third Country, who shall be designated as Chairman of the Tribunal by the two Contracting\nParties. All the arbitrators must be appointed within three months from the date of notification by one\nContracting Party to the other Contracting Party of its intention to submit the disagreement to\narbitration.\n(4)\nIf the periods specified in Paragraph 3 above have not been met, either Contracting Party, in the\nabsensce of any other agreement, shall invite the Secretary General of the Permanent Court of\nArbitration to make the necessary appointments. If the Secretary General is a national of either\nContracting Party, of if he is otherwise prevented from discharging the said function, the judge next in\nseniority to the Secretary General, who is not a national of either Contracting Party, shall make the\nnecessary appointments.\n(5)\nThe tribunal shall reach its decisions by a majority of votes. These decisions shall be final and",
+    "metadata": {
+      "tenant_id": "mock-uid",
+      "article": "10",
+      "document_id": "4991baaa-c216-4264-8f0d-0dbdd5855bdb",
+      "document_type": "user_upload",
+      "source_name": "India France Sample.pdf"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "faa30b0965243a81d6ac47574ebf6644f2f8675a7f3a5b55e9d0a9df547d3588"
+  },
+  {
+    "id": "2ee682e3-4720-4098-bd6f-7871ba99b128",
+    "document": "[India France Sample.pdf > Article 11]\n[ARTICLE 10 - continued]\n(5)\nThe tribunal shall reach its decisions by a majority of votes. These decisions shall be final and\nlegally binding upon the Contracting Parties.\n(6)\nThe Tribunal shall set its own rules of procedure. It shall interpret the judgement at the request\nof either Contracting Party. Unless otherwise decided by the tribunal, in accordance with special\ncircumstances, the legal costs, including the fees of the arbitrators, shall be shared equally between the\ntwo Contracting Parties.",
+    "metadata": {
+      "article": "11",
+      "source_name": "India France Sample.pdf",
+      "tenant_id": "mock-uid",
+      "document_type": "user_upload",
+      "document_id": "4991baaa-c216-4264-8f0d-0dbdd5855bdb"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "c42ef153da61fa7b56da5b73b11ea2265888be684f5609aa794635cdb3083281"
+  },
+  {
+    "id": "b7587278-eef5-48cf-96ed-26340f630b51",
+    "document": "[India France Sample.pdf > Article 12]\nARTICLE 11\nApplication of other rules\nIf the provisions of law of either Contracting Party or obligations under international law existing\nat present or established hereafter between the Contracting Parties in addition to the present\nAgreeement or obligations of either Contracting Party towards an investor of the other Contracting\nParty contain rules, whether general or specific, entitling investments by investors of the other\nContracting Party to a treatment more favourable than is provided by the presenet Agreement, such\nrules shall to the extent that they are more favourable prevail over the present Agreement.",
+    "metadata": {
+      "document_id": "4991baaa-c216-4264-8f0d-0dbdd5855bdb",
+      "article": "12",
+      "document_type": "user_upload",
+      "source_name": "India France Sample.pdf",
+      "tenant_id": "mock-uid"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "c7a58ca61ce15efd4192d88ab1e8e53938a735f125151b7d03cd905c260a5c1c"
+  },
+  {
+    "id": "cbc07ae6-4f9e-45d5-9702-efd4b19a82c9",
+    "document": "[India France Sample.pdf > Article 13]\nARTICLE 12\nExceptions\nThe provision of this Agreement shall not in any way limit the right of either Contracting Party in\ncases of extreme emergency to take action in accordance with its laws applied in good faith, on a\nnondiscriminatory basis, and only to the extent and duration necessary for the protection of its essential\nsecurity interests, or for the prevention of diseases and pests in animals or plants.",
+    "metadata": {
+      "tenant_id": "mock-uid",
+      "source_name": "India France Sample.pdf",
+      "document_id": "4991baaa-c216-4264-8f0d-0dbdd5855bdb",
+      "document_type": "user_upload",
+      "article": "13"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "9f6b82e96ec8bc0c6d7f089efc2530af45f08d870b80d59b2f672b84cd8dc815"
+  },
+  {
+    "id": "e877de56-e876-4d32-a112-ffdb0e028d9f",
+    "document": "[India France Sample.pdf > Article 13]\nARTICLE 13\nEntry into force and duration\nEach Contracting Party shall notify the other of the completion of the constitutional procedures\nrequired concerning the entry into force of this Agreement, which shall enter into force one month after\nthe date of receipt of the final notification.\nThe Agreement shall be in force for an initial period of ten years. It shall remain in force\nthereafter, unless one of the Contracting Parties gives one year\u2019s written notice of termination through\ndiplomatic channels.\nIn case of termination of this Agreement, investments made while it was in force shall continue\nto enjoy the protection of its provisions for a period of fifteen years.\nIn witness whereof the undersigned, duly authorised thereto by their respective Governments,\nhave signed this Agreement.\nDone in Paris on 02 September, 1997 in duplicate in the Hindi, English and French languages,\neach text being equally authentic.\nFor the Government of\nFor the Government of\nthe Republic of India\nthe Republic of France",
+    "metadata": {
+      "source_name": "India France Sample.pdf",
+      "document_type": "user_upload",
+      "article": "13",
+      "document_id": "4991baaa-c216-4264-8f0d-0dbdd5855bdb",
+      "tenant_id": "mock-uid"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "813ed3ecff33420e9b540d779bb4c94fb90b07a39ca14277362d5a4b8d7cb976"
+  },
+  {
+    "id": "f2539837-4c28-4436-9494-baa41a1c954b",
+    "document": "[India France Sample.pdf > Article 1]\nAGREEMENT\nBETWEEN\nTHE GOVERNMENT OF THE REPUBLIC OF INDIA\nAND\nTHE GOVERNMENT OF THE REPUBLIC OF FRANCE\nON THE RECIPROCAL PROMOTION AND PROTECTION\nOF INVESTMENTS\nThe Government of the Republic of India and the Government of the Republic of France. hereinafter\nreferred to as the Contracting Parties.\nDesiring to strengthen the economic cooperation between both States and to create favourable\nconditions for French investments in India and Indian investments in France.\nConvinced that the promotion and protection of these investments would succeed in stimulating\ntransfers of capital and technology between the two countries in the interest of their economic\ndevelopment.\nHave agreed as follows.",
+    "metadata": {
+      "document_id": "5807ab08-46c7-4594-ad01-20fd8252831f",
+      "article": "1",
+      "tenant_id": "mock-uid",
+      "document_type": "user_upload",
+      "source_name": "India France Sample.pdf"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "003eac3b402d95a07c13fbb94b0db480a010a75c789fe27ffa5b7c88a51655b7"
+  },
+  {
+    "id": "d9efec69-9434-4865-88ae-acc001a41a6c",
+    "document": "[India France Sample.pdf > Article 1]\nARTICLE 1\nDefinitions\nFor the purpose of this Agreement:\n(1)\nThe term \u201cinvestment\u201d means every kind of asset, such as goods, intellectual property rights\nand other tights and interest of whatever nature, invested in the area of the Contracting Party in\naccordance with the laws of that Contracting Party, and in particular though not exclusively includes:\na)\nMovable and immovable property as well as any other rights In rem such as mortgages,\nliens, usufructs and pledges, and similar rights;\nb)\nShares and other kinds of interest including minority or indirect forms, in companies\nconstituted in the territory of one Contracting Party;\nc)\nDebentures or rights to money, or to any legitimate performance having a financial\nvalue;\nd)\nBusiness concessions conferred by law or under contract, including concessions to\nsearch for, extract or exploit natural resources, which are located in the maritime area\nof the Contracting parties.\n(2)\nThe term \u201cnationals\u201d means physical persons possessing the nationality o.f either Contracting\nParty.\n(3)\nThe term \u201ccompany\u201d means any legal person constituted on the territory of one Contracting\nParty in accordance with the laws of that Party.\n(4)\nThe term \u201cinvestor\u201d means any national or company of a Contracting Party.\n(5) The term \u201creturns\u201d means all amounts produced by an investment, such as profits, royalties and\ninterest.\n(6)\nThe term \u201carea\u201d means:\na)\nin respect of India. the territory of India including the territorial sea and air space above\nit, as well as any other maritime zone in which India, according to the Indian Law, has",
+    "metadata": {
+      "document_type": "user_upload",
+      "source_name": "India France Sample.pdf",
+      "article": "1",
+      "tenant_id": "mock-uid",
+      "document_id": "5807ab08-46c7-4594-ad01-20fd8252831f"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "9dd7dbb9dac93bc9f7eb446ff67b33d6d38a35c37c33610ea60ab83496910300"
+  },
+  {
+    "id": "360cb085-ee4b-4f7c-922b-3003635cd4c0",
+    "document": "[India France Sample.pdf > Article 2]\n[ARTICLE 1 - continued]\nin respect of India. the territory of India including the territorial sea and air space above\nit, as well as any other maritime zone in which India, according to the Indian Law, has\nsovereign rights, other rights and jurisdictions in accordance with international law;\nb)\nin respect of France, the territory of France including the territorial sea and the air\nspace above it as well as the areas within which, in accordance with International law,\nthe French Republic has sovereign tights for the purpose of exploring and exploiting the\nnatural resources of the sea-bed and its sub-soil and of the superjacent waters.",
+    "metadata": {
+      "source_name": "India France Sample.pdf",
+      "document_id": "5807ab08-46c7-4594-ad01-20fd8252831f",
+      "document_type": "user_upload",
+      "tenant_id": "mock-uid",
+      "article": "2"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "bcc981c6d0c9749ceb5a60e7ebd8463d4c51d692d3c3bca659de8f129bc3039b"
+  },
+  {
+    "id": "70dd7143-7d18-497d-9e41-67be4c60b8fc",
+    "document": "[India France Sample.pdf > Article 3]\nARTICLE 2\nScope of the Agreement\n(1)\nThis Agreement shall apply to any investment made by investors of either Contracting Party in\nthe area of the other Contracting Party, including an indirect investment made through another\ncompany, wherever located, which is owned to an extent of at least 51 per cent by such investors,\nwhether made before or after the coming into force of this Agreement.\n(2)\nAny alteration of the form in which assets are invested shall not affect their qualification as\ninvestments provided that such alteration is not in conflict with the laws of the Contracting Party within\nwhose area the investment is made.",
+    "metadata": {
+      "tenant_id": "mock-uid",
+      "article": "3",
+      "document_id": "5807ab08-46c7-4594-ad01-20fd8252831f",
+      "source_name": "India France Sample.pdf",
+      "document_type": "user_upload"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "54b5e3e4213e584dfc7286088254faab535e2bb633f950628354903cad0e7f43"
+  },
+  {
+    "id": "3dd2f1ce-46ce-4ef0-ae98-943d03b9c77b",
+    "document": "[India France Sample.pdf > Article 4]\nARTICLE 3\nAdmission and promotion of investment\n(1)\nEach Contracting Party shall admit and encourage on its territory and in its maritime area, in\naccordance with its laws and with the provisions of this Agreement, investments made by investors of\nthe other Contracting Party.\n(2)\nWithin the framework of their internal laws, the Contracting Parties shall favourably examine\nrequests for entry and authorisation to reside, work and travel made by the national of one Contracting\nParty in relation to an investment made in the area of the other Contracting Party.",
+    "metadata": {
+      "source_name": "India France Sample.pdf",
+      "document_id": "5807ab08-46c7-4594-ad01-20fd8252831f",
+      "tenant_id": "mock-uid",
+      "document_type": "user_upload",
+      "article": "4"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "b76de9d572beefc8bc47546d29790158242b6619664f8fbfb0d8f1483d3e9a83"
+  },
+  {
+    "id": "bcd7b72f-c6f7-4454-90b7-bbf3f6f2ddd3",
+    "document": "[India France Sample.pdf > Article 5]\nARTICLE 4\nFair and equitable treatment of investment\n(1)\nThe investments made by investors of one Contracting Party shall enjoy full and complete\nprotection and safety in the area of the other Contracting Party.\n(2)\nEach Contracting Party shall extend fair and equitable treatment in accordance with\ninternationally established principles to investments made by investors of the other Contracting Party in\nits area and shall permit the full exercise of this right in principle and in practice. In particular, though\nnot exclusively, each Contracting Party shall extend fair and equitable treatment to the domestic\ntransportation of goods or persons directly connected with an investment and to their international\ntransportation, subject to bilateral or international agreements governing such transport which are in\nforce between the Contracting Parties.\n(3)\nNationals authorised to work in the area of one Contracting Party shall not be prevented by that\nContracting Party from availing of facilities relevant to the exercise of their professional activities.",
+    "metadata": {
+      "source_name": "India France Sample.pdf",
+      "document_id": "5807ab08-46c7-4594-ad01-20fd8252831f",
+      "article": "5",
+      "tenant_id": "mock-uid",
+      "document_type": "user_upload"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "c357d932070063db69bee2660eff2cca45449c71da2cbdfff8c84047ba2bd910"
+  },
+  {
+    "id": "736bd08d-72c2-4639-9cdb-4ea8d44565a5",
+    "document": "[India France Sample.pdf > Article 6]\nARTICLE 5\nNational and most-favoured nation treatment\n(1)\nEach Contracting Party shall accord to investments of investors of the other Contracting Party,\nincluding their operation, management, maintenance, use, enjoyment or disposal by such investors,\ntreatment which shall not be less favourable than that accorded to investments of its investors, or than\nthe most favourable treatment accorded to investments of investors of any third country, whichever is\nmore favourable.\n(2)\nIn addition each Contracting Party shall accord to investors of the other Contracting Party,\nincluding inrespect of returns on their investments, treatment which shall not be less favourable than\nthat accorded to investors of any third State.\n(3)\nThis treatment shall not include the privileges granted by one Contracting Party to nationals or\ninvestors of a third party State by virtue of its participation or association in a free trade zone, customs\nunion, common market or any other form of regional economic organization.\n(4)\nThe provisions of this article do not apply to tax matters.",
+    "metadata": {
+      "document_type": "user_upload",
+      "tenant_id": "mock-uid",
+      "document_id": "5807ab08-46c7-4594-ad01-20fd8252831f",
+      "source_name": "India France Sample.pdf",
+      "article": "6"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "4a1c156320c5039b84fa38245421520432baf58f7effe95058a212967bca8cde"
+  },
+  {
+    "id": "01b283f9-4829-41ef-921d-3cbb61958858",
+    "document": "[India France Sample.pdf > Article 6]\nARTICLE 6\nExpropriation and compensation\n(1)\nNeither Contracting Party shall take any measure of expropriation or nationalisation or any\nother measures having the effect of dispossession, direct or indirect, of investors of the other\nContracting Party of their investments in its area, except in the public interest and provided that these\nmeasures are not discriminatory or contrary to a specific obligation entered into by Contracting Party\nnot to take a measure of dispossession.\n(2)\nAny measure of dispossession which might be taken shall give rise to adequate and reasonably\nprompt compensation, the amount of which shall be equal to the real value of the investments\nconcerned and shall be set, indicating conditions of payment, in accordance with the normal economic\nsituation prevailing prior to any threat of dispossession. This compensation shall be effectively\nrealisable, and shall then be paid without delay. Until the date of payment, it shall produce interest\ncalculated at the appropriate market rate of interest.\n(3)\nThe investor affected shall have a right, under the law of the Contracting Party taking the\nmeasure of dispossession, to review, by a judicial or other independent authority of that Party, of his or\nits case and of the valuation of his or its investment in accordance with the principles set out in this\nparagraph. The Contracting Party taking the measure of dispossession shall make every endeavour to\nensure that such review is carried out promptly.\n(4)\nInvestors of one Contracting Party whose investments have sustained losses due to war or any",
+    "metadata": {
+      "article": "6",
+      "tenant_id": "mock-uid",
+      "document_id": "5807ab08-46c7-4594-ad01-20fd8252831f",
+      "source_name": "India France Sample.pdf",
+      "document_type": "user_upload"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "b2de030e64e3c84efe8c1ac4a033a08e8e26c2be393e6b948822743cc234a46f"
+  },
+  {
+    "id": "5bd1ba08-679a-4f0d-8a6a-2ea3b5db3481",
+    "document": "[India France Sample.pdf > Article 7]\n[ARTICLE 6 - continued]\n(4)\nInvestors of one Contracting Party whose investments have sustained losses due to war or any\nother armed conflict, a state of national emergency or civil disturbances occurring in the area of the\nother Contracting Party, shall enjoy treatment from the latter Contracting Party that is not less\nfavourable than that granted to its own investors or to those of the most favoured nation.",
+    "metadata": {
+      "article": "7",
+      "document_type": "user_upload",
+      "tenant_id": "mock-uid",
+      "source_name": "India France Sample.pdf",
+      "document_id": "5807ab08-46c7-4594-ad01-20fd8252831f"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "fb9499bf5902d429136a7c1515be019949542a1bdb8f5523e4eb0cff91182270"
+  },
+  {
+    "id": "5748b0be-7168-4254-b371-7b11a2fabac4",
+    "document": "[India France Sample.pdf > Article 8]\nARTICLE 7\nTransfers\n(1)\nEach Contracting Party, in the area of which the investments have been made by investors of\nthe other Contracting Party, shall grant to these investors the free transfer of:\na)\ninterest, dividends, profits and other current income,\nb)\nroyalties deriving from rights as defined in Article 1, Paragraph 1,\nc)\nrepayments of loans which have been regulary contracted,\nd)\nvalue of partial or total liquidation or disposition of the investment, including capital\ngains on the capital invested.\ne)\ncompensation for dispossession or loss described in Article 6, Paragraphs 2 and 4,\nf)\nany other returns.\n(2)\nThe nationals of either Contracting Party, who have been authorised to work in the area of the\nother Contracting Party, as the result of an investment, shall also be permitted to transfer to their\ncountry of origin an appropriate proportion of their earnings.\n(3)\nThe transfers referred to in the foregoing paragraphs shall be promptly effected at the official\nexchange rate prevailing on the date of transfer.",
+    "metadata": {
+      "article": "8",
+      "source_name": "India France Sample.pdf",
+      "document_type": "user_upload",
+      "document_id": "5807ab08-46c7-4594-ad01-20fd8252831f",
+      "tenant_id": "mock-uid"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "e1bb811d2e368d5a445e68ebde9effeee15d345faaf3caf7cc7eddd097108910"
+  },
+  {
+    "id": "b1f97df3-e302-4fdd-9e42-24a2c6fb6e76",
+    "document": "[India France Sample.pdf > Article 9]\nARTICLE 8\nSubrogation\n(1)\nIn the event that the regulations of one Contracting Party contain a guarantee for investments\nmade abroad, the guarantee may be accorded to investments made by investors of this Party in the area\nof the other Party.\n(2)\nIf one Contractiny Party, as a result of a guarantee given for an investment made in the area of\nthe other Contracting Party, makes payments to its own investors, the first mentioned Party has in this\ncase full rights of subrogation with regard to the rights and actions of the said investor.\n(3)\nThe said payments shall not affect the rights of the beneficiary of the guarantee, to the extent of\nthe non-subrogated rights of claims, to take recourse to or to continue proceedings under Article 9.",
+    "metadata": {
+      "tenant_id": "mock-uid",
+      "article": "9",
+      "document_id": "5807ab08-46c7-4594-ad01-20fd8252831f",
+      "source_name": "India France Sample.pdf",
+      "document_type": "user_upload"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "d3f99e6d0e2fba11d00b4dc4dc0231eea3d8fd2abbc9efc776cefcd46af3998a"
+  },
+  {
+    "id": "b8d09bc9-bf10-4ff8-b186-7ee4b8dfd3cb",
+    "document": "[India France Sample.pdf > Article 9]\nARTICLE 9\nSettlement of investment disputes\n(I)\nAny dispute concerning the investments occuring between one Contracting Party and an\ninvestor of the other Contracting Party shall, if possible. be settled amicably between the two parties\nconcerned.\n(2)\nAny such dispute which has not been amicably settled within a period of six months from\nwritten notification of a claim may be sumitted to international conciliation under the Conciliation Rules\nof the United Nations Commission on International Trade Law, if the parties so agree.\n(3)\nNotwithstanding paragraph 2. the dispute may be referred to arbitration at any time as follows:\na)\nif the Contracting Party of the investor and the other Contracting Party are both parties\nto the Convention on the Settlement of Investment-Disputes between States and\nNationals of other States open to signature in Washington on March 18, 1965, and the\ninvestor consents in writing to submit the dispute to the lnternaitonal Centre for the\nSettlement of Investment Disputes, such a dispute shall be referred to the Centre; or\nb)\nif the investor so decides, the dispute shall be referred to an ad hoc arbitral tribunal in\naccordance with the Arbitration Rules of the United Nations Commission on\nInternational Trade Law, as adopted by the General Assembly on December 15, 1976. In\nrespect of such arbitral proceedings, the following shall apply;\n-\nthe arbitral Tribunal shall consist of three arbitrators. Each party shall select an\narbitrator. These two arbitrators shall appoint by mutual agreement a third",
+    "metadata": {
+      "document_type": "user_upload",
+      "article": "9",
+      "tenant_id": "mock-uid",
+      "source_name": "India France Sample.pdf",
+      "document_id": "5807ab08-46c7-4594-ad01-20fd8252831f"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "62ede192408b0247113d77355655f03cb1c87fc85c3932a2bae60473be22f943"
+  },
+  {
+    "id": "0f5d4328-d82a-4905-83ae-7d726a2381b4",
+    "document": "[India France Sample.pdf > Article 10]\n[ARTICLE 9 - continued]\nthe arbitral Tribunal shall consist of three arbitrators. Each party shall select an\narbitrator. These two arbitrators shall appoint by mutual agreement a third\narbitrator, the Chairman, who shall be a national of a third State. The arbitrators\nshall be appointed within two months from the date when one of the parties to the\ndispute informs the other of its intention to submit the dispute to arbitration;\n-\nif the necessary appointments are not made within the period specified in the above\nparagraph, either party may request the Secretary General of the Permanent Court\nof Arbitration to make the necessary appointments;\n-\nthe arbitral award shall be made in accordance with the provisions of this\nAgreement;\n-\nthe tribunal shall reach its decision by a majority of votes;\n-\nthe decision of the arbitral tribunal shall be final and binding, and the parties shall\nabide by and comply with the terms of its award;\n-\nthe arbitral tribunal shall state the basis of its decision and give reasons upon the\nrequest of either party;\n-\neach party concerned shall bear the cost of its own arbitrator and its representation\nin the arbitral proceedings. The cost of the Chairman in discharging his arbitral\nfunction and the remaining costs of the tribunal shall be borne equally by the\nparties concerned. The tribunal may, however, in its decision direct that a higher\nproportion of costs shall be borne by one of the two parties. and this award shall be\nbinding on both parties.",
+    "metadata": {
+      "document_id": "5807ab08-46c7-4594-ad01-20fd8252831f",
+      "document_type": "user_upload",
+      "tenant_id": "mock-uid",
+      "article": "10",
+      "source_name": "India France Sample.pdf"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "e7ffbf16d1d37a29ba899cf8ab3827605f6eabfa8295c4586878f8805f7284f4"
+  },
+  {
+    "id": "d25b3109-399c-4aab-a68c-445dad642187",
+    "document": "[India France Sample.pdf > Article 10]\nARTICLE 10\nSettlement of disputes between Contracting Parties\n(1)\nDisputes relating to the interpretation or application of this Agreement shall, if possible, be\nsettled amicably.\n(2)\nIf the dispute has not been settled within a period of six months from the date on which the\nmatter was raised by either Contracting Party, it may be submitted at the request of either Contracting\nParty to an Arbitral Tribunal.\n(3)\nThe said Tribunal shall be created as follows for each specific case : each Contracting Party shall\nappoint one arbitrator, and the two arbitrators thus appointed shall appoint by mutual agreement a\nnational of a third Country, who shall be designated as Chairman of the Tribunal by the two Contracting\nParties. All the arbitrators must be appointed within three months from the date of notification by one\nContracting Party to the other Contracting Party of its intention to submit the disagreement to\narbitration.\n(4)\nIf the periods specified in Paragraph 3 above have not been met, either Contracting Party, in the\nabsensce of any other agreement, shall invite the Secretary General of the Permanent Court of\nArbitration to make the necessary appointments. If the Secretary General is a national of either\nContracting Party, of if he is otherwise prevented from discharging the said function, the judge next in\nseniority to the Secretary General, who is not a national of either Contracting Party, shall make the\nnecessary appointments.\n(5)\nThe tribunal shall reach its decisions by a majority of votes. These decisions shall be final and",
+    "metadata": {
+      "document_type": "user_upload",
+      "source_name": "India France Sample.pdf",
+      "tenant_id": "mock-uid",
+      "document_id": "5807ab08-46c7-4594-ad01-20fd8252831f",
+      "article": "10"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "faa30b0965243a81d6ac47574ebf6644f2f8675a7f3a5b55e9d0a9df547d3588"
+  },
+  {
+    "id": "3fc4561f-b509-4c6c-a5db-ae2a5f78a7d5",
+    "document": "[India France Sample.pdf > Article 11]\n[ARTICLE 10 - continued]\n(5)\nThe tribunal shall reach its decisions by a majority of votes. These decisions shall be final and\nlegally binding upon the Contracting Parties.\n(6)\nThe Tribunal shall set its own rules of procedure. It shall interpret the judgement at the request\nof either Contracting Party. Unless otherwise decided by the tribunal, in accordance with special\ncircumstances, the legal costs, including the fees of the arbitrators, shall be shared equally between the\ntwo Contracting Parties.",
+    "metadata": {
+      "document_id": "5807ab08-46c7-4594-ad01-20fd8252831f",
+      "tenant_id": "mock-uid",
+      "document_type": "user_upload",
+      "article": "11",
+      "source_name": "India France Sample.pdf"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "c42ef153da61fa7b56da5b73b11ea2265888be684f5609aa794635cdb3083281"
+  },
+  {
+    "id": "6d3c3456-c428-4dcf-ae70-6ed88b6176b0",
+    "document": "[India France Sample.pdf > Article 12]\nARTICLE 11\nApplication of other rules\nIf the provisions of law of either Contracting Party or obligations under international law existing\nat present or established hereafter between the Contracting Parties in addition to the present\nAgreeement or obligations of either Contracting Party towards an investor of the other Contracting\nParty contain rules, whether general or specific, entitling investments by investors of the other\nContracting Party to a treatment more favourable than is provided by the presenet Agreement, such\nrules shall to the extent that they are more favourable prevail over the present Agreement.",
+    "metadata": {
+      "tenant_id": "mock-uid",
+      "document_type": "user_upload",
+      "document_id": "5807ab08-46c7-4594-ad01-20fd8252831f",
+      "article": "12",
+      "source_name": "India France Sample.pdf"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "c7a58ca61ce15efd4192d88ab1e8e53938a735f125151b7d03cd905c260a5c1c"
+  },
+  {
+    "id": "dbafdf74-f348-4edb-8e36-a30ecfcaad3e",
+    "document": "[India France Sample.pdf > Article 13]\nARTICLE 12\nExceptions\nThe provision of this Agreement shall not in any way limit the right of either Contracting Party in\ncases of extreme emergency to take action in accordance with its laws applied in good faith, on a\nnondiscriminatory basis, and only to the extent and duration necessary for the protection of its essential\nsecurity interests, or for the prevention of diseases and pests in animals or plants.",
+    "metadata": {
+      "source_name": "India France Sample.pdf",
+      "tenant_id": "mock-uid",
+      "article": "13",
+      "document_id": "5807ab08-46c7-4594-ad01-20fd8252831f",
+      "document_type": "user_upload"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "9f6b82e96ec8bc0c6d7f089efc2530af45f08d870b80d59b2f672b84cd8dc815"
+  },
+  {
+    "id": "c8f30a19-e994-4843-85f1-3079203760db",
+    "document": "[India France Sample.pdf > Article 13]\nARTICLE 13\nEntry into force and duration\nEach Contracting Party shall notify the other of the completion of the constitutional procedures\nrequired concerning the entry into force of this Agreement, which shall enter into force one month after\nthe date of receipt of the final notification.\nThe Agreement shall be in force for an initial period of ten years. It shall remain in force\nthereafter, unless one of the Contracting Parties gives one year\u2019s written notice of termination through\ndiplomatic channels.\nIn case of termination of this Agreement, investments made while it was in force shall continue\nto enjoy the protection of its provisions for a period of fifteen years.\nIn witness whereof the undersigned, duly authorised thereto by their respective Governments,\nhave signed this Agreement.\nDone in Paris on 02 September, 1997 in duplicate in the Hindi, English and French languages,\neach text being equally authentic.\nFor the Government of\nFor the Government of\nthe Republic of India\nthe Republic of France",
+    "metadata": {
+      "tenant_id": "mock-uid",
+      "article": "13",
+      "source_name": "India France Sample.pdf",
+      "document_type": "user_upload",
+      "document_id": "5807ab08-46c7-4594-ad01-20fd8252831f"
+    },
+    "embedding_length": 3072,
+    "embedding_hash": "813ed3ecff33420e9b540d779bb4c94fb90b07a39ca14277362d5a4b8d7cb976"
+  }
+]

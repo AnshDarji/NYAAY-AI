@@ -7,7 +7,7 @@ def calculate_hash(content: str) -> str:
     hasher.update(content.encode('utf-8'))
     return hasher.hexdigest()
 
-def extract_metadata(structured_blocks: List[Dict[str, Any]], source_url: str, document_name: str, legal_domain: str, act_name: str) -> Dict[str, Any]:
+def extract_metadata(structured_blocks: List[Dict[str, Any]], source_url: str, document_name: str, legal_domain: str, act_name: str, document_type: str = "statute") -> Dict[str, Any]:
     """
     Adds comprehensive metadata and versioning to the document and its structural chunks.
     Implements Phase 5 (Metadata) and Phase 6 (Versioning).
@@ -24,6 +24,7 @@ def extract_metadata(structured_blocks: List[Dict[str, Any]], source_url: str, d
         "source_type": "official",
         "legal_domain": legal_domain,
         "act_name": act_name,
+        "document_type": document_type,
         "retrieval_date": int(time.time()),
         "processing_timestamp": int(time.time()),
         "version": "1.0",

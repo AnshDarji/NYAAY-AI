@@ -17,7 +17,7 @@ from app.ingestion.markdown_generator import generate_markdown
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger(__name__)
 
-def run_pipeline(source: str, name: str, domain: str, act_name: str):
+def run_pipeline(source: str, name: str, domain: str, act_name: str, doc_type: str = "statute"):
     logger.info(f"--- Starting Generic Ingestion Pipeline for {name} ---")
     
     # Phase 1: Acquisition
@@ -40,7 +40,7 @@ def run_pipeline(source: str, name: str, domain: str, act_name: str):
     
     # Phase 5 & 6: Metadata Extraction & Versioning
     logger.info("Phase 5 & 6: Metadata and Versioning...")
-    document_data = extract_metadata(blocks, source, name, domain, act_name)
+    document_data = extract_metadata(blocks, source, name, domain, act_name, doc_type)
     
     # Phase 7: Validation
     logger.info("Phase 7: Validation...")
@@ -69,6 +69,7 @@ if __name__ == "__main__":
     parser.add_argument("--name", required=True, help="File name (e.g. BNS_2023.pdf)")
     parser.add_argument("--domain", required=True, help="Legal Domain (e.g. 'Criminal Law')")
     parser.add_argument("--act", required=True, help="Act Name (e.g. 'Bharatiya Nyaya Sanhita')")
+    parser.add_argument("--type", default="statute", help="Document type (e.g. 'statute', 'judgment')")
     args = parser.parse_args()
     
-    run_pipeline(args.source, args.name, args.domain, args.act)
+    run_pipeline(args.source, args.name, args.domain, args.act, args.type)

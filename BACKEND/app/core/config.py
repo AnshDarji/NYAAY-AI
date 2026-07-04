@@ -14,6 +14,7 @@ class Settings(BaseSettings):
     # App Settings
     ENVIRONMENT: str = "development"
     GEMINI_API_KEY: str = ""
+    MIN_RETRIEVAL_THRESHOLD: float = 0.015
 
     # CORS Allowed Origins
     # Comma-separated or list of origins. Development defaults provided.

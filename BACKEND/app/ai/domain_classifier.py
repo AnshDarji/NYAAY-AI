@@ -71,41 +71,65 @@ class DomainClassifier:
             
         return "UNKNOWN"
 
-    def predict_domain(self, query: str) -> str:
+    def predict_domain(self, query: str) -> Dict[str, Any]:
         """
-        Predicts the legal domain of the query.
-        Returns the domain string or "UNSUPPORTED" for out-of-scope queries.
+        Predicts the legal domains and document type priorities of the query.
+        Returns a dictionary:
+        {
+            "domains": {"Criminal Law": 0.9, "Cyber Law": 0.5},
+            "document_type_priority": "statute" | "judgment" | "any",
+            "is_supported": bool
+        }
         """
-        # Fast path: Rule-based
-        rule_domain = self._rule_based_classification(query)
-        if rule_domain != "UNKNOWN":
-            logger.info(f"Domain predicted via rules: {rule_domain}")
-            return rule_domain
-            
-        # Fallback: LLM Classification
+        default_response = {
+            "domains": {},
+            "document_type_priority": "any",
+            "is_supported": True
+        }
+        
+        query_lower = query.lower()
+        
+        # 1. Check for non-legal or unsupported jurisdictions
+        for pattern in self.unsupported_jurisdictions + self.non_legal_queries:
+            if re.search(pattern, query_lower):
+                default_response["is_supported"] = False
+                return default_response
+                
         if not self.client:
-            return "General Law"
+            return default_response
             
         sys_prompt = """You are a Legal Domain Classifier for NYAAY AI, an Indian legal platform.
-Determine the primary legal domain of the user's query.
-If the query is asking about non-Indian law (e.g., US Constitution, UK Law) or is completely non-legal (e.g., recipes, jokes, general knowledge), output "UNSUPPORTED".
-Otherwise, output ONLY the name of the legal domain (e.g., "Real Estate", "Consumer Law", "Criminal Law", "Constitutional Law", "Family Law", "Corporate Law", "Tax Law", "Contract Law").
-Respond with strictly the domain string, nothing else.
+Determine the primary and secondary legal domains of the user's query, and the preferred document type.
+If the query is asking about non-Indian law (e.g., US Constitution, UK Law) or is completely non-legal, set "is_supported" to false.
+
+Available Domains: Constitutional Law, Education, Civil & Procedural Law, Criminal Law, Banking & Finance, General Law, Environmental Law, Consumer Law, Tax Law, Family Law, Labour & Employment, Contract Law, Intellectual Property, Tenant & Rent, Property Law, Healthcare, Agriculture, Cyber Data & Technology, Test Law.
+
+Output MUST be a valid JSON object matching this schema:
+{
+    "domains": {"Domain Name": confidence_score_between_0_and_1},
+    "document_type_priority": "statute" | "judgment" | "any",
+    "is_supported": true | false
+}
+
+Rules:
+- For 'document_type_priority': if the user asks about rules/sections, use "statute". If they ask about precedents/Supreme Court/interpretation, use "judgment". Otherwise "any".
+- Include up to 3 relevant domains in the 'domains' dict with their respective confidence scores (0.1 to 1.0).
 """
         try:
             res = self.client.models.generate_content(
                 model='gemini-2.5-flash',
-                contents=f"Query: {query}\nDomain:",
+                contents=f"Query: {query}",
                 config=types.GenerateContentConfig(
                     system_instruction=sys_prompt,
-                    temperature=0.0
+                    temperature=0.0,
+                    response_mime_type="application/json"
                 )
             )
-            domain = res.text.strip().strip('"').strip()
-            logger.info(f"Domain predicted via LLM: {domain}")
-            return domain
+            prediction = json.loads(res.text)
+            logger.info(f"Domain prediction: {prediction}")
+            return prediction
         except Exception as e:
             logger.warning(f"LLM Domain Classification failed: {e}")
-            return "General Law"
+            return default_response
 
 domain_classifier = DomainClassifier()

@@ -12,9 +12,19 @@ def generate_markdown(document_data: Dict[str, Any], validation_report: Dict[str
     os.makedirs(CANDIDATES_DIR, exist_ok=True)
     doc_meta = document_data["document_metadata"]
     
-    # Generate Markdown
+    # Generate Markdown with YAML frontmatter
     md_lines = []
-    md_lines.append(f"# {doc_meta['act_name']}\n")
+    
+    # Frontmatter
+    md_lines.append("---")
+    md_lines.append(f"document_id: {doc_meta.get('document_id', '')}")
+    md_lines.append(f"source_name: {doc_meta.get('source_name', '')}")
+    md_lines.append(f"legal_domain: {doc_meta.get('legal_domain', '')}")
+    md_lines.append(f"act_name: {doc_meta.get('act_name', '')}")
+    md_lines.append(f"document_type: {doc_meta.get('document_type', 'statute')}")
+    md_lines.append("---\n")
+    
+    md_lines.append(f"# {doc_meta.get('act_name', '')}\n")
     
     current_part = ""
     current_chapter = ""

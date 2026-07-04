@@ -1,3 +1,9 @@
+---
+source_name: Consumer_Protection_Act
+legal_domain: General Law
+document_type: statute
+act_name: Consumer Protection Act
+---
 # Consumer Protection Act, 2019
 
 ## CHAPTER I

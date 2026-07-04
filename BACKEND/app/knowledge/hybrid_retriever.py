@@ -15,18 +15,30 @@ from app.knowledge.bm25_manager import bm25_manager
 
 logger = logging.getLogger(__name__)
 
+from app.core.config import settings
+
 class HybridRetriever:
     def __init__(self):
         # We could cache BM25 indices here, keyed by tenant_id or document_id
         self._bm25_cache = {}
         self._corpus_cache = {}
 
-    def search(self, query: str, query_embedding: List[float], n_results: int = 10, where: Optional[Dict[str, Any]] = None) -> List[Dict[str, Any]]:
-        # 1. Dense Retrieval (ChromaDB)
-        dense_results = vector_store.search(query_embedding, n_results=n_results * 2, where=where)
+    def search(self, query: str, query_embedding: List[float], n_results: int = 10, where: Optional[Dict[str, Any]] = None, predicted_domains: Dict[str, float] = None, document_type_priority: str = "any") -> List[Dict[str, Any]]:
+        # 1. Dense Retrieval (ChromaDB) - Broaden to Top 30
+        initial_k = max(30, n_results * 3)
+        dense_results = vector_store.search(query_embedding, n_results=initial_k, where=where)
         
         # 2. Fetch corpus and BM25 index from Manager
-        tenant_id = where.get("tenant_id", "global") if where else "global"
+        tenant_id = "global"
+        if where:
+            if "tenant_id" in where:
+                tenant_id = where["tenant_id"]
+            elif "$and" in where:
+                for cond in where["$and"]:
+                    if "tenant_id" in cond:
+                        tenant_id = cond["tenant_id"]
+                        break
+
         bm25, corpus_ids, corpus_docs, corpus_metadatas = bm25_manager.get_index(tenant_id)
         
         if not bm25 or not corpus_docs:
@@ -37,38 +49,73 @@ class HybridRetriever:
         # Get BM25 scores
         bm25_scores = bm25.get_scores(tokenized_query)
         
-        # 3. Reciprocal Rank Fusion (RRF)
-        # We merge dense and sparse rankings
+        # 3. Reciprocal Rank Fusion (RRF) with Metadata Bonus
         rrf_scores = {}
+        predicted_domains = predicted_domains or {}
+        
+        # Helper to calculate metadata bonus
+        def calculate_metadata_bonus(metadata: Dict[str, Any]) -> float:
+            bonus = 0.0
+            
+            # Domain Match Bonus (Proportional to LLM confidence)
+            chunk_domain = metadata.get("legal_domain", "")
+            if chunk_domain in predicted_domains:
+                bonus += 0.025 * predicted_domains[chunk_domain]
+                
+            # Document Type Bonus
+            chunk_type = metadata.get("document_type", "")
+            if document_type_priority != "any" and chunk_type == document_type_priority:
+                bonus += 0.015
+                
+            # Act Name Keyword Match
+            act_name = metadata.get("act_name", "").lower()
+            if act_name:
+                act_words = set(act_name.split())
+                query_words = set(query.lower().split())
+                # If significant overlap, boost (e.g. "penal code")
+                if len(act_words.intersection(query_words)) >= 2:
+                    bonus += 0.02
+                    
+            return bonus
         
         # Rank Dense
         for rank, res in enumerate(dense_results):
             chunk_id = res["id"]
-            rrf_scores[chunk_id] = rrf_scores.get(chunk_id, 0) + (1.0 / (60 + rank))
+            base_rrf = (1.0 / (60 + rank))
+            bonus = calculate_metadata_bonus(res["metadata"])
+            rrf_scores[chunk_id] = rrf_scores.get(chunk_id, 0) + base_rrf + bonus
             
         # Rank Sparse
-        # Sort indices by score descending
         sparse_ranking = sorted(range(len(bm25_scores)), key=lambda i: bm25_scores[i], reverse=True)
-        # Take top 50 to avoid ranking everything
         for rank, idx in enumerate(sparse_ranking[:50]):
             chunk_id = corpus_ids[idx]
-            rrf_scores[chunk_id] = rrf_scores.get(chunk_id, 0) + (1.0 / (60 + rank))
+            base_rrf = (1.0 / (60 + rank))
             
-        # 4. Sort and select top n_results
+            # Avoid double-counting the bonus if it was already seen in dense
+            if chunk_id not in rrf_scores:
+                bonus = calculate_metadata_bonus(corpus_metadatas[idx])
+                rrf_scores[chunk_id] = base_rrf + bonus
+            else:
+                rrf_scores[chunk_id] += base_rrf
+            
+        # 4. Sort and apply Confidence Threshold
         sorted_rrf = sorted(rrf_scores.items(), key=lambda item: item[1], reverse=True)
-        top_ids = [item[0] for item in sorted_rrf[:n_results]]
+        
+        threshold = getattr(settings, "MIN_RETRIEVAL_THRESHOLD", 0.015)
+        filtered_ids = [item[0] for item in sorted_rrf if item[1] >= threshold]
+        
+        # Take up to n_results
+        top_ids = filtered_ids[:n_results]
         
         # Reconstruct the final list of dicts
         final_results = []
         for rank, cid in enumerate(top_ids):
-            # Find in dense results
             found_dense = None
             for res in dense_results:
                 if res["id"] == cid:
                     found_dense = res
                     break
             
-            # Check if it was in the top 50 sparse ranking
             is_sparse = False
             for idx in sparse_ranking[:50]:
                 if corpus_ids[idx] == cid:
@@ -93,7 +140,7 @@ class HybridRetriever:
                         "retrieval_rank": rank + 1,
                         "rrf_score": rrf_scores[cid]
                     },
-                    "distance": 0.0 # BM25 doesn't use the same distance metric
+                    "distance": 0.0 
                 })
                 
         return final_results

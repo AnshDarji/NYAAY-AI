@@ -20,6 +20,20 @@ logger = logging.getLogger(__name__)
 CORPUS_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "corpus")
 REPORT_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "corpus_statistics_report.json")
 
+def parse_frontmatter(text: str):
+    frontmatter = {}
+    body = text
+    if text.startswith("---\n"):
+        parts = text.split("---\n", 2)
+        if len(parts) >= 3:
+            fm_text = parts[1]
+            body = parts[2]
+            for line in fm_text.strip().split('\n'):
+                if ':' in line:
+                    k, v = line.split(':', 1)
+                    frontmatter[k.strip()] = v.strip()
+    return frontmatter, body
+
 def calculate_file_hash(filepath: str) -> str:
     hasher = hashlib.sha256()
     with open(filepath, 'rb') as f:
@@ -73,13 +87,21 @@ def build_pipeline():
 
         logger.info(f"Ingesting new document: {filename} (Hash: {file_hash[:8]})")
         
-        # 3. Parsing & Metadata Extraction
-        source_name = os.path.splitext(filename)[0].upper()
+        with open(filepath, 'r', encoding='utf-8') as f:
+            text = f.read()
+            
+        frontmatter, clean_text = parse_frontmatter(text)
         
-        domain = "Constitutional Law" if "CONSTITUTION" in source_name else \
-                 "Criminal Law" if "BNS" in source_name or "JUDGMENT" in source_name else "General Law"
-                 
-        doc_type = "judgment" if "JUDGMENT" in source_name else "statute"
+        # 3. Parsing & Metadata Extraction
+        source_name = frontmatter.get("source_name", os.path.splitext(filename)[0].upper())
+        domain = frontmatter.get("legal_domain")
+        doc_type = frontmatter.get("document_type", "statute")
+        act_name = frontmatter.get("act_name", source_name)
+        
+        if not domain:
+            logger.error(f"Validation Failed: Missing 'legal_domain' in frontmatter for {filename}")
+            stats["errors"].append({"file": filename, "error": "Missing legal_domain in frontmatter"})
+            continue
 
         base_metadata = {
             "source_name": source_name,
@@ -87,12 +109,10 @@ def build_pipeline():
             "file_hash": file_hash,
             "legal_domain": domain,
             "type": doc_type,
+            "act_name": act_name,
             "tenant_id": "global",
             "ingestion_timestamp": int(time.time())
         }
-
-        with open(filepath, 'r', encoding='utf-8') as f:
-            text = f.read()
 
         # 4. Validation
         if len(text.strip()) < 50:
@@ -102,7 +122,7 @@ def build_pipeline():
 
         try:
             # 5. Structural Chunking
-            chunks = semantic_chunker.chunk_text(text, base_metadata)
+            chunks = semantic_chunker.chunk_text(clean_text, base_metadata)
             if not chunks:
                 logger.warning(f"No chunks generated for {filename}")
                 stats["errors"].append({"file": filename, "error": "No chunks generated"})

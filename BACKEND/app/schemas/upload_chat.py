@@ -17,4 +17,7 @@ class ChatQueryResponse(BaseModel):
     conversation_id: str
     answer: str
     summary: str
-    confidence: str = Field(..., description="High, Medium, or Low")
+    citations: list[dict] = Field(default_factory=list)
+    confidence: dict = Field(..., description="Confidence dictionary")
+    advanced_metadata: dict = Field(default_factory=dict)
+    metrics: dict = Field(default_factory=dict)

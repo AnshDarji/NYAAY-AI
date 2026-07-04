@@ -1,3 +1,9 @@
+---
+source_name: Information_Technology_Act
+legal_domain: General Law
+document_type: statute
+act_name: Information Technology Act
+---
 # Information Technology Act, 2000
 
 ## CHAPTER XI
