@@ -32,6 +32,22 @@ NYAAY AI is a full-stack, AI-powered legal assistant designed for the Indian leg
 * **Authentication and History:** Uses Firebase authentication with persistent chat/document records stored through the backend.
 * **Counter Arguments:** Generates counter-argument analysis for legal positions.
 
+## Data Corpus & RAG Architecture
+
+NYAAY AI is built on a highly curated, deterministic legal knowledge base designed specifically to eliminate AI hallucination—the most critical failure point in legal tech.
+
+### 1. The Corpus
+* **Phase 1 (Statutory Law):** We have successfully ingested **93 Indian Bare Acts** (including the new Bharatiya Nyaya Sanhita, CPC, CrPC, and various domain-specific laws) into our vector database.
+* **Phase 2 (Case Law / Precedent):** We have successfully acquired and prepared **4,369 Supreme Court Judgments**. These are currently being integrated to provide the model with real-world *Ratio Decidendi* (legal reasoning) to support the statutory text.
+
+### 2. Solving Hallucination at the Root
+Most legal AI tools suffer from "context leakage"—for example, retrieving the Indian Penal Code (Theft) when a user asks if a housing society can ban a pet dog. Many systems try to fix this by adding a secondary "LLM Reranker" to clean up the bad retrieval, which doubles API costs and latency.
+
+**NYAAY AI solves this at the root retrieval layer:**
+Instead of relying solely on blind vector similarity, our ingestion pipeline extracts rich metadata (Legal Domain, Document Type, and Cited Sections). When a query is made, our `domain_classifier` determines the nature of the case (e.g., Family Law vs. Criminal Law). 
+
+Our custom `hybrid_retriever` (combining BM25 keyword search with dense embeddings) then applies a **Deterministic Metadata Bonus**. It mathematically forces the database to surface statutes matching the exact domain, instantly eliminating thousands of irrelevant civil cases from a criminal query. This results in hyper-accurate, verifiable legal responses directly from the Bare Acts, without the need for expensive LLM reranking.
+
 ---
 
 ## Architecture
