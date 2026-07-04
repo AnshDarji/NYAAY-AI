@@ -7,8 +7,6 @@
 ![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=black)
 ![Gemini](https://img.shields.io/badge/Gemini_API-Google-4285F4?style=flat-square&logo=google&logoColor=white)
 ![Firebase](https://img.shields.io/badge/Firebase-Auth-FFCA28?style=flat-square&logo=firebase&logoColor=black)
-![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?style=flat-square&logo=docker&logoColor=white)
-![Status](https://img.shields.io/badge/Status-v1.0_Portfolio_Ready-brightgreen?style=flat-square)
 
 **An AI-powered legal workspace designed for the Indian legal ecosystem.**
 Legal Reasoning · Document Drafting · Document Analysis · Know Your Kanoon
@@ -18,8 +16,6 @@ Legal Reasoning · Document Drafting · Document Analysis · Know Your Kanoon
 ---
 
 NYAAY AI is a full-stack, AI-powered legal assistant designed for the Indian legal context. It uses the Gemini API and a custom Retrieval-Augmented Generation (RAG) pipeline to support legal reasoning, legal document drafting, and analysis of uploaded PDFs/DOCX files against Indian legal corpora.
-
-**Status:** Portfolio Ready (v1.0)
 
 ---
 
@@ -39,7 +35,7 @@ NYAAY AI is built on a highly curated, deterministic legal knowledge base design
 
 ### 1. The Corpus
 * **Phase 1 (Statutory Law):** We have successfully ingested **93 Indian Bare Acts** (including the new Bharatiya Nyaya Sanhita, CPC, CrPC, and various domain-specific laws) into our vector database.
-* **Phase 2 (Case Law / Precedent):** We have successfully acquired and prepared **4,369 Supreme Court Judgments**. These are currently being integrated to provide the model with real-world *Ratio Decidendi* (legal reasoning) to support the statutory text.
+* **Phase 2 (Case Law / Precedent):** We have successfully acquired and prepared **4,369 Supreme Court Judgments**. We have integrated a few to verify quality and are preparing to process the remainder, but the raw database is complete and ready.
 
 ### 2. Solving Hallucination at the Root
 Most legal AI tools suffer from "context leakage"—for example, retrieving the Indian Penal Code (Theft) when a user asks if a housing society can ban a pet dog. Many systems try to fix this by adding a secondary "LLM Reranker" to clean up the bad retrieval, which doubles API costs and latency.
@@ -147,12 +143,6 @@ flowchart TD
 * **API Client:** Axios
 * **Routing:** React Router v6
 
-### Deployment and DevOps
-
-* Docker and Docker Compose
-* Nginx for frontend serving and reverse proxy
-* GitHub Actions workflow (`.github/workflows/deploy.yml`)
-
 ---
 
 ## Project Structure
@@ -179,7 +169,6 @@ NYAAY-AI/
 │   ├── devtools/                   ← Dev utilities and smoke tests
 │   ├── data/                       ← Corpus manifests and data management
 │   ├── eval/                       ← Evaluation framework
-│   ├── Dockerfile
 │   ├── requirements.txt
 │   ├── run.py
 │   └── .env.example
@@ -193,15 +182,11 @@ NYAAY-AI/
 │   │   ├── hooks/                  ← Custom React hooks
 │   │   ├── layouts/                ← Layout wrappers
 │   │   └── routes/                 ← Route definitions
-│   ├── Dockerfile
 │   ├── package.json
 │   └── .env.example
 │
 ├── DOCS/                           ← Architecture, API spec, PRDs, decisions
 ├── screenshots/                    ← UI screenshots (see screenshots/README.md)
-├── nginx/                          ← Nginx config for containerized deployment
-├── .github/workflows/              ← GitHub Actions deployment workflow
-├── docker-compose.yml
 ├── README.md
 ├── CONTRIBUTING.md
 ├── SECURITY.md
@@ -219,21 +204,7 @@ NYAAY-AI/
 * A [Google AI Studio](https://aistudio.google.com/) API key (for Gemini)
 * A Firebase project with Authentication enabled
 
-### Option 1: Docker (recommended)
-
-1. Clone the repository and open the project root.
-2. Create a `.env` file from `.env.example` (root level).
-3. Add your `GEMINI_API_KEY` and Firebase configuration.
-4. Place `serviceAccountKey.json` in `BACKEND/secrets/`.
-5. Start the stack:
-
-```bash
-docker-compose up --build
-```
-
-6. Open the frontend at `http://localhost` and the backend API docs at `http://localhost:8000/docs`.
-
-### Option 2: Manual Setup
+### Setup Instructions
 
 **Backend:**
 
@@ -313,7 +284,6 @@ See [`DOCS/ROADMAP.md`](DOCS/ROADMAP.md) for the detailed roadmap.
 | [`DOCS/RAG_ARCHITECTURE.md`](DOCS/RAG_ARCHITECTURE.md) | RAG pipeline design |
 | [`DOCS/DECISIONS.md`](DOCS/DECISIONS.md) | Architecture Decision Records (ADRs) |
 | [`DOCS/DEVELOPER_GUIDE.md`](DOCS/DEVELOPER_GUIDE.md) | Developer setup and workflow |
-| [`DOCS/DEPLOYMENT.md`](DOCS/DEPLOYMENT.md) | Deployment guide |
 
 ---
 
