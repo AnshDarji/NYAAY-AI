@@ -17,6 +17,8 @@ Legal Reasoning · Document Drafting · Document Analysis · Know Your Kanoon
 
 NYAAY AI is a full-stack, AI-powered legal assistant designed for the Indian legal context. It uses the Gemini API and a custom Retrieval-Augmented Generation (RAG) pipeline to support legal reasoning, legal document drafting, and analysis of uploaded PDFs/DOCX files against Indian legal corpora.
 
+🎥 **[Watch the DEMO VIDEO](https://github.com/AnshDarji/NYAAY-AI/issues/1#issue-4810741348)**
+
 ---
 
 ## Key Features
